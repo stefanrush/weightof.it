@@ -22,4 +22,6 @@ RSpec.describe Category, type: :model do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:slug) }
   end
+
+  it_behaves_like 'Sluggable'
 end

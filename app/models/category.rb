@@ -13,5 +13,6 @@ class Category < ActiveRecord::Base
   has_many :libraries
 
   validates :name, presence: true
-  validates :slug, presence: true
+
+  include Sluggable
 end

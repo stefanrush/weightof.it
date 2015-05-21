@@ -17,8 +17,9 @@ class Library < ActiveRecord::Base
   has_many   :versions
 
   validates :name,         presence: true
-  validates :slug,         presence: true
   validates :homepage_url, presence: true
   validates :source_url,   presence: true
   validates :category,     presence: true
+
+  include Sluggable
 end

@@ -31,4 +31,6 @@ RSpec.describe Library, type: :model do
     it { is_expected.to validate_presence_of(:source_url) }
     it { is_expected.to validate_presence_of(:category) }
   end
+
+  it_behaves_like 'Sluggable'
 end
