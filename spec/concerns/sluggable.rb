@@ -5,7 +5,7 @@ shared_examples_for 'Sluggable' do
     [
       "TEsT   u*&^Rl-number    12345!!",
       "ANOTHER---T*&E(*&S^7           ",
-      "    Y      E T__another-^T^E+ST"
+      "_ - Y      E T__another-^T^E+ST"
     ]
   end
 
@@ -21,7 +21,7 @@ shared_examples_for 'Sluggable' do
     build(described_class.to_s.underscore.to_sym)
   end
 
-  it "slugifies name when no slug is present" do
+  it "slugifies name when slug is blank" do
     test_names = tests
     expected_slugs = expectations
 
