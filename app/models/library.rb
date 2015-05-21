@@ -17,8 +17,8 @@ class Library < ActiveRecord::Base
   has_many   :versions
 
   validates :name,         presence: true
-  validates :homepage_url, presence: true
-  validates :source_url,   presence: true
+  validates :homepage_url, presence: true, format: { with: URI.regexp }
+  validates :source_url,   presence: true, format: { with: URI.regexp }
   validates :category,     presence: true
 
   include Sluggable
