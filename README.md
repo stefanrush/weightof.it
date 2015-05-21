@@ -1,4 +1,4 @@
-weight-of-it
-============
+weightof.it
+===========
 
-#### Compare the weight (file size) of different JavaScript libraries
+Compare the weight (file size) of different JavaScript libraries
