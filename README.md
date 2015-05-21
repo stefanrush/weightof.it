@@ -6,6 +6,20 @@ Compare the weight (file size) of different JavaScript libraries
 Setup
 -----
 
+Clone project with:
+
+    git clone git@github.com:stefanrush/weightof.it
+
+Enter project folder with:
+
+    cd weightof.it
+
+Create `application.yml` configuration file with:
+
+    cp config/application.example.yml config/application.yml
+
+Add personal configuration settings to `application.yml`.
+
 Install dependencies with:
 
     bundle install
