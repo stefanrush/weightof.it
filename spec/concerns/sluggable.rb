@@ -22,10 +22,7 @@ shared_examples_for 'Sluggable' do
   end
 
   it "slugifies name when slug is blank" do
-    test_names = tests
-    expected_slugs = expectations
-
-    test_names.zip(expected_slugs).each do |test_name, expected_slug|
+    tests.zip(expectations).each do |test_name, expected_slug|
       model = new_model
       model.name = test_name
       model.slug = nil
@@ -36,10 +33,7 @@ shared_examples_for 'Sluggable' do
   end
 
   it "slugifies slug when slug is present" do
-    test_slugs = tests
-    expected_slugs = expectations
-
-    test_slugs.zip(expected_slugs).each do |test_slug, expected_slug|
+    tests.zip(expectations).each do |test_slug, expected_slug|
       model = new_model
       model.slug = test_slug
       model.save!
