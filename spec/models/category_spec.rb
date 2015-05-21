@@ -18,6 +18,10 @@ RSpec.describe Category, type: :model do
     it { is_expected.to respond_to(:libraries) }
   end
 
+  describe 'relationship' do
+    it { is_expected.to have_many(:libraries) }
+  end
+
   describe 'validation' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:slug) }

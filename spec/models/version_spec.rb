@@ -18,10 +18,17 @@ RSpec.describe Version, type: :model do
     it { is_expected.to respond_to(:number) }
     it { is_expected.to respond_to(:raw_url) }
   end
+
+  describe 'relationship' do
+    it { is_expected.to belong_to(:library) }
+  end
   
   describe 'validation' do
     it { is_expected.to validate_presence_of(:library) }
     it { is_expected.to validate_presence_of(:number) }
     it { is_expected.to validate_presence_of(:raw_url) }
+
+    it { is_expected.to_not allow_value('invalid-url!').for(:raw_url) }
+    it { is_expected.to allow_value('http://valid-url.com').for(:raw_url) }
   end
 end

@@ -24,12 +24,22 @@ RSpec.describe Library, type: :model do
     it { is_expected.to respond_to(:category) }
   end
 
+  describe 'relationship' do
+    it { is_expected.to belong_to(:category) }
+    it { is_expected.to have_many(:versions) }
+  end
+
   describe 'validation' do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:slug) }
     it { is_expected.to validate_presence_of(:homepage_url) }
     it { is_expected.to validate_presence_of(:source_url) }
     it { is_expected.to validate_presence_of(:category) }
+
+    it { is_expected.to_not allow_value('invalid-url!').for(:homepage_url) }
+    it { is_expected.to_not allow_value('invalid-url!').for(:source_url) }
+    it { is_expected.to allow_value('http://valid-url.com').for(:homepage_url) }
+    it { is_expected.to allow_value('http://valid-url.com').for(:source_url) }
   end
 
   it_behaves_like 'Sluggable'
