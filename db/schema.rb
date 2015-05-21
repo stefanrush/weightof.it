@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150521051923) do
     t.integer  "library_id", null: false
     t.string   "number",     null: false
     t.string   "raw_url",    null: false
+    t.integer  "weight"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

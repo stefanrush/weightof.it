@@ -16,4 +16,5 @@ class Version < ActiveRecord::Base
   validates :library, presence: true
   validates :number,  presence: true
   validates :raw_url, presence: true, format: { with: URI.regexp }
+  validates :weight,  numericality: { greater_than: 0 }
 end

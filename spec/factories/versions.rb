@@ -15,5 +15,6 @@ FactoryGirl.define do
     library
     sequence(:number)  { |n| "#{n}.0" }
     sequence(:raw_url) { |n| "https://raw.com/l#{n}.js" }
+    sequence(:weight)  { |n| (n + 1) * 1000 }
   end
 end

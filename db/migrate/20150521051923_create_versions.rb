@@ -4,6 +4,7 @@ class CreateVersions < ActiveRecord::Migration
       t.references :library, null: false, index: true
       t.string     :number,  null: false
       t.string     :raw_url, null: false
+      t.integer    :weight
       t.timestamps           null: false
     end
   end
