@@ -17,5 +17,11 @@ FactoryGirl.define do
     sequence(:number)  { |n| "#{n}.0" }
     sequence(:raw_url) { |n| "https://raw.com/l#{n}.js" }
     sequence(:weight)  { |n| (n + 1) * 1000 }
+
+    trait :real do
+      number '1.11.3'
+      raw_url 'https://code.jquery.com/jquery-1.11.3.js'
+      weight nil
+    end
   end
 end

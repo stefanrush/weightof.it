@@ -28,6 +28,10 @@ Setup database with:
 
     bundle exec rake db:create db:migrate
 
+Seed database with:
+
+    bundle exec rake db:seed
+
 Reset database with:
 
     bundle exec rake db:migrate:reset
