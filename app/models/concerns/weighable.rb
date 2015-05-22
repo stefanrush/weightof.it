@@ -28,9 +28,9 @@ module Weighable
       case weight
       when 0..999
         "#{weight} B"
-      when 1000..1000000
+      when 1000..(1e6 - 1)
         "#{weight_kb.round(1)} KB"
-      when 1000000..1000000000
+      when 1e6..(1e9 - 1)
         "#{weight_mb.round(1)} MB"
       else
         "#{weight_gb.round(1)} GB"
