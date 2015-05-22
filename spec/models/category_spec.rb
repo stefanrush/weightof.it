@@ -12,17 +12,17 @@
 require 'spec_helper'
 
 RSpec.describe Category, type: :model do
-  describe 'respond to' do
+  describe "respond to" do
     it { is_expected.to respond_to(:name) }
     it { is_expected.to respond_to(:slug) }
     it { is_expected.to respond_to(:libraries) }
   end
 
-  describe 'relationship' do
+  describe "relationship" do
     it { is_expected.to have_many(:libraries) }
   end
 
-  describe 'validation' do
+  describe "validation" do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:slug) }
   end
