@@ -6,6 +6,7 @@
 #  library_id :integer          not null
 #  number     :string           not null
 #  raw_url    :string           not null
+#  weight     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

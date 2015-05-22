@@ -1,6 +1,6 @@
 require 'csv'
 
-fixtures = ['category']
+fixtures = ['category', 'library', 'version']
 location = "#{Rails.root}/spec/fixtures"
 
 fixtures.each do |fixture|

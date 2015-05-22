@@ -1,3 +1,4 @@
-id,name
-1,DOM Manipulation
-2,MVC Frameworks
+id,name,position
+1,DOM Manipulation,0
+2,MVC Frameworks,0
+3,Other,1

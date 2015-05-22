@@ -5,8 +5,9 @@
 #  id           :integer          not null, primary key
 #  name         :string           not null
 #  slug         :string           not null
-#  homepage_url :string           not null
 #  source_url   :string           not null
+#  homepage_url :string
+#  stars        :integer          default(0), not null
 #  category_id  :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
