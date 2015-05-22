@@ -18,7 +18,6 @@ require 'spec_helper'
 RSpec.describe Library, type: :model do
   describe "respond to" do
     it { is_expected.to respond_to(:name) }
-    it { is_expected.to respond_to(:slug) }
     it { is_expected.to respond_to(:homepage_url) }
     it { is_expected.to respond_to(:source_url) }
     it { is_expected.to respond_to(:stars) }
@@ -26,14 +25,13 @@ RSpec.describe Library, type: :model do
     it { is_expected.to respond_to(:category) }
   end
 
-  describe "relationship" do
+  describe "associations" do
     it { is_expected.to belong_to(:category) }
     it { is_expected.to have_many(:versions) }
   end
 
-  describe "validation" do
+  describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
-    it { is_expected.to validate_presence_of(:slug) }
     it { is_expected.to validate_presence_of(:source_url) }
     it { is_expected.to validate_presence_of(:stars) }
     it { is_expected.to validate_presence_of(:category) }
