@@ -16,7 +16,10 @@ class Version < ActiveRecord::Base
 
   validates :library, presence: true
   validates :number,  presence: true
-  validates :raw_url, presence: true, format: { with: URI.regexp }
+  validates :raw_url, presence: true
+  
+  validates :raw_url, format: { with: URI.regexp, message: "must be valid URL" }
+  validates :raw_url, format: { with: /.+\.jsx?\z/, message: "must be JS file" }
 
   include Weighable
 end

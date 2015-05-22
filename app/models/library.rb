@@ -17,11 +17,19 @@ class Library < ActiveRecord::Base
   belongs_to :category
   has_many   :versions
 
-  validates :name,         presence: true
-  validates :source_url,   presence: true, format: { with: URI.regexp }
-  validates :stars,        presence: true
-  validates :category,     presence: true
-  validates :homepage_url, format: { with: URI.regexp }, allow_blank: true
+  validates :name,       presence: true
+  validates :source_url, presence: true
+  validates :stars,      presence: true
+  validates :category,   presence: true
+  
+  validates :source_url, format: {
+    with: URI.regexp,
+    message: "must be valid URL"
+  }
+  validates :homepage_url, format: {
+    with: URI.regexp,
+    message: "must be valid URL"
+  }, allow_blank: true
 
   include Sluggable
 end

@@ -30,7 +30,7 @@ RSpec.describe Version, type: :model do
     it { is_expected.to validate_presence_of(:raw_url) }
 
     it { is_expected.to_not allow_value('invalid-url!').for(:raw_url) }
-    it { is_expected.to allow_value('http://valid-url.com').for(:raw_url) }
+    it { is_expected.to allow_value('http://raw.com/raw.js').for(:raw_url) }
   end
 
   it_behaves_like 'Weighable'
