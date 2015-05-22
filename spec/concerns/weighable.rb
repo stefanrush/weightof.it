@@ -10,16 +10,26 @@ shared_examples_for 'Weighable' do
   end
 
   def new_model
-    build(described_class.to_s.underscore.to_sym, :real)
+    build_stubbed(described_class.to_s.underscore.to_sym, :real)
   end
 
   let(:model) { new_model }
   let(:test_weight) { 97134 }
 
   describe "#weigh" do
-    it "sets weight to the filesize of the compressed file in bytes" do
-      model.weigh
-      expect(model.weight).to eq test_weight
+    context "when :weight is blank" do
+      it "sets weight to the filesize of the compressed file in bytes" do
+        model.weigh
+        expect(model.weight).to eq test_weight
+      end
+    end
+
+    context "when :weight is present" do
+      it "does nothing" do
+        model.weight = test_weight / 1000
+        model.weigh
+        expect(model.weight).to_not eq test_weight
+      end
     end
   end
 
