@@ -29,7 +29,7 @@ shared_examples_for 'Sluggable' do
     ]
   end
 
-  describe "#create_slug" do
+  describe "#slugify" do
     it "slugifies name when slug is blank" do
       tests.zip(expectations).each do |test_name, expected_slug|
         model = new_model

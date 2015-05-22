@@ -4,9 +4,9 @@ module Sluggable
   included do
     validates :slug, presence: true
 
-    before_validation :create_slug
+    before_validation :slugify
 
-    def create_slug
+    def slugify
       return if name.blank?
       new_slug = slug.blank? ? name : slug
       # strip non-alphanumerics and replace spaces/underscores with hyphens
