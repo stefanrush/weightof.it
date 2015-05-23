@@ -15,7 +15,9 @@
 
 class Library < ActiveRecord::Base
   belongs_to :category
-  has_many   :versions
+  has_many   :versions, inverse_of: :library
+
+  accepts_nested_attributes_for :versions, limit: 50
 
   validates :name,       presence: true
   validates :source_url, presence: true

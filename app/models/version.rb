@@ -12,7 +12,7 @@
 #
 
 class Version < ActiveRecord::Base
-  belongs_to :library
+  belongs_to :library, inverse_of: :versions, touch: true
 
   validates :library, presence: true
   validates :number,  presence: true

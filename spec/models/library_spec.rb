@@ -28,6 +28,7 @@ RSpec.describe Library, type: :model do
   describe "associations" do
     it { is_expected.to belong_to(:category) }
     it { is_expected.to have_many(:versions) }
+    it { is_expected.to accept_nested_attributes_for(:versions) }
   end
 
   describe "validations" do
