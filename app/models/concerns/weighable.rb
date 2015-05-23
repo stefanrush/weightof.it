@@ -9,7 +9,7 @@ module Weighable
     before_save :weigh
 
     def weigh
-      self.weight = Scale.new.weigh(raw_url) if weight.blank?
+      self.weight = Scale.new(raw_url).weigh if weight.blank?
     end
 
     def weight_kb
