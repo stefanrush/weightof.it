@@ -5,7 +5,7 @@ class CreateLibraries < ActiveRecord::Migration
       t.string     :slug,         null: false
       t.string     :source_url,   null: false
       t.string     :homepage_url
-      t.integer    :stars,        null: false, default: 0
+      t.integer    :popularity,   null: false, default: 0
       t.references :category,     null: false, index: true
       t.timestamps                null: false
     end
