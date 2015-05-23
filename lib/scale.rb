@@ -2,8 +2,8 @@ require 'open-uri'
 require 'uglifier'
 
 class Scale
-  def weigh(version)
-    raw_file = download(version.raw_url)
+  def weigh(raw_file_url)
+    raw_file = download(raw_file_url)
     compressed_file = compress(raw_file)
     compressed_file.size
   end
