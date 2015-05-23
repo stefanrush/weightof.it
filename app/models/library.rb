@@ -7,7 +7,7 @@
 #  slug         :string           not null
 #  source_url   :string           not null
 #  homepage_url :string
-#  stars        :integer          default(0), not null
+#  popularity   :integer          default(0), not null
 #  category_id  :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -17,11 +17,10 @@ class Library < ActiveRecord::Base
   belongs_to :category
   has_many   :versions, inverse_of: :library
 
-  accepts_nested_attributes_for :versions, limit: 50
+  accepts_nested_attributes_for :versions, limit: 100
 
   validates :name,       presence: true
   validates :source_url, presence: true
-  validates :stars,      presence: true
   validates :category,   presence: true
   
   validates :source_url, format: {
@@ -34,4 +33,5 @@ class Library < ActiveRecord::Base
   }, allow_blank: true
 
   include Sluggable
+  include Popularable
 end

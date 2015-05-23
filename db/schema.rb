@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150521051923) do
     t.string   "slug",                     null: false
     t.string   "source_url",               null: false
     t.string   "homepage_url"
-    t.integer  "stars",        default: 0, null: false
+    t.integer  "popularity",   default: 0, null: false
     t.integer  "category_id",              null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false

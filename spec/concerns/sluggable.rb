@@ -10,7 +10,7 @@ shared_examples_for 'Sluggable' do
   end
 
   def new_model
-    build(described_class.to_s.underscore.to_sym)
+    build_stubbed(described_class.to_s.underscore.to_sym)
   end
 
   let(:tests) do
@@ -35,8 +35,7 @@ shared_examples_for 'Sluggable' do
         model = new_model
         model.name = test_name
         model.slug = nil
-        model.save!
-        model.reload
+        model.slugify
         expect(model.slug).to eq expected_slug
       end
     end
@@ -45,8 +44,7 @@ shared_examples_for 'Sluggable' do
       tests.zip(expectations).each do |test_slug, expected_slug|
         model = new_model
         model.slug = test_slug
-        model.save!
-        model.reload
+        model.slugify
         expect(model.slug).to eq expected_slug
       end
     end
