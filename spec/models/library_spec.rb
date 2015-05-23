@@ -20,7 +20,6 @@ RSpec.describe Library, type: :model do
     it { is_expected.to respond_to(:name) }
     it { is_expected.to respond_to(:homepage_url) }
     it { is_expected.to respond_to(:source_url) }
-    it { is_expected.to respond_to(:popularity) }
     it { is_expected.to respond_to(:versions) }
     it { is_expected.to respond_to(:category) }
   end
@@ -34,7 +33,6 @@ RSpec.describe Library, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:source_url) }
-    it { is_expected.to validate_presence_of(:popularity) }
     it { is_expected.to validate_presence_of(:category) }
 
     it { is_expected.to_not allow_value('invalid-url!').for(:source_url) }
@@ -44,4 +42,5 @@ RSpec.describe Library, type: :model do
   end
 
   it_behaves_like 'Sluggable'
+  it_behaves_like 'Popularable'
 end
