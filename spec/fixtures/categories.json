@@ -1,0 +1,17 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "DOM Manipulation"
+    },
+    {
+      "id": 2,
+      "name": "MVC Frameworks"
+    },
+    {
+      "id": 3,
+      "name": "Other",
+      "position": 1
+    }
+  ]
+}

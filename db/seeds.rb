@@ -1,10 +1,10 @@
-require 'csv'
+# create model for each JSON object within each fixture file
 
-fixtures = ['category', 'library', 'version']
-location = "#{Rails.root}/spec/fixtures"
+fixtures = %w( categories libraries )
+fixtures_location = "#{Rails.root}/spec/fixtures"
 
 fixtures.each do |fixture|
-  file = "#{location}/#{fixture}.csv"
-  klass = fixture.classify.safe_constantize
-  CSV.foreach(file, headers: true) { |row| klass.create!(row.to_hash) }
+  klass = fixture.singularize.classify.safe_constantize
+  file  = File.read("#{fixtures_location}/#{fixture}.json")
+  JSON.parse(file)[fixture].each { |item| klass.create!(item) }
 end
