@@ -1,7 +1,7 @@
 weightof.it
 ===========
 
-Compare the weight (file size) of different JavaScript libraries
+Compare JavaScript libraries by weight
 
 Setup
 -----
