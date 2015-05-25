@@ -7,7 +7,8 @@
 #  slug         :string           not null
 #  source_url   :string           not null
 #  homepage_url :string
-#  popularity   :integer          default(0), not null
+#  description  :string
+#  popularity   :integer
 #  category_id  :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
@@ -20,6 +21,8 @@ RSpec.describe Library, type: :model do
     it { is_expected.to respond_to(:name) }
     it { is_expected.to respond_to(:homepage_url) }
     it { is_expected.to respond_to(:source_url) }
+    it { is_expected.to respond_to(:description) }
+    it { is_expected.to respond_to(:popularity) }
     it { is_expected.to respond_to(:versions) }
     it { is_expected.to respond_to(:category) }
   end
@@ -39,8 +42,23 @@ RSpec.describe Library, type: :model do
     it { is_expected.to_not allow_value('invalid-url!').for(:homepage_url) }
     it { is_expected.to allow_value('http://valid-url.com').for(:source_url) }
     it { is_expected.to allow_value('http://valid-url.com').for(:homepage_url) }
+
+    it { is_expected.to validate_numericality_of(:popularity).is_greater_than_or_equal_to(0) }
   end
 
   it_behaves_like 'Sluggable'
-  it_behaves_like 'Popularable'
+
+  def new_model
+    build_stubbed(:library, :real)
+  end
+
+  let(:model) { new_model }
+
+  describe "#check_github" do
+    it "parses description and star (popularity) data from GitHub API" do
+      model.check_github
+      expect(model.description).to_not be_nil
+      expect(model.popularity).to_not be_nil
+    end
+  end
 end

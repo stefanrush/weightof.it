@@ -13,6 +13,8 @@
 class Category < ActiveRecord::Base
   has_many :libraries
 
+  scope :by_position, -> { order(:position, :name) }
+
   validates :name,     presence: true
   validates :position, presence: true
 

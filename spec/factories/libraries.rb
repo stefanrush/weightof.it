@@ -7,7 +7,8 @@
 #  slug         :string           not null
 #  source_url   :string           not null
 #  homepage_url :string
-#  popularity   :integer          default(0), not null
+#  description  :string
+#  popularity   :integer
 #  category_id  :integer          not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
