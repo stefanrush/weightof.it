@@ -50,6 +50,19 @@
           "raw_url": "https://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"
         }
       ]
+    },
+    {
+      "id": 4,
+      "name": "Marionette",
+      "homepage_url": "http://marionettejs.com/",
+      "source_url": "https://github.com/marionettejs/backbone.marionette",
+      "category_id": 1,
+      "versions_attributes": [
+        {
+          "number": "2.4.1",
+          "raw_url": "http://marionettejs.com/downloads/backbone.marionette.js"
+        }
+      ]
     }
   ]
 }
