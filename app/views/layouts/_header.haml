@@ -1,0 +1,18 @@
+%header
+  .container
+    .row
+      .six.columns
+        .home= link_to content_tag(:h1, "weightof.it"), root_path
+      .six.columns
+        = link_to '#contribute', class: 'contribute button' do
+          %i.fa.fa-plus
+          %span Contribute Library
+    .row
+      .six.columns
+        %h2 Compare JavaScript libraries by weight
+      .six.columns
+        .search
+          %input#search
+          = link_to '#search', class: 'submit button' do
+            %i.fa.fa-search
+            %span Search

@@ -1,0 +1,18 @@
+section {
+  padding: 2rem 0;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover, &:focus, &.active {
+    color: darken($primary-color, 20%);
+    text-decoration: underline;
+  }
+
+  &.button {
+    &:hover, &:focus, &.active {
+      text-decoration: none;
+    }
+  }
+}

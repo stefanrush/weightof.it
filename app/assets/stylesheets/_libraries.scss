@@ -1,0 +1,94 @@
+h3 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+div.sort {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  @include well;
+
+  span, a {
+    margin-right: 1rem;
+  }
+}
+
+ol.libraries {
+  margin: 0;
+  list-style: none;
+
+  li {
+    padding: 1rem;
+    border: 1px solid $border-color;
+    @include radius;
+
+    span.info {
+      width: 80%;
+      @include truncate;
+    }
+
+    span.weight {
+      width: 20%;
+      text-align: right;
+    }
+
+    span.info, span.weight {
+      display: block;
+      float: left;
+    }
+
+    span.popularity {
+      line-height: 40px;
+
+      i {
+        margin-left: 0.2rem;
+      }
+    }
+
+    span.weight, span.popularity {
+      float: right;
+    }
+
+    span.source {
+      margin-left: 0.8rem;
+    }
+
+    a.button {
+      margin: 0;
+    }
+
+    div.more-info {
+      max-height: 0;
+      padding: 0;
+      clear: left;
+      overflow: hidden;
+      @include transition(max-height 250ms, padding 250ms);
+    }
+
+    &:hover {
+      border-color: $primary-color;
+
+      span.info {
+        @include untruncate;
+      }
+
+      div.more-info {
+        padding-top: 1rem;
+        max-height: 40px;
+      }
+    }
+  }
+}
+
+html.no-csstransitions {
+  ol.libraries li {
+    span.info {
+      @include untruncate;
+    }
+
+    div.more-info {
+      padding-top: 1rem;
+      max-height: 40px;
+    }
+  }
+}

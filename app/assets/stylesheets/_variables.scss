@@ -1,0 +1,22 @@
+$bp-larger-than-mobile    : "min-width: 400px";
+$bp-larger-than-phablet   : "min-width: 700px";
+$bp-larger-than-tablet    : "min-width: 900px";
+$bp-larger-than-desktop   : "min-width: 1000px";
+$bp-larger-than-desktophd : "min-width: 1100px";
+
+//$light-grey: #e1e1e1 !default;
+//$dark-grey: #333 !default;
+//$primary-color: #33c3f0 !default;
+//$secondary-color: lighten($dark-grey, 13.5%) !default;
+//$border-color: #bbb !default;
+//$link-color: #1eaedb !default;
+//$font-color: #222 !default;
+
+$light-grey      : #eeeeee;
+$primary-color   : #0088ff;
+$secondary-color : #222222;
+$link-color      : $primary-color;
+
+
+$white: #fff;
+$black: #000;

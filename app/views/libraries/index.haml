@@ -1,0 +1,18 @@
+- content_for(:title) { "Compare JavaScript libraries by weight" }
+
+.row
+  .four.columns
+    %aside.categories
+      %h3 By Category
+      %ul
+        %li= link_to "All Libraries", '#all', class: 'active'
+        = render @categories
+
+  .eight.columns
+    %h3 Libraries
+    .sort
+      %span Sort by:
+      = link_to "Weight", '#weight', class: 'active'
+      = link_to "Popularity", '#popularity'
+      = link_to "Name", '#name'
+    %ol.libraries= render @libraries

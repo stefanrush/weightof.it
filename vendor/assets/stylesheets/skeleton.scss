@@ -86,8 +86,7 @@ $global-radius: 4px !default;
   box-sizing: border-box;
 }
 
-// For devices larger than 400px
-@media (#{$bp-larger-than-mobile}) {
+@media (#{$bp-larger-than-phablet}) {
   .container {
     width: $container-width-larger-than-mobile;
     padding: 0;
@@ -95,7 +94,7 @@ $global-radius: 4px !default;
 }
 
 // For devices larger than 550px
-@media (#{$bp-larger-than-phablet}) {
+@media (#{$bp-larger-than-tablet}) {
   .container {
     width: $container-width-larger-than-phablet;
   }

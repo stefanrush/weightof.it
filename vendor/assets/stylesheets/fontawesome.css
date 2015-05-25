@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('fontawesome/fontawesome.eot?13881517');
+  src: url('fontawesome/fontawesome.eot?13881517#iefix') format('embedded-opentype'),
+       url('fontawesome/fontawesome.woff?13881517') format('woff'),
+       url('fontawesome/fontawesome.ttf?13881517') format('truetype'),
+       url('fontawesome/fontawesome.svg?13881517#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*
+[class^="fa-"]:before, [class*=" fa-"]:before {
+  font-family: "FontAwesome";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+}
+*/
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+ 
+.fa-search:before { content: '\e800'; }
+.fa-star:before { content: '\e801'; }
+.fa-plus:before { content: '\e802'; }
+.fa-menu:before { content: '\e803'; }

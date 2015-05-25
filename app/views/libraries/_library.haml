@@ -1,0 +1,12 @@
+%li
+  .basic-info
+    = basic_info library
+    %span.weight= library.versions.latest.weight_pretty
+  .more-info
+    - if library.homepage_url.present?
+      %span.homepage= homepage_link library
+    %span.source= source_link library
+    - if library.popularity.present?
+      %span.popularity{ title: "GitHub Stars" }
+        %span= library.popularity
+        %i.fa.fa-star

@@ -1,0 +1,19 @@
+aside.categories {
+  padding: 1.5rem;
+  @include well;
+  display: none;
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+  }
+
+  @media ($bp-larger-than-tablet) {
+    display: block;
+  }
+}

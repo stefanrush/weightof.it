@@ -1,0 +1,57 @@
+@mixin radius($size: 4px) {
+  -webkit-border-radius: $size;
+  -moz-border-radius: $size;
+  border-radius: $size;
+}
+
+@mixin radius-left($size: 4px) {
+  @include radius(0);
+  -webkit-border-top-left-radius: $size;
+  -webkit-border-bottom-left-radius: $size;
+  -moz-border-radius-topright: $size;
+  -moz-border-radius-bottomright: $size;
+  border-top-left-radius: $size;
+  border-bottom-left-radius: $size;
+}
+
+@mixin radius-right($size: 4px) {
+  @include radius(0);
+  -webkit-border-top-right-radius: $size;
+  -webkit-border-bottom-right-radius: $size;
+  -moz-border-radius-topright: $size;
+  -moz-border-radius-bottomright: $size;
+  border-top-right-radius: $size;
+  border-bottom-right-radius: $size;
+}
+
+@mixin box-shadow($args...) {
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+  box-shadow: $args;
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin untruncate {
+  white-space: initial;
+  overflow: initial;
+  text-overflow: initial;
+}
+
+@mixin well {
+  background-color: $light-grey;
+  border: 1px solid $border-color;
+  @include radius(4px);
+}
