@@ -1,2 +1,5 @@
 #= require modernizr
-#= require_tree .
+#= require zepto
+#= require lodash
+#= require backbone
+#= require app/app

@@ -6,11 +6,10 @@ module LibrariesHelper
   end
 
   def homepage_link(library)
-    link_to "Homepage", library.homepage_url, target: '_blank',
-                                              class: 'button button-primary'
+    link_to "Homepage", library.homepage_url, target: '_blank', class: 'button'
   end
 
   def source_link(library)
-    link_to "Source", library.source_url, target: '_blank', class: 'button'
+    link_to "Source", library.source_url, target: '_blank', class: 'button button-primary'
   end
 end

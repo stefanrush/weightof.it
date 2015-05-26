@@ -9,10 +9,19 @@
         = render @categories
 
   .eight.columns
-    %h3 Libraries
-    .sort
-      %span Sort by:
-      = link_to "Weight", '#weight', class: 'active'
-      = link_to "Popularity", '#popularity'
-      = link_to "Name", '#name'
-    %ol.libraries= render @libraries
+    %section.libraries
+      %h3 Libraries
+      .sort
+        %span Sort by:
+        = link_to "Weight", '#weight', class: 'active'
+        = link_to "Popularity", '#popularity'
+      %ol= render @libraries
+
+- content_for(:scripts) do
+  :javascript
+    $(function() {
+      window.app = new WOI.Routers.App({
+        libraries:  #{@libraries.to_json},
+        categories: #{@categories.to_json} 
+      });
+    });
