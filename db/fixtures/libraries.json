@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "jQuery",
-      "homepage_url": "https://jquery.com/",
       "source_url": "https://github.com/jquery/jquery",
+      "homepage_url": "https://jquery.com/",
       "category_id": 1,
       "versions_attributes": [
         {
@@ -20,8 +20,8 @@
     {
       "id": 2,
       "name": "Zepto",
-      "homepage_url": "http://zeptojs.com/",
       "source_url": "https://github.com/madrobby/zepto",
+      "homepage_url": "http://zeptojs.com/",
       "category_id": 1,
       "versions_attributes": [
         {
@@ -33,8 +33,8 @@
     {
       "id": 3,
       "name": "Prototype",
-      "homepage_url": "http://prototypejs.org/",
       "source_url": "https://github.com/sstephenson/prototype",
+      "homepage_url": "http://prototypejs.org/",
       "category_id": 1,
       "versions_attributes": [
         {
@@ -53,9 +53,22 @@
     },
     {
       "id": 4,
+      "name": "Backbone.js",
+      "source_url": "https://github.com/jashkenas/backbone",
+      "homepage_url": "http://backbonejs.org/",
+      "category_id": 1,
+      "versions_attributes": [
+        {
+          "number": "1.2.0",
+          "raw_url": "http://backbonejs.org/backbone.js"
+        }
+      ]
+    },
+    {
+      "id": 5,
       "name": "Marionette",
-      "homepage_url": "http://marionettejs.com/",
       "source_url": "https://github.com/marionettejs/backbone.marionette",
+      "homepage_url": "http://marionettejs.com/",
       "category_id": 1,
       "versions_attributes": [
         {
