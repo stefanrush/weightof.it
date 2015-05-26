@@ -16,12 +16,6 @@ header {
       border-bottom: 4px solid $white;
       color: $white;
       text-decoration: none;
-      
-      &:hover, &:focus {
-        h1 {
-          margin-top: 1.5rem;
-        }
-      }
 
       @media ($bp-larger-than-tablet) {
         height: 58px;
@@ -37,6 +31,12 @@ header {
 
         @media ($bp-larger-than-tablet) {
           font-size: 3rem;
+        }
+      }
+
+      &:hover, &:focus {
+        h1 {
+          margin-top: 1.5rem;
         }
       }
     }

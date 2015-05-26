@@ -1,4 +1,4 @@
-section {
+section.content {
   padding: 2rem 0;
 }
 
@@ -13,6 +13,12 @@ a {
   &.button {
     &:hover, &:focus, &.active {
       text-decoration: none;
+    }
+
+    &.button-primary {
+      &:hover, &:focus, &.active {
+        border-color: darken($primary-color, 20%);
+      }
     }
   }
 }
