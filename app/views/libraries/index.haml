@@ -5,7 +5,7 @@
     %aside.categories
       %h3 By Category
       %ul
-        %li= link_to "All Libraries", '#all', class: 'active'
+        %li= link_to "All Libraries", root_path, class: 'active'
         = render @categories
 
   .eight.columns
@@ -15,13 +15,4 @@
         %span Sort by:
         = link_to "Weight", '#weight', class: 'active'
         = link_to "Popularity", '#popularity'
-      %ol= render @libraries
-
-- content_for(:scripts) do
-  :javascript
-    $(function() {
-      window.app = new WOI.Routers.App({
-        libraries:  #{@libraries.to_json},
-        categories: #{@categories.to_json} 
-      });
-    });
+      %ol

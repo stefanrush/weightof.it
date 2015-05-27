@@ -1,0 +1,25 @@
+<script>
+  $(function() {
+    window.app = new WOI.Routers.App({
+      libraries: [
+        <% cache @libraries do %>
+          <% @libraries.each do |library| %>
+            <% cache library do %>
+              <%= library.relevant_json.to_s.html_safe %>, 
+            <% end %>
+          <% end %>
+        <% end %>
+      ],
+      categories: [
+        <% cache @categories do %>
+          <% @categories.each do |category| %>
+            <% cache category do %>
+              <%= category.relevant_json.to_s.html_safe %>,
+            <% end %>
+          <% end %>
+        <% end %>
+      ]
+    });
+    Backbone.history.start({pushState: true});
+  });
+</script>

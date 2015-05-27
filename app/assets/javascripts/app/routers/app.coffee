@@ -1,18 +1,22 @@
 class WOI.Routers.App extends Backbone.Router
   initialize: (options) ->
-    @libaries = new WOI.Collections.Libraries()
-    @libaries.reset options.libraries
+    @initializeLinks()
 
     @categories = new WOI.Collections.Categories()
     @categories.reset options.categories
 
+    @libraries = new WOI.Collections.Libraries()
+    @libraries.reset options.libraries
+
+  initializeLinks: ->
+    $(document.body).on 'click', 'a', (e) =>
+      e.preventDefault()
+      @.navigate $(e.currentTarget).attr('href'), { trigger: true }
+
   routes:
-    ''               : 'index'
-    'search/:query'  : 'search'
-    'category/:name' : 'category'
+    '(category/:slug)' : 'index'
 
-  index: -> console.log('index')
-
-  search: -> console.log('search')
-
-  cagegory: -> console.log('cagegory')
+  index: (slug, params) ->
+    @category = @categories.findWhere { slug: slug }
+    @filteredLibraries = @libraries.filter(@category, params)
+    @librariesView = new WOI.Views.Libraries({ collection: @filteredLibraries })

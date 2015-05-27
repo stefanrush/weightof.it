@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root to: 'libraries#index'
-  resources :libraries
+  get '(category/:slug)(/)(search/:query)(/)(page/:page)', to: 'libraries#index'
 end

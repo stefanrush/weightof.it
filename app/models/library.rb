@@ -45,6 +45,34 @@ class Library < ActiveRecord::Base
 
   include Sluggable
 
+  def relevant_json
+    to_json(only: [
+      :id,
+      :source_url,
+      :homepage_url,
+      :popularity,
+      :category_id
+    ], methods: [
+      :info,
+      :weight,
+      :weight_pretty
+    ])
+  end
+
+  def info
+    info = "#{name}"
+    info << " &mdash; #{description}" if description.present?
+    info
+  end
+
+  def weight
+    versions.latest.weight
+  end
+
+  def weight_pretty
+    versions.latest.weight_pretty
+  end
+
   before_save :check_github
 
   def check_github

@@ -19,4 +19,12 @@ class Category < ActiveRecord::Base
   validates :position, presence: true
 
   include Sluggable
+
+  def relevant_json
+    to_json(only: [
+      :id,
+      :name,
+      :slug
+    ])
+  end
 end

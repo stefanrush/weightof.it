@@ -1,2 +1,2 @@
-WOI.Views.Categories = Backbone.View.extend
+class WOI.Views.Categories extends Backbone.View
   el: 'aside.categories'

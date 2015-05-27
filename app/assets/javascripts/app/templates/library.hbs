@@ -1,0 +1,24 @@
+<div class="basic-info">
+  <span class="info">{{{library.info}}}</span>
+  <span class="weight">{{library.weight_pretty}}</span>
+</div>
+<div class="more-info">
+  <span class="source">
+    <a href="{{library.source_url}}" class="button button-primary" target="_blank">
+      Source
+    </a>
+  </span>
+  {{#if library.homepage_url}}
+    <span class="homepage">
+      <a href="{{library.homepage_url}}" class="button" target="_blank">
+        Homepage
+      </a>
+    </span>
+  {{/if}}
+  {{#if library.popularity}}
+    <span class="popularity" title="GitHub Stars">
+      <i class="fa fa-star"></i>
+      <span>{{library.popularity}}</span>
+    </span>
+  {{/if}}
+</div>
