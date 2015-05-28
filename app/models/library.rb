@@ -22,9 +22,7 @@ class Library < ActiveRecord::Base
 
   accepts_nested_attributes_for :versions, limit: 100
 
-  scope :by_weight,     -> { all.sort_by { |lib| lib.versions.latest.weight } }
-  scope :by_popularity, -> { order(popularity: :desc) }
-  scope :by_name,       -> { order(:name) }
+  scope :active, -> { where(active: true) }
 
   validates :name,       presence: true
   validates :source_url, presence: true
@@ -48,6 +46,7 @@ class Library < ActiveRecord::Base
   def relevant_json
     to_json(only: [
       :id,
+      :name,
       :source_url,
       :homepage_url,
       :popularity,

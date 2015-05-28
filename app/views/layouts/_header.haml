@@ -13,6 +13,8 @@
       .six.columns
         .search
           %input#search
-          = link_to '#search', class: 'submit button' do
+          = link_to '#search', class: 'submit button', data: { behavior: true } do
             %i.fa.fa-search
             %span Search
+          = link_to '#clear', class: 'clear', data: { behavior: true } do
+            %i.fa.fa-close

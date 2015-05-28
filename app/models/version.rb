@@ -14,7 +14,8 @@
 class Version < ActiveRecord::Base
   belongs_to :library, inverse_of: :versions, touch: true
 
-  scope :latest, -> { order(number: :desc).first }
+  scope :active, -> { where(active: true) }
+  scope :latest, -> { active.order(number: :desc).first }
 
   validates :library, presence: true
   validates :number,  presence: true

@@ -8,8 +8,13 @@ class WOI.Routers.App extends Backbone.Router
     @libraries = new WOI.Collections.Libraries()
     @libraries.reset options.libraries
 
+    new WOI.Views.Categories()
+    new WOI.Views.Sort()
+    new WOI.Views.Search { app: @ }
+
   initializeLinks: ->
-    $(document.body).on 'click', 'a', (e) =>
+    links = 'a:not([data-remote]):not([data-behavior])'
+    $(document.body).on 'click', links, (e) =>
       e.preventDefault()
       @.navigate $(e.currentTarget).attr('href'), { trigger: true }
 
@@ -17,6 +22,15 @@ class WOI.Routers.App extends Backbone.Router
     '(category/:slug)' : 'index'
 
   index: (slug, params) ->
+    params or= {}
+    params = _.merge params, { category: slug } if slug
+    @params = params
+    
+    Backbone.trigger 'page:change', @params
+    
     @category = @categories.findWhere { slug: slug }
-    @filteredLibraries = @libraries.filter(@category, params)
-    @librariesView = new WOI.Views.Libraries({ collection: @filteredLibraries })
+    
+    @librariesSubset = @libraries.filter(@category, @params)
+                                 .search(@params)
+                                 .sort(@params)
+    @librariesView = new WOI.Views.Libraries { collection: @librariesSubset }

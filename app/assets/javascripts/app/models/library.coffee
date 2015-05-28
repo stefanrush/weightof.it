@@ -11,3 +11,26 @@ class WOI.Collections.Libraries extends Backbone.Collection
         library.get('category_id') is category.get('id')
     
     new WOI.Collections.Libraries(filtered)
+
+  search: (params) =>
+    searched = this.models
+
+    if params.search
+      query = @strip params.search
+      searched = _.filter searched, (library) =>
+        @strip(library.get('name')).indexOf(query) isnt -1
+
+    new WOI.Collections.Libraries(searched)
+
+  sort: (params) =>
+    sorted = this.models
+
+    switch params.sort
+      when 'popularity'
+        sorted = _.sortBy sorted, (library) -> -library.get('popularity')
+      else
+        sorted = _.sortBy sorted, (library) -> library.get('weight')
+
+    new WOI.Collections.Libraries(sorted)
+
+_.extend WOI.Collections.Libraries.prototype, WOI.Mixins

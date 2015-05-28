@@ -1,0 +1,17 @@
+footer {
+  margin-bottom: 2rem;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-top: 1rem;
+    text-align: center;
+    @include well;
+
+    li {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+    }
+  }
+}

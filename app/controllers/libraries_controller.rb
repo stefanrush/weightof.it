@@ -1,6 +1,6 @@
 class LibrariesController < ApplicationController
   def index
-    @libraries  = Library.by_weight
+    @libraries  = Library.active
     @categories = Category.by_position
   end
 end

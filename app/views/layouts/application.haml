@@ -11,10 +11,11 @@
 
   %body
     = render 'layouts/header'
-
+    
     %section.content
       .container
         = render 'layouts/flashes'
         = yield
 
+    = render 'layouts/footer'
     = render 'layouts/bootstrap_app'
