@@ -10,7 +10,8 @@
     },
     {
       "id": 3,
-      "name": "Other",
+      "name": "Other Libraries",
+      "slug": "other",
       "position": 1
     }
   ]
