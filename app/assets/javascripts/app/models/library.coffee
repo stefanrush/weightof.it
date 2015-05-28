@@ -16,9 +16,9 @@ class WOI.Collections.Libraries extends Backbone.Collection
     searched = this.models
 
     if params.search
-      query = @strip params.search
+      query = @stripText params.search
       searched = _.filter searched, (library) =>
-        @strip(library.get('name')).indexOf(query) isnt -1
+        @stripText(library.get('name')).indexOf(query) isnt -1
 
     new WOI.Collections.Libraries(searched)
 
@@ -33,4 +33,4 @@ class WOI.Collections.Libraries extends Backbone.Collection
 
     new WOI.Collections.Libraries(sorted)
 
-_.extend WOI.Collections.Libraries.prototype, WOI.Mixins
+_.extend WOI.Collections.Libraries.prototype, WOI.Mixins.Text

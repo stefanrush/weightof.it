@@ -7,7 +7,6 @@ class WOI.Views.Search extends Backbone.View
     'click a.clear'  : 'clear'
 
   initialize: (options) ->
-    @app     = options.app
     @query   = ''
     @$input  = @$el.find '#search'
     @$submit = @$el.find 'a.submit'
@@ -16,8 +15,8 @@ class WOI.Views.Search extends Backbone.View
 
   search: (e) ->
     e.preventDefault()
-    @query = @strip @$input.val()
-    @app.navigate @buildURL(@query, @app.params), { trigger: true }
+    @query = @stripText @$input.val()
+    Backbone.trigger 'search:change', @query
 
   clear: (e) ->
     e.preventDefault()
@@ -26,20 +25,11 @@ class WOI.Views.Search extends Backbone.View
 
   update: (params) ->
     if not params.search and @query or params.search and not @query
-      @query = @strip(params.search or '')
+      @query = @stripText(params.search or '')
       @$input.val(@query)
     @toggleClearable()
 
   toggleClearable: ->
     if @query then @$clear.show() else @$clear.hide()
 
-  buildURL: (query, params) ->
-    url = "/"
-    url += "category/#{params.category}" if params.category
-    url += "?search=#{query}" if query
-    if params.sort
-      url += if query then '&' else '?'
-      url += "sort=#{params.sort}"
-    url
-
-_.extend WOI.Views.Search.prototype, WOI.Mixins
+_.extend WOI.Views.Search.prototype, WOI.Mixins.Text

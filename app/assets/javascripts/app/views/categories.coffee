@@ -20,13 +20,6 @@ class WOI.Views.Categories extends Backbone.View
     @$links.each (i, el) =>
       category = $(el).data 'category'
       category = null if category is 'all'
-      $(el).attr 'href', @buildURL(params, category)
+      $(el).attr 'href', @buildURL(params, 'category', category)
   
-  buildURL: (params, category) ->
-    url = "/"
-    url += "category/#{category}" if category
-    url += "?search=#{params.search}" if params.search
-    if params.sort
-      url += if params.search then '&' else '?'
-      url += "sort=#{params.sort}" 
-    url
+_.extend WOI.Views.Categories.prototype, WOI.Mixins.URL

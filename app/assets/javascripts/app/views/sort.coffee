@@ -19,12 +19,6 @@ class WOI.Views.Sort extends Backbone.View
   updateLinks: (params) ->
     @$links.each (i, el) =>
       sortBy = $(el).data 'sort'
-      $(el).attr 'href', @buildURL(params, sortBy)
-  
-  buildURL: (params, sortBy) ->
-    url = "/"
-    url += "category/#{params.category}" if params.category
-    url += "?search=#{params.search}" if params.search
-    url += if params.search then '&' else '?'
-    url += "sort=#{sortBy}"
-    url
+      $(el).attr 'href', @buildURL(params, 'sort', sortBy)
+
+_.extend WOI.Views.Sort.prototype, WOI.Mixins.URL

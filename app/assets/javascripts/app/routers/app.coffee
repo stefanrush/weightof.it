@@ -10,7 +10,9 @@ class WOI.Routers.App extends Backbone.Router
 
     new WOI.Views.Categories()
     new WOI.Views.Sort()
-    new WOI.Views.Search { app: @ }
+    new WOI.Views.Search()
+
+    @listenTo Backbone, 'search:change', @search
 
   initializeLinks: ->
     links = 'a:not([data-remote]):not([data-behavior])'
@@ -34,3 +36,9 @@ class WOI.Routers.App extends Backbone.Router
                                  .search(@params)
                                  .sort(@params)
     @librariesView = new WOI.Views.Libraries { collection: @librariesSubset }
+
+  search: (query) ->
+    searchURL = @buildURL @params, 'search', query
+    @.navigate searchURL, { trigger: true }
+
+_.extend WOI.Routers.App.prototype, WOI.Mixins.URL
