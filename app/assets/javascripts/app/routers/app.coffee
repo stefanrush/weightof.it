@@ -25,20 +25,29 @@ class WOI.Routers.App extends Backbone.Router
 
   index: (slug, params) ->
     params or= {}
-    params = _.merge params, { category: slug } if slug
-    @params = params
+    params   = _.merge params, { category: slug } if slug
+    @params  = params
     
     Backbone.trigger 'page:change', @params
     
-    @category = @categories.findWhere { slug: slug }
-    
-    @librariesSubset = @libraries.filter(@category, @params)
+    @category        = @categories.findWhere { slug: slug }
+    @librariesSubset = @libraries.filter(@category)
                                  .search(@params)
                                  .sort(@params)
+
     @librariesView = new WOI.Views.Libraries { collection: @librariesSubset }
+
+    @updateTitle()
 
   search: (query) ->
     searchURL = @buildURL @params, 'search', query
     @.navigate searchURL, { trigger: true }
+
+  updateTitle: ->
+    title = "weightof.it"
+    if @category
+      title += " - #{@category.get('name')}"
+    title += " - Compare JavaScript libraries by weight (file size)"
+    document.title = title
 
 _.extend WOI.Routers.App.prototype, WOI.Mixins.URL

@@ -3,6 +3,6 @@ class WOI.Views.Library extends Backbone.View
 
   template: WOI.Templates['library']
 
-  render: =>
+  render: ->
     @$el.html @template { library: @model.attributes }
     @

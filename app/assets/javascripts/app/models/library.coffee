@@ -3,7 +3,7 @@ class WOI.Models.Library extends Backbone.Model
 class WOI.Collections.Libraries extends Backbone.Collection
   model: WOI.Models.Library
 
-  filter: (category, params) =>
+  filter: (category) ->
     filtered = this.models
 
     if category
@@ -12,7 +12,7 @@ class WOI.Collections.Libraries extends Backbone.Collection
     
     new WOI.Collections.Libraries(filtered)
 
-  search: (params) =>
+  search: (params) ->
     searched = this.models
 
     if params.search
@@ -22,7 +22,7 @@ class WOI.Collections.Libraries extends Backbone.Collection
 
     new WOI.Collections.Libraries(searched)
 
-  sort: (params) =>
+  sort: (params) ->
     sorted = this.models
 
     switch params.sort
