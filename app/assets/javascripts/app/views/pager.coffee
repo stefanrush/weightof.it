@@ -6,13 +6,15 @@ class WOI.Views.Pager extends Backbone.View
     @parentView = options.parentView
     @page       = options.initialPage
     @pages      = options.pages
+
+    @updateVisibility()
+
     @$first     = @$el.find('li.first').data('page', 1)
     @$previous  = @$el.find('li.previous')
     @$current   = @$el.find('li.current')
     @$next      = @$el.find('li.next')
     @$last      = @$el.find('li.last').data('page', @pages)
 
-    @updateVisibility()
     @updatePageLinks()
 
   loadPage: (e) ->
