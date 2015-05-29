@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   root to: 'libraries#index'
-  resources :libraries
+  get 'category/:slug', to: 'libraries#index'
 end

@@ -62,7 +62,7 @@ header {
     float: right;
     background-color: $white;
     color: $primary-color;
-    @include transition(all 250ms);
+    @include transition(background-color 250ms, color 250ms);
 
     &:hover, &:focus {
       background-color: $primary-color;
@@ -76,7 +76,7 @@ header {
   }
 
   a.contribute {
-    margin-top: 2rem;
+    margin: 1.5rem 0 0;
     display: none;
 
     @media ($bp-larger-than-tablet) {
@@ -100,6 +100,26 @@ header {
       &:focus {
         outline: none;
         @include box-shadow(0 0 2px 2px lighten($primary-color, 20%));
+      }
+    }
+
+    a.clear {
+      display: none;
+      position: absolute;
+      right: 72px;
+      top: 1px;
+      height: 30px;
+      line-height: 30px;
+      margin: 1rem 0;
+      padding: 0 1rem;
+      @include transition(color 250ms);
+
+      @media ($bp-larger-than-mobile) {
+        right: 130px;
+      }
+
+      &:hover, &:focus {
+        color: $border-color;
       }
     }
 

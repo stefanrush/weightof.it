@@ -8,6 +8,7 @@ class CreateLibraries < ActiveRecord::Migration
       t.string     :description
       t.integer    :popularity
       t.references :category,     null: false, index: true
+      t.boolean    :active,       null: false, default: true
       t.timestamps                null: false
     end
   end

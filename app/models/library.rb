@@ -22,9 +22,7 @@ class Library < ActiveRecord::Base
 
   accepts_nested_attributes_for :versions, limit: 100
 
-  scope :by_weight,     -> { all.sort_by { |lib| lib.versions.latest.weight } }
-  scope :by_popularity, -> { order(popularity: :desc) }
-  scope :by_name,       -> { order(:name) }
+  scope :active, -> { where(active: true) }
 
   validates :name,       presence: true
   validates :source_url, presence: true
@@ -44,6 +42,29 @@ class Library < ActiveRecord::Base
   }, allow_blank: true
 
   include Sluggable
+
+  def relevant_json
+    to_json(only: [
+      :id,
+      :name,
+      :description,
+      :source_url,
+      :homepage_url,
+      :popularity,
+      :category_id
+    ], methods: [
+      :weight,
+      :weight_pretty
+    ])
+  end
+
+  def weight
+    versions.latest.weight
+  end
+
+  def weight_pretty
+    versions.latest.weight_pretty
+  end
 
   before_save :check_github
 

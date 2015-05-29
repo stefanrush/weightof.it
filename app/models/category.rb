@@ -13,10 +13,19 @@
 class Category < ActiveRecord::Base
   has_many :libraries
 
-  scope :by_position, -> { order(:position, :name) }
+  scope :active,      -> { where(active: true) }
+  scope :by_position, -> { active.order(:position, :name) }
 
   validates :name,     presence: true
   validates :position, presence: true
 
   include Sluggable
+
+  def relevant_json
+    to_json(only: [
+      :id,
+      :name,
+      :slug
+    ])
+  end
 end

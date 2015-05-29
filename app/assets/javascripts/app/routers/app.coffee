@@ -1,18 +1,52 @@
 class WOI.Routers.App extends Backbone.Router
   initialize: (options) ->
-    @libaries = new WOI.Collections.Libraries()
-    @libaries.reset options.libraries
+    @initializeLinks()
 
-    @categories = new WOI.Collections.Categories()
-    @categories.reset options.categories
+    @categories = new WOI.Collections.Categories options.categories
+    @libraries  = new WOI.Collections.Libraries  options.libraries
+    
+    new WOI.Views.Search()
+    new WOI.Views.Categories()
+    new WOI.Views.Sort()
+
+    @listenTo Backbone, 'search:change pager:change', @updateParam
+
+  initializeLinks: ->
+    links = 'a:not([data-remote]):not([data-behavior])'
+    $(document.body).on 'click', links, (e) =>
+      e.preventDefault()
+      @.navigate $(e.currentTarget).attr('href'), { trigger: true }
 
   routes:
-    ''               : 'index'
-    'search/:query'  : 'search'
-    'category/:name' : 'category'
+    '(category/:slug)' : 'index'
 
-  index: -> console.log('index')
+  index: (slug, params) ->
+    params or= {}
+    params   = _.merge params, { category: slug } if slug
+    @params  = params
+    
+    Backbone.trigger 'page:change', @params
 
-  search: -> console.log('search')
+    @category        = @categories.findWhere { slug: slug }
+    @librariesSubset = @libraries.filter(@category)
+                                 .search(@params)
+                                 .sort(@params)
 
-  cagegory: -> console.log('cagegory')
+    @librariesView.pager.undelegateEvents() if @librariesView
+    @librariesView = new WOI.Views.Libraries
+      collection:  @librariesSubset
+      initialPage: parseInt @params.page or 1, 10
+
+    @updateTitle()
+
+  updateTitle: ->
+    title = "weightof.it"
+    title += " - #{@category.get('name')}" if @category
+    title += " - Compare JavaScript libraries by weight (file size)"
+    document.title = title
+
+  updateParam: (key, value, trigger = true) ->
+    newURL = @buildURL @params, key, value, true
+    @.navigate newURL, { trigger: trigger }
+
+_.extend WOI.Routers.App.prototype, WOI.Mixins.URLHelpers

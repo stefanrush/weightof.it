@@ -1,1 +1,1 @@
-%li= link_to category.name, '#'
+%li= link_to category.name, "/category/#{category.slug}", data: { category: category.slug }
