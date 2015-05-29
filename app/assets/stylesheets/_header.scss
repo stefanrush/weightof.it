@@ -62,7 +62,6 @@ header {
     float: right;
     background-color: $white;
     color: $primary-color;
-    @include transition(background-color 250ms, color 250ms);
 
     &:hover, &:focus {
       background-color: $primary-color;
@@ -112,7 +111,6 @@ header {
       line-height: 30px;
       margin: 1rem 0;
       padding: 0 1rem;
-      @include transition(color 250ms);
 
       @media ($bp-larger-than-mobile) {
         right: 130px;
