@@ -1,8 +1,8 @@
 WOI.Mixins =
-  Text:
+  TextHelpers:
     stripText: (text) -> text.toLowerCase().replace(/[^\w\s\-\.]+/g, '')
   
-  URL:
+  URLHelpers:
     buildURL: (params, newkey, newValue, includePage = false) ->
       params = _.merge _.clone(params), { "#{newkey}": newValue } if newkey
 
@@ -19,17 +19,22 @@ WOI.Mixins =
         url += "page=#{params.page}"
       url
 
-  Updatable:
-    updateAll: (params, key, default) ->
-      @updateActive key, params[key] or default
-      @updateLinks params, key
+  UpdatableLinks:
+    initialize: ->
+      @$links  = @$el.find 'a'
+      @$active = @$links.find '.active'
+      @listenTo Backbone, 'page:change', @update
+      
+    updateLinks: (params, key, defaultValue) ->
+      @updateActiveLink key, params[key] or defaultValue
+      @updateLinkHREFs params, key
 
-    updateActive: (key, value) ->
+    updateActiveLink: (key, value) ->
       @$links.removeClass 'active'
       @$active = @$links.filter "[data-#{key}=\"#{value}\"]"
       @$active.addClass 'active'
 
-    updateLinks: (params, key) ->
+    updateLinkHREFs: (params, key) ->
       @$links.each (i, el) =>
         value = $(el).data key
         $(el).attr 'href', @buildURL(params, key, value)

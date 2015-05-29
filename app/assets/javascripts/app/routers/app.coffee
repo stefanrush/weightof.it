@@ -41,8 +41,7 @@ class WOI.Routers.App extends Backbone.Router
 
   updateTitle: ->
     title = "weightof.it"
-    if @category
-      title += " - #{@category.get('name')}"
+    title += " - #{@category.get('name')}" if @category
     title += " - Compare JavaScript libraries by weight (file size)"
     document.title = title
 
@@ -50,4 +49,4 @@ class WOI.Routers.App extends Backbone.Router
     newURL = @buildURL @params, key, value, true
     @.navigate newURL, { trigger: trigger }
 
-_.extend WOI.Routers.App.prototype, WOI.Mixins.URL
+_.extend WOI.Routers.App.prototype, WOI.Mixins.URLHelpers

@@ -34,4 +34,4 @@ class WOI.Views.Search extends Backbone.View
 
   updateClearable: -> if @query then @$clear.show() else @$clear.hide()
 
-_.extend WOI.Views.Search.prototype, WOI.Mixins.Text
+_.extend WOI.Views.Search.prototype, WOI.Mixins.TextHelpers

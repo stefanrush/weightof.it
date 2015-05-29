@@ -39,9 +39,7 @@ class WOI.Collections.Libraries extends Backbone.Collection
 
   page: (number) ->
     paged = @models
-
     paged = _.slice paged, (number - 1) * @perPage, number * @perPage
-
     new WOI.Collections.Libraries paged, @perPage
 
-_.extend WOI.Collections.Libraries.prototype, WOI.Mixins.Text
+_.extend WOI.Collections.Libraries.prototype, WOI.Mixins.TextHelpers
