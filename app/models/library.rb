@@ -47,21 +47,15 @@ class Library < ActiveRecord::Base
     to_json(only: [
       :id,
       :name,
+      :description,
       :source_url,
       :homepage_url,
       :popularity,
       :category_id
     ], methods: [
-      :info,
       :weight,
       :weight_pretty
     ])
-  end
-
-  def info
-    info = "#{name}"
-    info << " &mdash; #{description}" if description.present?
-    info
   end
 
   def weight

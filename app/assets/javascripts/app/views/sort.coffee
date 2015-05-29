@@ -13,7 +13,7 @@ class WOI.Views.Sort extends Backbone.View
   updateActive: (params) ->
     @$links.removeClass 'active'
     sort = params.sort or 'weight'
-    @$active = @$links.filter("[data-sort=\"#{sort}\"]")
+    @$active = @$links.filter "[data-sort=\"#{sort}\"]"
     @$active.addClass 'active'
 
   updateLinks: (params) ->
