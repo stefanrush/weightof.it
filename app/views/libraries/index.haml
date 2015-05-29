@@ -9,6 +9,7 @@
   .eight.columns
     %section.libraries
       %h3 Libraries
+      %p.total #{@libraries.count} found
       .sorter
         %span Sort by:
         = link_to "Weight", url_for(sort: 'weight'), data: { sort: 'weight' }

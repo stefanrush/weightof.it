@@ -9,11 +9,11 @@ class WOI.Views.Pager extends Backbone.View
 
     @updateVisibility()
 
-    @$first     = @$el.find('li.first').data('page', 1)
-    @$previous  = @$el.find('li.previous')
-    @$current   = @$el.find('li.current')
-    @$next      = @$el.find('li.next')
-    @$last      = @$el.find('li.last').data('page', @pages)
+    @$first    = @$el.find('li.first').data('page', 1)
+    @$previous = @$el.find('li.previous')
+    @$current  = @$el.find('li.current')
+    @$next     = @$el.find('li.next')
+    @$last     = @$el.find('li.last').data('page', @pages)
 
     @updatePageLinks()
 
@@ -25,15 +25,13 @@ class WOI.Views.Pager extends Backbone.View
     Backbone.trigger 'pager:change', 'page', @page, false
 
   updateVisibility: ->
-    pageExists = @page >= 1 and @page <= @pages
-    if pageExists and @pages > 1
+    if @pages > 1 and @page >= 1 and @page <= @pages
       @$el.show()
     else
       @$el.hide()
-      @parentView.$noneFound.show() unless pageExists
 
   updatePageLinks: ->
-    @$current.html @page
+    @$current.html(@page).attr('title', "Page #{@page} of #{@pages}")
     @updatePageLinksData()
     @updatePageLinksDisabled()
 

@@ -1,12 +1,19 @@
 section.libraries {
   h3 {
-    font-size: 3rem;
     margin-bottom: 1.5rem;
+    float: left;
+    font-size: 3rem;
+  }
+
+  p.total {
+    float: right;
+    line-height: 39px;
   }
 
   div.sorter {
     margin-bottom: 1.5rem;
     padding: 1rem;
+    clear: both;
     @include well;
 
     span, a {
