@@ -17,7 +17,7 @@ class WOI.Views.Libraries extends Backbone.View
 
   render: (page = 1) ->
     @$list.empty()
-    pageLibraries = @collection.page(page)
+    pageLibraries = @collection.page page
     pageLibraries.each (library) =>
       @$list.append new WOI.Views.Library({ model: library }).render().el
     @updateInfo pageLibraries.length, false
