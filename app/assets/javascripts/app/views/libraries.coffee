@@ -3,8 +3,8 @@ class WOI.Views.Libraries extends Backbone.View
 
   initialize: (options) ->
     @$list      = @$el.find 'ol.list'
-    @$noneFound = @$el.find 'p.none-found'
     @$total     = @$el.find 'p.total'
+    @$noneFound = @$el.find 'p.none-found'
 
     @updateInfo()
     @render options.initialPage
