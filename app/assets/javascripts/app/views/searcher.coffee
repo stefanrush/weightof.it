@@ -1,5 +1,5 @@
-class WOI.Views.Search extends Backbone.View
-  el: 'div.search'
+class WOI.Views.Searcher extends Backbone.View
+  el: 'div.searcher'
 
   events:
     'keyup input'    : 'search'
@@ -34,4 +34,4 @@ class WOI.Views.Search extends Backbone.View
 
   updateClearable: -> if @query then @$clear.show() else @$clear.hide()
 
-_.extend WOI.Views.Search.prototype, WOI.Mixins.TextHelpers
+_.extend WOI.Views.Searcher.prototype, WOI.Mixins.TextHelpers

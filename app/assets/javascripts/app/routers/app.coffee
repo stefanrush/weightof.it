@@ -5,9 +5,9 @@ class WOI.Routers.App extends Backbone.Router
     @categories = new WOI.Collections.Categories options.categories
     @libraries  = new WOI.Collections.Libraries  options.libraries
     
-    new WOI.Views.Search()
+    new WOI.Views.Searcher()
+    new WOI.Views.Sorter()
     new WOI.Views.Categories()
-    new WOI.Views.Sort()
 
     @listenTo Backbone, 'search:change pager:change', @updateParam
 
