@@ -13,7 +13,21 @@
         %span Sort by:
         = link_to "Weight", url_for(sort: 'weight'), data: { sort: 'weight' }
         = link_to "Popularity", url_for(sort: 'popularity'), data: { sort: 'popularity' }
-      %ol
+      %ol.list
+      %ol.pager
+        %li.first.disabled{ title: "First Page" }
+          = link_to '#first', class: 'button', data: { behavior: true} do
+            %i.fa.fa-angle-double-left
+        %li.previous.disabled{ title: "Previous Page" }
+          = link_to '#previous', class: 'button', data: { behavior: true} do
+            %i.fa.fa-angle-left
+        %li.current{ title: "Current Page" } 1
+        %li.next{ title: "Next Page" }
+          = link_to '#next', class: 'button', data: { behavior: true} do
+            %i.fa.fa-angle-right
+        %li.last{ title: "Last Page" }
+          = link_to '#last', class: 'button', data: { behavior: true} do
+            %i.fa.fa-angle-double-right
       %p.none-found No libraries found.
       %noscript
         %p

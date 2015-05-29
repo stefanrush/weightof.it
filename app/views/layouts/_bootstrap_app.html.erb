@@ -5,7 +5,7 @@
         <% cache @libraries do %>
           <% @libraries.each do |library| %>
             <% cache library do %>
-              <%= library.relevant_json.to_s.html_safe %>, 
+              <%= library.relevant_json.to_s.html_safe %>,
             <% end %>
           <% end %>
         <% end %>
@@ -20,6 +20,6 @@
         <% end %>
       ]
     });
-    Backbone.history.start({pushState: true});
+    Backbone.history.start({ pushState: true });
   });
 </script>

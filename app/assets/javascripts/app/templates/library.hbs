@@ -1,5 +1,5 @@
 <div class="basic-info">
-  <span class="info">{{{library.info}}}</span>
+  <span class="info">{{library.name}} &mdash; {{library.description}}</span>
   <span class="weight">{{library.weight_pretty}}</span>
 </div>
 <div class="more-info">
@@ -11,7 +11,7 @@
   </span>
   {{#if library.homepage_url}}
     <span class="homepage">
-      <a href="{{library.homepage_url}}" class="button" data-remote="true" target="_blank">
+      <a href="{{library.homepage_url}}" class="button button-primary" data-remote="true" target="_blank">
         <span>Homepage</span>
         <i class="fa fa-home"></i>
       </a>

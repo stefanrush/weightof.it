@@ -14,22 +14,24 @@ class WOI.Views.Search extends Backbone.View
     @listenTo Backbone, 'page:change', @update
 
   search: (e) ->
-    e.preventDefault()
+    e.preventDefault() if e
     @query = @stripText @$input.val()
-    Backbone.trigger 'search:change', @query
+    Backbone.trigger 'search:change', 'search', @query
 
   clear: (e) ->
     e.preventDefault()
-    @$input.val('')
-    @$submit.trigger('click')
+    @$input.val ''
+    @search()
 
   update: (params) ->
-    if not params.search and @query or params.search and not @query
-      @query = @stripText(params.search or '')
-      @$input.val(@query)
-    @toggleClearable()
+    @updateInput params.search
+    @updateClearable()
 
-  toggleClearable: ->
-    if @query then @$clear.show() else @$clear.hide()
+  updateInput: (newQuery) ->
+    if not newQuery and @query or newQuery and not @query
+      @query = @stripText(newQuery or '')
+      @$input.val(@query)
+
+  updateClearable: -> if @query then @$clear.show() else @$clear.hide()
 
 _.extend WOI.Views.Search.prototype, WOI.Mixins.Text

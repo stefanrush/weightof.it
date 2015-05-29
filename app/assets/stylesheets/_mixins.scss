@@ -1,27 +1,27 @@
-@mixin radius($size: 4px) {
-  -webkit-border-radius: $size;
-  -moz-border-radius: $size;
-  border-radius: $size;
+@mixin radius($radius: 4px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
 }
 
-@mixin radius-left($size: 4px) {
+@mixin radius-left($radius: 4px) {
   @include radius(0);
-  -webkit-border-top-left-radius: $size;
-  -webkit-border-bottom-left-radius: $size;
-  -moz-border-radius-topright: $size;
-  -moz-border-radius-bottomright: $size;
-  border-top-left-radius: $size;
-  border-bottom-left-radius: $size;
+  -webkit-border-top-left-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  -moz-border-radius-topright: $radius;
+  -moz-border-radius-bottomright: $radius;
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
 }
 
-@mixin radius-right($size: 4px) {
+@mixin radius-right($radius: 4px) {
   @include radius(0);
-  -webkit-border-top-right-radius: $size;
-  -webkit-border-bottom-right-radius: $size;
-  -moz-border-radius-topright: $size;
-  -moz-border-radius-bottomright: $size;
-  border-top-right-radius: $size;
-  border-bottom-right-radius: $size;
+  -webkit-border-top-right-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+  -moz-border-radius-topright: $radius;
+  -moz-border-radius-bottomright: $radius;
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
 }
 
 @mixin box-shadow($args...) {
@@ -53,5 +53,5 @@
 @mixin well {
   background-color: $light-grey;
   border: 1px solid $border-color;
-  @include radius(4px);
+  @include radius;
 }

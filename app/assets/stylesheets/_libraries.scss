@@ -14,10 +14,7 @@ section.libraries {
     }
   }
 
-  ol {
-    margin: 0;
-    list-style: none;
-
+  ol.list {
     li {
       padding: 1rem;
       border: 1px solid $border-color;
@@ -69,6 +66,7 @@ section.libraries {
       a.button {
         margin: 0;
         padding: 0 15px;
+        @include transition(background-color 250ms, color 250ms);
 
         span {
           display: none;
@@ -90,6 +88,12 @@ section.libraries {
           i {
             display: none;
           }
+        }
+
+        &:hover, &:focus {
+          background-color: $white;
+          border-color: $primary-color;
+          color: $primary-color;
         }
       }
 
@@ -116,6 +120,65 @@ section.libraries {
     }
   }
 
+  ol.pager {
+    display: none;
+    margin: 1.5rem 0 0;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      height: 38px;
+      line-height: 38px;
+      margin: 0;
+
+      &.current {
+        padding: 0 1rem;
+      }
+
+      a {
+        margin: 0 0.25rem;
+        padding: 0 1.25rem;
+        @include transition(color 250ms);
+
+        &:hover, &:focus {
+          border-color: $primary-color;
+          color: $primary-color;
+        }
+
+        i {
+          line-height: 36px;
+          font-size: 1.25rem;
+        }
+      }
+
+      &.disabled a {
+        color: $border-color;
+        cursor: default;
+
+        &:hover, &:focus {
+          border-color: $border-color;
+          color: $border-color;
+        }
+      }
+
+      @media ($bp-larger-than-mobile) {
+        &.current {
+          padding: 0 2rem;
+        }
+
+        a {
+          margin: 0 0.5rem;
+          padding: 0 2rem;
+
+          i {
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+
   p.none-found {
     display: none;
     margin-top: 2.5rem;
@@ -126,7 +189,7 @@ section.libraries {
 }
 
 html.no-csstransitions {
-  section.libraries ol li {
+  section.libraries ol.list li {
     span.info {
       @include untruncate;
     }

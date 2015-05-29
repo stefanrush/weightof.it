@@ -2,17 +2,14 @@ class WOI.Routers.App extends Backbone.Router
   initialize: (options) ->
     @initializeLinks()
 
-    @categories = new WOI.Collections.Categories()
-    @categories.reset options.categories
-
-    @libraries = new WOI.Collections.Libraries()
-    @libraries.reset options.libraries
-
+    @categories = new WOI.Collections.Categories options.categories
+    @libraries  = new WOI.Collections.Libraries  options.libraries
+    
+    new WOI.Views.Search()
     new WOI.Views.Categories()
     new WOI.Views.Sort()
-    new WOI.Views.Search()
 
-    @listenTo Backbone, 'search:change', @search
+    @listenTo Backbone, 'search:change pager:change', @updateParam
 
   initializeLinks: ->
     links = 'a:not([data-remote]):not([data-behavior])'
@@ -29,19 +26,18 @@ class WOI.Routers.App extends Backbone.Router
     @params  = params
     
     Backbone.trigger 'page:change', @params
-    
+
     @category        = @categories.findWhere { slug: slug }
     @librariesSubset = @libraries.filter(@category)
                                  .search(@params)
                                  .sort(@params)
 
-    @librariesView = new WOI.Views.Libraries { collection: @librariesSubset }
+    @librariesView.pager.undelegateEvents() if @librariesView
+    @librariesView = new WOI.Views.Libraries
+      collection:  @librariesSubset
+      initialPage: parseInt @params.page or 1, 10
 
     @updateTitle()
-
-  search: (query) ->
-    searchURL = @buildURL @params, 'search', query
-    @.navigate searchURL, { trigger: true }
 
   updateTitle: ->
     title = "weightof.it"
@@ -49,5 +45,9 @@ class WOI.Routers.App extends Backbone.Router
       title += " - #{@category.get('name')}"
     title += " - Compare JavaScript libraries by weight (file size)"
     document.title = title
+
+  updateParam: (key, value, trigger = true) ->
+    newURL = @buildURL @params, key, value, true
+    @.navigate newURL, { trigger: trigger }
 
 _.extend WOI.Routers.App.prototype, WOI.Mixins.URL
