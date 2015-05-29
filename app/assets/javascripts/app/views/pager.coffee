@@ -11,9 +11,9 @@ class WOI.Views.Pager extends Backbone.View
     @$current   = @$el.find('li.current')
     @$next      = @$el.find('li.next')
     @$last      = @$el.find('li.last').data('page', @pages)
-    
+
+    @updateVisibility()
     @updatePageLinks()
-    if @pages <= 1 then @$el.hide() else @$el.show()
 
   loadPage: (e) ->
     e.preventDefault()
@@ -21,6 +21,14 @@ class WOI.Views.Pager extends Backbone.View
     @updatePageLinks()
     @parentView.render @page
     Backbone.trigger 'pager:change', 'page', @page, false
+
+  updateVisibility: ->
+    pageExists = @page >= 1 and @page <= @pages
+    if pageExists and @pages > 1
+      @$el.show()
+    else
+      @$el.hide()
+      @parentView.$noneFound.show() unless pageExists
 
   updatePageLinks: ->
     @$current.html @page
