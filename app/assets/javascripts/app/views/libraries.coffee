@@ -2,9 +2,9 @@ class WOI.Views.Libraries extends Backbone.View
   el: 'section.libraries'
 
   initialize: (options) ->
-    @$list      = @$el.find 'ol.list'
-    @$total     = @$el.find 'p.total'
-    @$noneFound = @$el.find 'p.none-found'
+    @$list       = @$el.find 'ol.list'
+    @$totalFound = @$el.find 'p.total-found'
+    @$noneFound  = @$el.find 'p.none-found'
 
     @updateInfo()
     @render options.initialPage
@@ -26,8 +26,8 @@ class WOI.Views.Libraries extends Backbone.View
   updateInfo: (total = @collection.length, updateTotal = true) ->
     if total is 0
       @$noneFound.show()
-      @$total.hide()
+      @$totalFound.hide()
     else
       @$noneFound.hide()
-      @$total.html "#{total} found" if updateTotal
-      @$total.show()
+      @$totalFound.html "#{total} found" if updateTotal
+      @$totalFound.show()
