@@ -18,7 +18,7 @@ Create `application.yml` configuration file with:
 
     cp config/application.example.yml config/application.yml
 
-Add personal configuration settings to `application.yml`.
+Add personal configuration settings to `config/application.yml`.
 
 Install dependencies with:
 
@@ -35,7 +35,7 @@ Seed database with:
 Testing
 -------
 
-Switch Capybara driver to Selenium if PhantomJS isn't installed for Poltergeist by updating `spec/support/capybara.rb` to include:
+Switch Capybara JavaScript driver to Selenium if PhantomJS isn't installed for Poltergeist by updating `spec/support/capybara.rb` to include:
 
     Capybara.javascript_driver = :selenium
 
