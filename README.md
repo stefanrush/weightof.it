@@ -32,12 +32,12 @@ Seed database with:
 
     bundle exec rake db:seed
 
-Reset database with:
-
-    bundle exec rake db:migrate:reset
-
 Testing
 -------
+
+Switch Capybara driver to Selenium if PhantomJS isn't installed for Poltergeist by updating `spec/support/capybara.rb` to include:
+
+    Capybara.javascript_driver = :selenium
 
 Run test suite with:
 
