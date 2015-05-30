@@ -26,16 +26,18 @@ ActiveRecord::Schema.define(version: 20150521051923) do
   end
 
   create_table "libraries", force: :cascade do |t|
-    t.string   "name",                        null: false
-    t.string   "slug",                        null: false
-    t.string   "source_url",                  null: false
+    t.string   "name",                             null: false
+    t.string   "slug",                             null: false
+    t.string   "source_url",                       null: false
     t.string   "homepage_url"
     t.string   "description"
     t.integer  "popularity"
-    t.integer  "category_id",                 null: false
-    t.boolean  "active",       default: true, null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "category_id",                      null: false
+    t.boolean  "check_description", default: true, null: false
+    t.boolean  "check_popularity",  default: true, null: false
+    t.boolean  "active",            default: true, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "libraries", ["category_id"], name: "index_libraries_on_category_id", using: :btree

@@ -7,6 +7,7 @@
 #  number     :string           not null
 #  raw_url    :string           not null
 #  weight     :integer
+#  active     :boolean          default(TRUE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -6,6 +6,7 @@
 #  name       :string           not null
 #  slug       :string           not null
 #  position   :integer          default(0), not null
+#  active     :boolean          default(TRUE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -17,6 +18,7 @@ RSpec.describe Category, type: :model do
     it { is_expected.to respond_to(:name) }
     it { is_expected.to respond_to(:position) }
     it { is_expected.to respond_to(:libraries) }
+    it { is_expected.to respond_to(:active) }
   end
 
   describe "associations" do

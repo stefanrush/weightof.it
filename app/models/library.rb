@@ -2,16 +2,19 @@
 #
 # Table name: libraries
 #
-#  id           :integer          not null, primary key
-#  name         :string           not null
-#  slug         :string           not null
-#  source_url   :string           not null
-#  homepage_url :string
-#  description  :string
-#  popularity   :integer
-#  category_id  :integer          not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id                :integer          not null, primary key
+#  name              :string           not null
+#  slug              :string           not null
+#  source_url        :string           not null
+#  homepage_url      :string
+#  description       :string
+#  popularity        :integer
+#  category_id       :integer          not null
+#  check_description :boolean          default(TRUE), not null
+#  check_popularity  :boolean          default(TRUE), not null
+#  active            :boolean          default(TRUE), not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
 #
 
 require 'github_checker'
@@ -68,11 +71,15 @@ class Library < ActiveRecord::Base
     versions.count > 0 ? versions.latest.weight_pretty : nil
   end
 
-  before_save :check_github
+  before_save :check_github, if: :check_any?
 
   def check_github
     github_checker   = GithubChecker.new(source_url)
-    self.description = github_checker.check_description
-    self.popularity  = github_checker.check_stars
+    self.description = github_checker.check_description if check_description
+    self.popularity  = github_checker.check_stars       if check_popularity
+  end
+
+  def check_any?
+    check_description || check_popularity
   end
 end

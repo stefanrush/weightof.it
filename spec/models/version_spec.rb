@@ -7,6 +7,7 @@
 #  number     :string           not null
 #  raw_url    :string           not null
 #  weight     :integer
+#  active     :boolean          default(TRUE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -18,6 +19,7 @@ RSpec.describe Version, type: :model do
     it { is_expected.to respond_to(:library) }
     it { is_expected.to respond_to(:number) }
     it { is_expected.to respond_to(:raw_url) }
+    it { is_expected.to respond_to(:active) }
   end
 
   describe "associations" do
