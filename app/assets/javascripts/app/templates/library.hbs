@@ -1,5 +1,5 @@
 <div class="basic-info">
-  <span class="info">{{library.name}} &mdash; {{library.description}}</span>
+  <span class="info">{{library.name}}{{#if library.description}} &mdash; {{/if}}{{library.description}}</span>
   <span class="weight">{{library.weight_pretty}}</span>
 </div>
 <div class="more-info">

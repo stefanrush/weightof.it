@@ -3,7 +3,7 @@ class WOI.Models.Library extends Backbone.Model
 class WOI.Collections.Libraries extends Backbone.Collection
   model: WOI.Models.Library
 
-  initialize: (models, perPage = 2) ->
+  initialize: (models, perPage = 100) ->
     @perPage = perPage
     @pages   = Math.ceil models.length / @perPage
 

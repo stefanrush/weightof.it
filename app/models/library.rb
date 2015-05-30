@@ -22,7 +22,9 @@ class Library < ActiveRecord::Base
 
   accepts_nested_attributes_for :versions, limit: 100
 
-  scope :active, -> { where(active: true) }
+  scope :active,        -> { where(active: true) }
+  scope :by_weight,     -> { active.sort_by { |library| library.weight } }
+  scope :by_popularity, -> { active.order(popularity: :desc) }
 
   validates :name,       presence: true
   validates :source_url, presence: true
@@ -59,11 +61,11 @@ class Library < ActiveRecord::Base
   end
 
   def weight
-    versions.latest.weight
+    versions.count > 0 ? versions.latest.weight : nil
   end
 
   def weight_pretty
-    versions.latest.weight_pretty
+    versions.count > 0 ? versions.latest.weight_pretty : nil
   end
 
   before_save :check_github

@@ -11,20 +11,12 @@ class WOI.Routers.App extends Backbone.Router
 
     @listenTo Backbone, 'search:change pager:change', @updateParam
 
-  initializeLinks: ->
-    links = 'a:not([data-remote]):not([data-behavior])'
-    $(document.body).on 'click', links, (e) =>
-      e.preventDefault()
-      @.navigate $(e.currentTarget).attr('href'), { trigger: true }
-
   routes:
     '(category/:slug)' : 'index'
 
-  index: (slug, params) ->
-    params or= {}
-    params   = _.merge params, { category: slug } if slug
-    @params  = params
-    
+  index: (slug, params = {}) ->
+    params  = _.merge params, { category: slug } if slug
+    @params = params
     Backbone.trigger 'page:change', @params
 
     @category        = @categories.findWhere { slug: slug }
@@ -38,6 +30,12 @@ class WOI.Routers.App extends Backbone.Router
       initialPage: parseInt @params.page or 1, 10
 
     @updateTitle()
+
+  initializeLinks: ->
+    links = 'a:not([data-remote]):not([data-behavior])'
+    $(document.body).on 'click', links, (e) =>
+      e.preventDefault()
+      @.navigate $(e.currentTarget).attr('href'), { trigger: true }
 
   updateTitle: ->
     title = "weightof.it"
