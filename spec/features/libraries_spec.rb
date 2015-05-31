@@ -9,7 +9,7 @@ RSpec.describe "Libraries", type: :feature, js: true do
     all('section.libraries ol.list li')
   end
 
-  before(:each) do
+  before do
     3.times  { create(:category) }
     10.times { create(:library, category: random_category) }
     visit root_path
@@ -21,11 +21,27 @@ RSpec.describe "Libraries", type: :feature, js: true do
         Category.by_position.each do |category|
           library_count = Library.where(category: category).count
           click_link category.name
-          expect(library_items.size).to eq library_count
+          expect(library_items.size).to eq(library_count)
         end
 
         click_link "All Libraries"
-        expect(library_items.size).to eq Library.count
+        expect(library_items.size).to eq(Library.count)
+      end
+
+      context "with sort" do
+        it "filters sorted libraries by category" do
+          category = random_category
+
+          click_link "Popularity"
+          click_link category.name
+
+          Library.where(category: category)
+                 .by_popularity
+                 .zip(library_items)
+                 .each do |library, library_item|
+            expect(library_item.find('span.info')).to have_text(library.name)
+          end
+        end
       end
     end
   end
@@ -37,7 +53,7 @@ RSpec.describe "Libraries", type: :feature, js: true do
         click_link "Weight"
 
         Library.by_weight.zip(library_items).each do |library, library_item|
-          expect(library_item.find('span.info')).to have_text library.name
+          expect(library_item.find('span.info')).to have_text(library.name)
         end
       end
     end
@@ -47,32 +63,14 @@ RSpec.describe "Libraries", type: :feature, js: true do
         click_link "Popularity"
 
         Library.by_popularity.zip(library_items).each do |library, library_item|
-          expect(library_item.find('span.info')).to have_text library.name
-        end
-      end
-    end
-
-    context "with filter" do
-      describe "by popularity" do
-        it "sorts filtered libraries by popularity" do
-          category = random_category
-
-          click_link category.name
-          click_link "Popularity"
-
-          Library.where(category: category)
-                 .by_popularity
-                 .zip(library_items)
-                 .each do |library, library_item|
-            expect(library_item.find('span.info')).to have_text library.name
-          end
+          expect(library_item.find('span.info')).to have_text(library.name)
         end
       end
     end
   end
 
   describe "searcher" do
-    it "searches libraries by name"
+    #it "searches libraries by name"
   end
 
   describe "pager" do

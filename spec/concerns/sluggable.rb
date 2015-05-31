@@ -36,7 +36,7 @@ shared_examples_for 'Sluggable' do
         model.name = test_name
         model.slug = nil
         model.slugify
-        expect(model.slug).to eq expected_slug
+        expect(model.slug).to eq(expected_slug)
       end
     end
 
@@ -45,7 +45,7 @@ shared_examples_for 'Sluggable' do
         model = new_model
         model.slug = test_slug
         model.slugify
-        expect(model.slug).to eq expected_slug
+        expect(model.slug).to eq(expected_slug)
       end
     end
   end

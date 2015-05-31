@@ -20,7 +20,7 @@ shared_examples_for 'Weighable' do
     context "when :weight is blank" do
       it "sets weight to the filesize of the compressed file in bytes" do
         model.weigh
-        expect(model.weight).to eq test_weight
+        expect(model.weight).to eq(test_weight)
       end
     end
 
@@ -28,7 +28,7 @@ shared_examples_for 'Weighable' do
       it "does nothing" do
         model.weight = test_weight / 1000
         model.weigh
-        expect(model.weight).to_not eq test_weight
+        expect(model.weight).to_not eq(test_weight)
       end
     end
   end
@@ -36,34 +36,34 @@ shared_examples_for 'Weighable' do
   describe "#weight_kb" do
     it "returns weight in kilobytes" do
       model.weight = test_weight
-      expect(model.weight_kb).to eq test_weight / 1000.0
+      expect(model.weight_kb).to eq(test_weight / 1000.0)
     end
   end
 
   describe "#weight_mb" do
     it "returns weight in megabytes" do
       model.weight = test_weight
-      expect(model.weight_mb).to eq test_weight / (1000 * 1000.0)
+      expect(model.weight_mb).to eq(test_weight / (1000 * 1000.0))
     end
   end
 
   describe "#weight_gb" do
     it "returns weight in gigabytes" do
       model.weight = test_weight
-      expect(model.weight_gb).to eq test_weight / (1000 * 1000 * 1000.0)
+      expect(model.weight_gb).to eq(test_weight / (1000 * 1000 * 1000.0))
     end
   end
 
   describe "#weight_pretty" do
     it "returns the weight as a string with sensible units" do
       model.weight = test_weight / 1000
-      expect(model.weight_pretty).to eq "97 B"
+      expect(model.weight_pretty).to eq("97 B")
 
       model.weight = test_weight
-      expect(model.weight_pretty).to eq "97.1 KB"
+      expect(model.weight_pretty).to eq("97.1 KB")
 
       model.weight = test_weight * 1000.0
-      expect(model.weight_pretty).to eq "97.1 MB"
+      expect(model.weight_pretty).to eq("97.1 MB")
     end
   end
 end
