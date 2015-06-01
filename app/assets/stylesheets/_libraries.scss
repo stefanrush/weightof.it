@@ -24,6 +24,7 @@ section.libraries {
   ol.list {
     li {
       padding: 1rem;
+      background-color: $white;
       border: 1px solid $border-color;
       @include radius;
 

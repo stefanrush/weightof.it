@@ -93,6 +93,7 @@ header {
       padding: 0 1rem;
       box-sizing: border-box;
       float: right;
+      background-color: $white;
       border: 1px solid $white;
       @include radius;
       
