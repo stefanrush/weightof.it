@@ -11,10 +11,4 @@
       .six.columns
         %h2 Compare JavaScript libraries by weight
       .six.columns
-        .searcher
-          %input#search
-          = link_to '#search', class: 'submit button', data: { behavior: true } do
-            %i.fa.fa-search
-            %span Search
-          = link_to '#clear', class: 'clear', data: { behavior: true } do
-            %i.fa.fa-close
+        = render 'libraries/searcher'

@@ -4,8 +4,9 @@ class WOI.Views.Pager extends Backbone.View
 
   initialize: (options) ->
     @parentView = options.parentView
+    @params     = options.params
     @page       = options.initialPage
-    @pages      = options.pages
+    @pageCount  = options.pageCount
 
     @updateVisibility()
 
@@ -13,46 +14,65 @@ class WOI.Views.Pager extends Backbone.View
     @$previous = @$el.find('li.previous')
     @$current  = @$el.find('li.current')
     @$next     = @$el.find('li.next')
-    @$last     = @$el.find('li.last').data('page', @pages)
+    @$last     = @$el.find('li.last').data('page', @pageCount)
 
-    @updatePageLinks()
+    @updatePages()
 
   loadPage: (e) ->
     e.preventDefault()
-    @page = parseInt $(e.currentTarget).parent().data('page'), 10
-    @updatePageLinks()
-    @parentView.render @page
-    Backbone.trigger 'pager:change', 'page', @page, false
+    $page = $(e.currentTarget).parent()
+    unless $page.hasClass 'disabled'
+      @page = parseInt $page.data('page'), 10
+      @parentView.render @page
+      @updatePages()
+      Backbone.trigger 'pager:change', 'page', @page, false, true
 
-  updateVisibility: ->
-    if @pages > 1 and @page >= 1 and @page <= @pages
-      @$el.show()
-    else
-      @$el.hide()
+  updatePages: ->
+    @updatePageHREFs()
+    @updateCurrentPage()
+    @updatePageData()
+    @updatePageDisabled()
 
-  updatePageLinks: ->
-    @$current.html(@page).attr('title', "Page #{@page} of #{@pages}")
-    @updatePageLinksData()
-    @updatePageLinksDisabled()
+  updatePageHREFs: ->
+    @updateLink @$first,    @buildURL(@params)
+    @updateLink @$previous, @buildURL(@params, 'page', @previousPage(), true)
+    @updateLink @$next,     @buildURL(@params, 'page', @nextPage(),     true)
+    @updateLink @$last,     @buildURL(@params, 'page', @pageCount,      true)
 
-  updatePageLinksData: ->
-    previousPage = if @page <= 1 then 1 else @page - 1
-    @$previous.data 'page', previousPage
+  updateLink: ($item, href) -> $item.find('a').attr('href', href)
 
-    nextPage = if @page >= @pages then @pages else @page + 1
-    @$next.data 'page', nextPage
+  updateCurrentPage: ->
+    @$current.html(@page).attr('title', "Page #{@page} of #{@pageCount}")
 
-  updatePageLinksDisabled: ->
+  updatePageData: ->
+    @$previous.data 'page', @previousPage()
+    @$next.data     'page', @nextPage()
+
+  updatePageDisabled: ->
     if @page <= 1
-      @$first.addClass 'disabled'
+      @$first.addClass    'disabled'
       @$previous.addClass 'disabled'
     else
-      @$first.removeClass 'disabled'
+      @$first.removeClass    'disabled'
       @$previous.removeClass 'disabled'
 
-    if @page >= @pages
+    if @page >= @pageCount
       @$next.addClass 'disabled'
       @$last.addClass 'disabled'
     else
       @$next.removeClass 'disabled'
       @$last.removeClass 'disabled'
+
+  previousPage: -> if @page <= 1          then 1          else @page - 1
+  nextPage:     -> if @page >= @pageCount then @pageCount else @page + 1
+
+  updateVisibility: ->
+    if @pageCount > 1 and @page >= 1 and @page <= @pageCount
+      @show()
+    else
+      @hide()
+
+  show: -> @$el.removeClass 'hidden'
+  hide: -> @$el.addClass    'hidden'
+
+_.extend WOI.Views.Pager.prototype, WOI.Mixins.URLHelpers

@@ -7,7 +7,9 @@ class Scale
   end
 
   def weigh
+    return nil unless @raw_file_url
     raw_file = download(@raw_file_url)
+    return nil unless raw_file
     compressed_file = compress(raw_file)
     compressed_file.size
   end
@@ -15,7 +17,7 @@ class Scale
 private
 
   def download(url)
-    open(url).read
+    open(url).read rescue nil
   end
 
   def compress(file)

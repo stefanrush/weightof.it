@@ -5,14 +5,15 @@
 #  id                :integer          not null, primary key
 #  name              :string           not null
 #  slug              :string           not null
+#  weight            :integer
 #  source_url        :string           not null
 #  homepage_url      :string
 #  description       :string
 #  popularity        :integer
 #  category_id       :integer          not null
-#  check_description :boolean          default(TRUE), not null
-#  check_popularity  :boolean          default(TRUE), not null
-#  active            :boolean          default(TRUE), not null
+#  check_description :boolean          default(FALSE), not null
+#  check_popularity  :boolean          default(FALSE), not null
+#  active            :boolean          default(FALSE), not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
@@ -51,8 +52,10 @@ RSpec.describe Library, type: :model do
 
     it { is_expected.to validate_numericality_of(:popularity).is_greater_than_or_equal_to(0) }
   end
-
+  
+  it_behaves_like 'Pageable'
   it_behaves_like 'Sluggable'
+  it_behaves_like 'Weightable'
 
   let(:library) { build_stubbed(:library, :real) }
 

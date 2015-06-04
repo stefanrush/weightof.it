@@ -20,6 +20,7 @@ RSpec.describe "Libraries", type: :feature, js: true do
   before do
     4.times  { create(:category) }
     20.times { create(:library, category: random_category) }
+    Library.per_page = 100
     visit root_path
   end
 

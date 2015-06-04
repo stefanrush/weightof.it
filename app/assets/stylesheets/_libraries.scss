@@ -128,10 +128,9 @@ section.libraries {
   }
 
   ol.pager {
-    display: none;
     margin: 1.5rem 0 0;
     text-align: center;
-
+    
     li {
       display: inline-block;
       vertical-align: top;
@@ -186,7 +185,6 @@ section.libraries {
   }
 
   p.none-found {
-    display: none;
     margin-top: 2rem;
     font-size: 2rem;
     font-weight: 300;

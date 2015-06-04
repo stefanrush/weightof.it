@@ -1,0 +1,10 @@
+%ol.pager{ class: @page_count > 1 ? nil : 'hidden' }
+  = page_link(:first, nil, true) do
+    %i.fa.fa-angle-double-left
+  = page_link(:previous, @page - 1, true) do
+    %i.fa.fa-angle-left
+  = current_page
+  = page_link(:next, @page + 1, false) do
+    %i.fa.fa-angle-right
+  = page_link(:last, @page_count, false) do
+    %i.fa.fa-angle-double-right

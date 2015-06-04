@@ -1,15 +1,27 @@
 module LibrariesHelper
-  def basic_info(library)
-    text = "#{library.name}"
-    text << " &mdash; #{library.description}" if library.description.present?
-    content_tag :span, text.html_safe, class: 'info'
+  def all_category_link
+    link_to "All Libraries", build_url(:slug, nil),
+                             class: @category.nil? ? 'active' : nil,
+                             data: { category: 'all' }
   end
 
-  def homepage_link(library)
-    link_to "Homepage", library.homepage_url, target: '_blank', class: 'button'
+  def category_link(category)
+    link_to category.name, build_url(:slug, category.slug),
+                           class: category == @category ? 'active' : nil,
+                           data: { category: category.slug }
   end
 
-  def source_link(library)
-    link_to "Source", library.source_url, target: '_blank', class: 'button button-primary'
+  def sort_link(sort)
+    link_to sort.capitalize, build_url(:sort, sort),
+                             class: sort == @sort ? 'active' : nil,
+                             data: { sort: sort }
+  end
+
+  def total_class
+    @libraries_subset.count > 0 ? nil : 'hidden'
+  end
+
+  def none_class
+    @libraries_subset.count > 0 ? 'hidden' : nil
   end
 end

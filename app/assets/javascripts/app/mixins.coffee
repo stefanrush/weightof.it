@@ -3,7 +3,7 @@ WOI.Mixins =
     stripText: (text) -> text.toLowerCase().replace(/[^\w\s\-\.]+/g, '')
   
   URLHelpers:
-    buildURL: (params, newkey, newValue, includePage = false) ->
+    buildURL: (params = {}, newkey, newValue, includePage = false) ->
       params = _.merge _.clone(params), { "#{newkey}": newValue } if newkey
 
       url = "/"
@@ -18,6 +18,19 @@ WOI.Mixins =
         url += if params.search or params.sort then '&' else '?'
         url += "page=#{params.page}"
       url
+
+    # putting this here just in case I need it later
+    initializeParams: ->
+      url = window.location.href
+      params =
+        category: url.match(/\/category\/([\w\-]+)/)
+        search:   url.match(/(?:\?|&)search=([\w\-]+)/i)
+        sort:     url.match(/(?:\?|&)sort=([\w\-]+)/i)
+        page:     url.match(/(?:\?|&)page=([\w\-]+)/i)
+      
+      @params = {}
+      _.each params, (param, key) => 
+        _.merge @params, { "#{key}": param[1] } if param
 
   UpdatableLinks:
     initialize: ->

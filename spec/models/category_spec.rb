@@ -6,7 +6,7 @@
 #  name       :string           not null
 #  slug       :string           not null
 #  position   :integer          default(0), not null
-#  active     :boolean          default(TRUE), not null
+#  active     :boolean          default(FALSE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

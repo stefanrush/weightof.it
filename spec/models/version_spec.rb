@@ -2,14 +2,15 @@
 #
 # Table name: versions
 #
-#  id         :integer          not null, primary key
-#  library_id :integer          not null
-#  number     :string           not null
-#  raw_url    :string           not null
-#  weight     :integer
-#  active     :boolean          default(TRUE), not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  library_id   :integer          not null
+#  number       :string           not null
+#  raw_url      :string           not null
+#  weight       :integer
+#  check_weight :boolean          default(FALSE), not null
+#  active       :boolean          default(FALSE), not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
 #
 
 require 'spec_helper'
@@ -37,4 +38,5 @@ RSpec.describe Version, type: :model do
   end
 
   it_behaves_like 'Weighable'
+  it_behaves_like 'Weightable'
 end

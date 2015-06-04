@@ -4,8 +4,8 @@ class WOI.Collections.Libraries extends Backbone.Collection
   model: WOI.Models.Library
 
   initialize: (models, perPage = 100) ->
-    @perPage = perPage
-    @pages   = Math.ceil models.length / @perPage
+    @perPage   = perPage
+    @pageCount = Math.ceil models.length / @perPage
 
   filter: (category) ->
     filtered = @models

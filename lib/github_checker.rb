@@ -19,6 +19,7 @@ class GithubChecker
 private
 
   def parse_repo
+    return nil unless @source_url
     matches = @source_url.match github_regexp
     return nil unless matches
     owner   = matches[:owner]

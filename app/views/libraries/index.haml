@@ -1,35 +1,15 @@
 .row
   .four.columns
     %aside.categories
-      %h3 By Category
+      %h3 Categories
       %ul
-        %li= link_to "All Libraries", root_path, data: { category: 'all' }
+        %li= all_category_link
         = render @categories
-
   .eight.columns
     %section.libraries
       %h3 Libraries
-      %p.total-found #{@libraries.count} found
-      .sorter
-        %span Sort by:
-        = link_to "Weight", url_for(sort: 'weight'), data: { sort: 'weight' }
-        = link_to "Popularity", url_for(sort: 'popularity'), data: { sort: 'popularity' }
-      %ol.list
-      %ol.pager
-        %li.first.disabled{ title: "First Page" }
-          = link_to '#first', class: 'button', data: { behavior: true} do
-            %i.fa.fa-angle-double-left
-        %li.previous.disabled{ title: "Previous Page" }
-          = link_to '#previous', class: 'button', data: { behavior: true} do
-            %i.fa.fa-angle-left
-        %li.current{ title: "Current Page" } 1
-        %li.next{ title: "Next Page" }
-          = link_to '#next', class: 'button', data: { behavior: true} do
-            %i.fa.fa-angle-right
-        %li.last{ title: "Last Page" }
-          = link_to '#last', class: 'button', data: { behavior: true} do
-            %i.fa.fa-angle-double-right
-      %p.none-found No libraries found.
-      %noscript
-        %p
-          Enable JavaScript and reload to use this site. It is about JavaScript libraries after all.
+      %p.total-found{ class: total_class } #{@original_count} found
+      = render 'libraries/sorter'
+      %ol.list= render @libraries_subset
+      = render 'libraries/pager'
+      %p.none-found{ class: none_class } No libraries found.

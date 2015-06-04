@@ -3,7 +3,10 @@ class WOI.Routers.App extends Backbone.Router
     @initializeLinks()
 
     @categories = new WOI.Collections.Categories options.categories
-    @libraries  = new WOI.Collections.Libraries  options.libraries
+    @libraries  = new WOI.Collections.Libraries  options.libraries,
+                                                 options.perPage
+    
+    @renderLibraries = false
     
     new WOI.Views.Searcher()
     new WOI.Views.Sorter()
@@ -27,8 +30,11 @@ class WOI.Routers.App extends Backbone.Router
     @librariesView.pager.undelegateEvents() if @librariesView
     @librariesView = new WOI.Views.Libraries
       collection:  @librariesSubset
+      params:      @params
       initialPage: parseInt @params.page or 1, 10
-
+      render:      @renderLibraries
+    @renderLibraries = true unless @renderLibraries
+    
     @updateTitle()
 
   initializeLinks: ->
@@ -38,13 +44,13 @@ class WOI.Routers.App extends Backbone.Router
       @.navigate $(e.currentTarget).attr('href'), { trigger: true }
 
   updateTitle: ->
-    title = "weightof.it"
+    title  = "weightof.it"
     title += " - #{@category.get('name')}" if @category
     title += " - Compare JavaScript libraries by weight (file size)"
     document.title = title
 
-  updateParam: (key, value, trigger = true) ->
-    newURL = @buildURL @params, key, value, true
+  updateParam: (key, value, trigger = true, includePage = false) ->
+    newURL = @buildURL @params, key, value, includePage
     @.navigate newURL, { trigger: trigger }
 
 _.extend WOI.Routers.App.prototype, WOI.Mixins.URLHelpers

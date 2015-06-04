@@ -2,17 +2,20 @@
   "categories": [
     {
       "id": 1,
-      "name": "DOM Manipulation"
+      "name": "DOM Manipulation",
+      "active": true
     },
     {
       "id": 2,
-      "name": "MVC Frameworks"
+      "name": "MVC Frameworks",
+      "active": true
     },
     {
       "id": 3,
       "name": "Other Libraries",
       "slug": "other",
-      "position": 1
+      "position": 1,
+      "active": true
     }
   ]
 }

@@ -17,39 +17,44 @@ ActiveRecord::Schema.define(version: 20150521051923) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",                      null: false
-    t.string   "slug",                      null: false
-    t.integer  "position",   default: 0,    null: false
-    t.boolean  "active",     default: true, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",                       null: false
+    t.string   "slug",                       null: false
+    t.integer  "position",   default: 0,     null: false
+    t.boolean  "active",     default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
+  add_index "categories", ["slug"], name: "index_categories_on_slug", using: :btree
+
   create_table "libraries", force: :cascade do |t|
-    t.string   "name",                             null: false
-    t.string   "slug",                             null: false
-    t.string   "source_url",                       null: false
+    t.string   "name",                              null: false
+    t.string   "slug",                              null: false
+    t.integer  "weight"
+    t.string   "source_url",                        null: false
     t.string   "homepage_url"
     t.string   "description"
     t.integer  "popularity"
-    t.integer  "category_id",                      null: false
-    t.boolean  "check_description", default: true, null: false
-    t.boolean  "check_popularity",  default: true, null: false
-    t.boolean  "active",            default: true, null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "category_id",                       null: false
+    t.boolean  "check_description", default: false, null: false
+    t.boolean  "check_popularity",  default: false, null: false
+    t.boolean  "active",            default: false, null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   add_index "libraries", ["category_id"], name: "index_libraries_on_category_id", using: :btree
+  add_index "libraries", ["slug"], name: "index_libraries_on_slug", using: :btree
 
   create_table "versions", force: :cascade do |t|
-    t.integer  "library_id",                null: false
-    t.string   "number",                    null: false
-    t.string   "raw_url",                   null: false
+    t.integer  "library_id",                   null: false
+    t.string   "number",                       null: false
+    t.string   "raw_url",                      null: false
     t.integer  "weight"
-    t.boolean  "active",     default: true, null: false
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.boolean  "check_weight", default: false, null: false
+    t.boolean  "active",       default: false, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   add_index "versions", ["library_id"], name: "index_versions_on_library_id", using: :btree

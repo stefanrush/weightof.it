@@ -1,5 +1,6 @@
-database_username: 
+database_username: ""
+default_per_page:  "20"
 
 production:
-  database_username: 
-  database_password: 
+  database_username: ""
+  database_password: ""

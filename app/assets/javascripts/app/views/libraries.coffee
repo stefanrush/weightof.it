@@ -7,13 +7,14 @@ class WOI.Views.Libraries extends Backbone.View
     @$noneFound  = @$el.find 'p.none-found'
 
     @updateInfo()
-    @render options.initialPage
+    @render options.initialPage if options.render
 
     @pager = new WOI.Views.Pager
       el:          @$el.find 'ol.pager'
       parentView:  @
+      params:      options.params
       initialPage: options.initialPage
-      pages:       options.collection.pages
+      pageCount:   options.collection.pageCount
 
   render: (page = 1) ->
     @$list.empty()
@@ -25,9 +26,9 @@ class WOI.Views.Libraries extends Backbone.View
 
   updateInfo: (total = @collection.length, updateTotal = true) ->
     if total is 0
-      @$noneFound.show()
-      @$totalFound.hide()
+      @$noneFound.removeClass 'hidden'
+      @$totalFound.addClass 'hidden'
     else
-      @$noneFound.hide()
+      @$noneFound.addClass 'hidden'
       @$totalFound.html "#{total} found" if updateTotal
-      @$totalFound.show()
+      @$totalFound.removeClass 'hidden'

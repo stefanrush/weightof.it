@@ -5,14 +5,15 @@
 #  id                :integer          not null, primary key
 #  name              :string           not null
 #  slug              :string           not null
+#  weight            :integer
 #  source_url        :string           not null
 #  homepage_url      :string
 #  description       :string
 #  popularity        :integer
 #  category_id       :integer          not null
-#  check_description :boolean          default(TRUE), not null
-#  check_popularity  :boolean          default(TRUE), not null
-#  active            :boolean          default(TRUE), not null
+#  check_description :boolean          default(FALSE), not null
+#  check_popularity  :boolean          default(FALSE), not null
+#  active            :boolean          default(FALSE), not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #
@@ -25,8 +26,7 @@ FactoryGirl.define do
     sequence(:source_url)   { |n| "https://github.com/l#{n}" }
     sequence(:description)  { |n| "L#{n} description" } 
     popularity              { rand(10000) } 
-    check_description       false
-    check_popularity        false
+    active                  true
     category
 
     trait :real do

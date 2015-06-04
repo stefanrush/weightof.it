@@ -6,7 +6,7 @@
 #  name       :string           not null
 #  slug       :string           not null
 #  position   :integer          default(0), not null
-#  active     :boolean          default(TRUE), not null
+#  active     :boolean          default(FALSE), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -22,11 +22,11 @@ class Category < ActiveRecord::Base
 
   include Sluggable
 
-  def relevant_json
+  def app_json
     to_json(only: [
       :id,
       :name,
       :slug
-    ])
+    ]).to_s.html_safe
   end
 end

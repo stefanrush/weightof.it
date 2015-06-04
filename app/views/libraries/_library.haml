@@ -1,0 +1,25 @@
+%li
+  .basic-info
+    %span.info
+      #{library.name}
+      - if library.description.present?
+        &mdash; #{library.description}
+    %span.weight= library.weight_pretty
+  .more-info
+    %span.source
+      = link_to library.source_url, class: 'button button-primary',
+                                    data: { remote: true },
+                                    target: '_blank' do
+        %span Source
+        %i.fa.fa-github
+    - if library.homepage_url
+      %span.homepage
+        = link_to library.homepage_url, class: 'button button-primary',
+                                      data: { remote: true },
+                                      target: '_blank' do
+          %span Homepage
+          %i.fa.fa-home
+    - if library.popularity
+      %span.popularity{ title: "GitHub Stars" }
+        %i.fa.fa-star
+        %span= library.popularity
