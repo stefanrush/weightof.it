@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 shared_examples_for 'Weighable' do
+  describe "respond to" do
+    it { is_expected.to respond_to(:check_weight) }
+  end
+
   def new_model
     build_stubbed(described_class.to_s.underscore.to_sym, :real)
   end
