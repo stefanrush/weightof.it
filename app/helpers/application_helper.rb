@@ -12,10 +12,16 @@ module ApplicationHelper
       slug = @category.slug if @category
     end
 
+    if key == :search
+      search = value
+    else
+      search = @search
+    end
+
     if key == :sort 
       sort = value
     else
-      sort = @sort if @sort
+      sort = @sort
     end
     sort = nil if sort == 'weight'
 
@@ -28,13 +34,13 @@ module ApplicationHelper
 
     new_url  = '/'
     new_url << "category/#{slug}"  if slug
-    new_url << "?search=#{@query}" if @query
+    new_url << "?search=#{search}" if search
     if sort
-      new_url << (@query ? '&' : '?')
+      new_url << (search ? '&' : '?')
       new_url << "sort=#{sort}"
     end
     if page
-      new_url << ((@query || sort) ? '&' : '?')
+      new_url << ((search || sort) ? '&' : '?')
       new_url << "page=#{page}"
     end
 

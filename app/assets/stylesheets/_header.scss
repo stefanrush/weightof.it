@@ -57,7 +57,7 @@ header {
     }
   }
 
-  a.button {
+  a.button, button {
     margin: 1rem 0;
     float: right;
     background-color: $white;
@@ -83,8 +83,9 @@ header {
     }
   }
 
-  div.searcher {
+  form.searcher {
     position: relative;
+    margin: 0;
 
     input {
       width: 100%;
@@ -99,12 +100,12 @@ header {
       
       &:focus {
         outline: none;
+        border-color: $white;
         @include box-shadow(0 0 2px 2px lighten($primary-color, 20%));
       }
     }
 
     a.clear {
-      display: none;
       position: absolute;
       right: 72px;
       top: 1px;
@@ -122,7 +123,7 @@ header {
       }
     }
 
-    a.submit {
+    button.submit {
       position: absolute;
       top: 1px;
       right: 1px;
@@ -131,6 +132,14 @@ header {
       border: none;
       border-left: 1px solid $border-color;
       @include radius-right;
+      background-color: $white;
+      color: $primary-color;
+      text-decoration: none;
+
+      &:hover, &:focus {
+        background-color: $primary-color;
+        color: $white;
+      }
 
       i {
         margin: 0;
