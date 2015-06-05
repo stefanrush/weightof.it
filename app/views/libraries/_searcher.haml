@@ -1,7 +1,9 @@
-.searcher
-  %input#search{ value: @query }
-  = link_to '#search', class: 'submit button', data: { behavior: true } do
+= form_tag(build_url(:search, nil), method: :get, enforce_utf8: false, class: 'searcher') do
+  = text_field_tag(:search, @search)
+  - if include_sort
+    = hidden_field_tag(:sort, @sort)
+  %button.submit
     %i.fa.fa-search
     %span Search
-  = link_to '#clear', class: 'clear', data: { behavior: true } do
+  = link_to build_url(:search, nil), class: clear_classes, data: { behavior: true } do
     %i.fa.fa-close

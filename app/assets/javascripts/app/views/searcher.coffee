@@ -1,5 +1,5 @@
 class WOI.Views.Searcher extends Backbone.View
-  el: 'div.searcher'
+  el: 'form.searcher'
 
   events:
     'keyup input'    : 'search'
@@ -7,9 +7,10 @@ class WOI.Views.Searcher extends Backbone.View
     'click a.clear'  : 'clear'
 
   initialize: (options) ->
+    @$el.on 'submit', (e) -> e.preventDefault()
     @query   = ''
     @$input  = @$el.find '#search'
-    @$submit = @$el.find 'a.submit'
+    @$submit = @$el.find 'button.submit'
     @$clear  = @$el.find 'a.clear'
     @listenTo Backbone, 'page:change', @update
 
@@ -32,6 +33,7 @@ class WOI.Views.Searcher extends Backbone.View
       @query = @stripText(newQuery or '')
       @$input.val(@query)
 
-  updateClearable: -> if @query then @$clear.show() else @$clear.hide()
+  updateClearable: ->
+    if @query then @$clear.removeClass 'hidden' else @$clear.addClass 'hidden'
 
 _.extend WOI.Views.Searcher.prototype, WOI.Mixins.TextHelpers

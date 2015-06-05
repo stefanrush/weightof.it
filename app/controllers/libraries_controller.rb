@@ -34,8 +34,8 @@ private
 
   def search(libraries)
     if params[:search]
-      @query = params[:search]
-      libraries = libraries.where('name ILIKE ?', "%#{@query}%")
+      @search = params[:search]
+      libraries = libraries.where('name ILIKE ?', "%#{@search}%")
     end
     libraries
   end

@@ -2,7 +2,7 @@ section.content {
   padding: 2rem 0;
 }
 
-a {
+a, button {
   text-decoration: none;
   @include transition(background-color 250ms, color 250ms);
 
