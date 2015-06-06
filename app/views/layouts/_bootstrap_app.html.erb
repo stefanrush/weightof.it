@@ -1,20 +1,19 @@
-<!-- doing this in erb because I don't know how to do it in haml -->
 <script>
   $(function() {
     window.app = new WOI.Routers.App({
       libraries: [
-        <% cache 'v1', @libraries do %>
+        <% cache @libraries do %>
           <% @libraries.each do |library| %>
-            <% cache 'v1', library do %>
+            <% cache library do %>
               <%= library.app_json %>,
             <% end %>
           <% end %>
         <% end %>
       ],
       categories: [
-        <% cache 'v1', @categories do %>
+        <% cache @categories do %>
           <% @categories.each do |category| %>
-            <% cache 'v1', category do %>
+            <% cache category do %>
               <%= category.app_json %>,
             <% end %>
           <% end %>
