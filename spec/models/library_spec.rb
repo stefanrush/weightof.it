@@ -13,6 +13,7 @@
 #  category_id       :integer          not null
 #  check_description :boolean          default(FALSE), not null
 #  check_popularity  :boolean          default(FALSE), not null
+#  approved          :boolean          default(FALSE), not null
 #  active            :boolean          default(FALSE), not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
@@ -31,6 +32,7 @@ RSpec.describe Library, type: :model do
     it { is_expected.to respond_to(:category) }
     it { is_expected.to respond_to(:check_description) }
     it { is_expected.to respond_to(:check_popularity) }
+    it { is_expected.to respond_to(:approved) }
     it { is_expected.to respond_to(:active) }
   end
 
@@ -64,6 +66,27 @@ RSpec.describe Library, type: :model do
       library.check_github
       expect(library.description).to_not be_nil
       expect(library.popularity).to_not be_nil
+    end
+  end
+
+  describe "#check_any?" do
+    it "returns true when at least one of the check_* attributes is true" do
+      library.check_description = true
+      library.check_popularity  = true
+      expect(library.check_any?).to be_truthy
+
+      library.check_description = false
+      expect(library.check_any?).to be_truthy
+
+      library.check_description = true
+      library.check_popularity  = false
+      expect(library.check_any?).to be_truthy
+    end
+
+    it "returns false when none of the check_* attributes are true" do
+      library.check_description = false
+      library.check_popularity  = false
+      expect(library.check_any?).to be_falsey
     end
   end
 end

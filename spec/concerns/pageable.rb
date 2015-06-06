@@ -17,10 +17,10 @@ shared_examples_for 'Pageable' do
 
   describe ".page_count" do
     it "returns the number of pages" do
-      per_page_tests     = [10, 20, 32, 42, 51, 89, 100, 101, 1000]
-      pages_expectations = [10,  5,  4,  3,  2,  2,   1,   1,    1]
+      per_page_tests          = [10, 20, 32, 42, 51, 89, 100, 101, 1000]
+      page_count_expectations = [10,  5,  4,  3,  2,  2,   1,   1,    1]
 
-      per_page_tests.zip(pages_expectations) do |test, expectation|
+      per_page_tests.zip(page_count_expectations) do |test, expectation|
         described_class.per_page = test
         expect(described_class.page_count).to eq(expectation)
       end
@@ -31,7 +31,7 @@ shared_examples_for 'Pageable' do
     it "returns only items from specific page" do
       described_class.per_page = 10
 
-      collection = described_class.active
+      collection = described_class.all
 
       10.times do
         page_number = rand(9) + 1 
