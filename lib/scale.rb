@@ -17,7 +17,7 @@ class Scale
 private
 
   def download(url)
-    open(url).read rescue nil
+    open(url).read.force_encoding('utf-8') rescue nil
   end
 
   def compress(file)

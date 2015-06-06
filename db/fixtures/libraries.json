@@ -1,32 +1,31 @@
 {
   "libraries": [
     {
-      "id": 1,
       "name": "jQuery",
       "source_url": "https://github.com/jquery/jquery",
       "homepage_url": "https://jquery.com/",
       "category_id": 1,
       "versions_attributes": [
         {
-          "number": "1.11.3",
-          "raw_url": "https://code.jquery.com/jquery-1.11.3.js",
+          "number": "2.1.4",
+          "raw_url": "https://code.jquery.com/jquery-2.1.4.js",
           "check_weight": true,
           "active": true
         },
         {
-          "number": "2.1.4",
-          "raw_url": "https://code.jquery.com/jquery-2.1.4.js",
+          "number": "1.11.3",
+          "raw_url": "https://code.jquery.com/jquery-1.11.3.js",
           "check_weight": true,
           "active": true
         }
       ],
       "check_description": true,
       "check_popularity": true,
+      "approved": true,
       "active": true
     },
     {
-      "id": 2,
-      "name": "Zepto",
+      "name": "Zepto.js",
       "source_url": "https://github.com/madrobby/zepto",
       "homepage_url": "http://zeptojs.com/",
       "category_id": 1,
@@ -40,27 +39,15 @@
       ],
       "check_description": true,
       "check_popularity": true,
+      "approved": true,
       "active": true
     },
     {
-      "id": 3,
       "name": "Prototype",
       "source_url": "https://github.com/sstephenson/prototype",
       "homepage_url": "http://prototypejs.org/",
       "category_id": 1,
       "versions_attributes": [
-        {
-          "number": "1.5.1.2",
-          "raw_url": "http://prototypejs.org/assets/2008/1/25/prototype-1.5.1.2.js",
-          "check_weight": true,
-          "active": true
-        },
-        {
-          "number": "1.6.1",
-          "raw_url": "http://prototypejs.org/assets/2009/8/31/prototype.js",
-          "check_weight": true,
-          "active": true
-        },
         {
           "number": "1.7.7",
           "raw_url": "https://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js",
@@ -70,10 +57,46 @@
       ],
       "check_description": true,
       "check_popularity": true,
+      "approved": true,
       "active": true
     },
     {
-      "id": 4,
+      "name": "MooTools",
+      "source_url": "https://github.com/mootools/mootools-core",
+      "homepage_url": "http://mootools.net/",
+      "category_id": 1,
+      "versions_attributes": [
+        {
+          "number": "1.5.1",
+          "raw_url": "https://ajax.googleapis.com/ajax/libs/mootools/1.5.1/mootools.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "AngularJS",
+      "source_url": "https://github.com/angular/angular.js",
+      "homepage_url": "https://angularjs.org/",
+      "category_id": 2,
+      "versions_attributes": [
+        {
+          "number": "1.4.0",
+          "raw_url": "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
       "name": "Backbone.js",
       "source_url": "https://github.com/jashkenas/backbone",
       "homepage_url": "http://backbonejs.org/",
@@ -88,10 +111,28 @@
       ],
       "check_description": true,
       "check_popularity": true,
+      "approved": true,
       "active": true
     },
     {
-      "id": 5,
+      "name": "Ember.js",
+      "source_url": "https://github.com/emberjs/ember.js",
+      "homepage_url": "http://emberjs.com/",
+      "category_id": 2,
+      "versions_attributes": [
+        {
+          "number": "1.12.1",
+          "raw_url": "http://builds.emberjs.com/tags/v1.12.1/ember.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
       "name": "Marionette",
       "source_url": "https://github.com/marionettejs/backbone.marionette",
       "homepage_url": "http://marionettejs.com/",
@@ -106,6 +147,78 @@
       ],
       "check_description": true,
       "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Async.js",
+      "source_url": "https://github.com/caolan/async",
+      "category_id": 3,
+      "versions_attributes": [
+        {
+          "number": "1.0.0",
+          "raw_url": "https://raw.githubusercontent.com/caolan/async/master/lib/async.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "lodash",
+      "source_url": "https://github.com/lodash/lodash",
+      "homepage_url": "http://lodash.com/",
+      "category_id": 3,
+      "versions_attributes": [
+        {
+          "number": "3.9.3",
+          "raw_url": "https://raw.githubusercontent.com/lodash/lodash/3.9.3/lodash.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Modernizr",
+      "source_url": "https://github.com/Modernizr/Modernizr",
+      "homepage_url": "http://modernizr.com/",
+      "category_id": 3,
+      "versions_attributes": [
+        {
+          "number": "2.8.3",
+          "raw_url": "http://modernizr.com/downloads/modernizr-latest.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Underscore.js",
+      "source_url": "https://github.com/jashkenas/underscore",
+      "homepage_url": "http://underscorejs.org/",
+      "category_id": 3,
+      "versions_attributes": [
+        {
+          "number": "1.8.3",
+          "raw_url": "http://underscorejs.org/underscore-min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
       "active": true
     }
   ]

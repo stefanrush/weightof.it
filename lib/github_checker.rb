@@ -37,6 +37,7 @@ private
   end
 
   def request_repo_data
+    # "Authentication" => Figaro.env.github_access_token
     open("#{@api_endpoint}/#{@repo}").read
   end
 end

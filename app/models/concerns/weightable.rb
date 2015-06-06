@@ -4,6 +4,8 @@ module Weightable
   included do
     validates :weight, numericality: { greater_than: 0 }, allow_blank: true
 
+    scope :weighed,   -> { where.not(weight: nil) }
+    scope :unweighed, -> { where(weight: nil) }
     scope :by_weight, -> { order(:weight) }
 
     def weight_kb

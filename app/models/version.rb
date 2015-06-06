@@ -13,6 +13,8 @@
 #  updated_at   :datetime         not null
 #
 
+require 'scale'
+
 class Version < ActiveRecord::Base
   belongs_to :library, inverse_of: :versions, touch: true
 
@@ -26,13 +28,18 @@ class Version < ActiveRecord::Base
   validates :raw_url, format: { with: URI.regexp, message: "must be valid URL" }
   validates :raw_url, format: { with: /\.js\z/, message: "must be JS file" }
 
-  include Weighable
   include Weightable
+
+  before_validation :weigh, if: :check_weight
+
+  def weigh
+    self.weight = Scale.new(raw_url).weigh
+  end
 
   after_save :update_library_weight, if: :is_latest?
 
   def update_library_weight
-    library.update_attributes(weight: weight)
+    self.library.update_attributes(weight: weight)
   end
 
   def is_latest?

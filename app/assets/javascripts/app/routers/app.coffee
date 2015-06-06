@@ -18,7 +18,7 @@ class WOI.Routers.App extends Backbone.Router
     '(category/:slug)' : 'index'
 
   index: (slug, params = {}) ->
-    params  = _.merge params, { category: slug } if slug
+    params  = _.extend params, { category: slug } if slug
     @params = params
     Backbone.trigger 'page:change', @params
 

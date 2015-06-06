@@ -1,1 +1,1 @@
-Figaro.require_keys('database_username', 'default_per_page')
+Figaro.require_keys('database_username', 'secret_key', 'default_per_page')

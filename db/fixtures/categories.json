@@ -7,11 +7,16 @@
     },
     {
       "id": 2,
-      "name": "MVC Frameworks",
+      "name": "Application Frameworks",
       "active": true
     },
     {
       "id": 3,
+      "name": "Utilities",
+      "active": true
+    },
+    {
+      "id": 4,
       "name": "Other Libraries",
       "slug": "other",
       "position": 1,

@@ -4,7 +4,7 @@ WOI.Mixins =
   
   URLHelpers:
     buildURL: (params = {}, newkey, newValue, includePage = false) ->
-      params = _.merge _.clone(params), { "#{newkey}": newValue } if newkey
+      params = _.extend _.clone(params), { "#{newkey}": newValue } if newkey
 
       url = "/"
       if params.category and params.category isnt 'all'

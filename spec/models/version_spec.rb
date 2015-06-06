@@ -20,6 +20,7 @@ RSpec.describe Version, type: :model do
     it { is_expected.to respond_to(:library) }
     it { is_expected.to respond_to(:number) }
     it { is_expected.to respond_to(:raw_url) }
+    it { is_expected.to respond_to(:check_weight) }
     it { is_expected.to respond_to(:active) }
   end
 
@@ -37,6 +38,24 @@ RSpec.describe Version, type: :model do
     it { is_expected.to allow_value('http://raw.com/raw.js').for(:raw_url) }
   end
 
-  it_behaves_like 'Weighable'
   it_behaves_like 'Weightable'
+
+  let(:version) { build_stubbed(:version, :real) }
+  
+  describe "#weigh" do
+    let(:test_weight) { 97134 }
+
+    it "sets weight to the filesize of the compressed file in bytes" do
+      version.weigh
+      expect(version.weight).to eq(test_weight)
+    end
+  end
+
+  describe "#update_library_weight" do
+    it "updates the the weight of the associated library to the weight of the version"
+  end
+
+  describe "#is_latest?" do
+    it "returns true it the version is the latest"
+  end
 end

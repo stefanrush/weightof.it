@@ -13,6 +13,7 @@
 #  category_id       :integer          not null
 #  check_description :boolean          default(FALSE), not null
 #  check_popularity  :boolean          default(FALSE), not null
+#  approved          :boolean          default(FALSE), not null
 #  active            :boolean          default(FALSE), not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
@@ -26,7 +27,9 @@ class Library < ActiveRecord::Base
 
   accepts_nested_attributes_for :versions, limit: 100
 
-  scope :active,        -> { where(active: true) }
+  scope :approved,      -> { where(approved: true) }
+  scope :unapproved,    -> { where(approved: false) }
+  scope :active,        -> { approved.weighed.where(active: true) }
   scope :by_popularity, -> { order(popularity: :desc) }
 
   validates :name,       presence: true
@@ -76,4 +79,14 @@ class Library < ActiveRecord::Base
   def check_any?
     check_description || check_popularity
   end
+
+  def approve
+    self.update_attributes(check_description: true,
+                           check_popularity: true,
+                           active: true,
+                           approved: true)
+    versions.each do |version|
+      version.update_attributes(check_weight: true, active: true)
+    end
+  end 
 end

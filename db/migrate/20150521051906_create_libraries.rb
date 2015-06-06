@@ -11,6 +11,7 @@ class CreateLibraries < ActiveRecord::Migration
       t.references :category,          null: false, index: true
       t.boolean    :check_description, null: false, default: false
       t.boolean    :check_popularity,  null: false, default: false
+      t.boolean    :approved,          null: false, default: false
       t.boolean    :active,            null: false, default: false
       t.timestamps                     null: false
     end
