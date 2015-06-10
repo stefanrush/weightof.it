@@ -1,6 +1,7 @@
 class LibrariesController < ApplicationController
   include Pagerable
 
+  # GET '/(category/:slug)'
   def index
     @categories = Category.by_position
     @libraries  = Library.active
@@ -13,6 +14,8 @@ class LibrariesController < ApplicationController
 
 private
   
+  # Accepts collection of libraries
+  # Returns subset of libraries based on params
   def subset(libraries)
     libraries = filter libraries
     libraries = search libraries
@@ -24,6 +27,8 @@ private
     libraries
   end
 
+  # Accepts collection of libraries
+  # Returns filtered subset of libraries using :slug param
   def filter(libraries)
     if params[:slug]
       @category = @categories.find_by_slug! params[:slug]
@@ -32,6 +37,8 @@ private
     libraries
   end
 
+  # Accepts collection of libraries
+  # Returns searched subset of libraries using :search param
   def search(libraries)
     if params[:search]
       @search = params[:search]
@@ -40,6 +47,8 @@ private
     libraries
   end
 
+  # Accepts collection of libraries
+  # Returns sorted libraries using :sort param
   def sort(libraries)
     @sort = params[:sort] || 'weight'
     case @sort

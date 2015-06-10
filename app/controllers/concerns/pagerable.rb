@@ -1,6 +1,8 @@
 module Pagerable
   extend ActiveSupport::Concern
 
+  # Accepts collection of items
+  # Returns page of items using :page param
   def paginate(items)
     @page       = (params[:page] || 1).to_i
     @page_count = items.page_count

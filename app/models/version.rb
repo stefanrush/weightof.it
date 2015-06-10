@@ -33,7 +33,8 @@ class Version < ActiveRecord::Base
   before_validation :weigh, if: :check_weight
 
   def weigh
-    self.weight = Scale.new(raw_url).weigh
+    scale = Scale.new
+    self.weight = scale.add(raw_url).weigh
   end
 
   after_save :update_library_weight, if: :is_latest?
