@@ -1,15 +1,11 @@
 .row
   .four.columns
-    %aside.categories
-      %h3 Categories
-      %ul
-        %li= all_category_link
-        = render @categories
+    = render 'categories/sidebar'
   .eight.columns
     %section.libraries
       %h3 Libraries
       %p.total-found{ class: total_class } #{@original_count} found
-      = render 'libraries/sorter'
+      = render 'components/sorter'
       %ol.list= render @libraries_subset
-      = render 'libraries/pager'
-      %p.none-found{ class: none_class } No libraries found.
+      = render 'components/pager'
+      %p.none-found{ class: none_found_class } No libraries found.
