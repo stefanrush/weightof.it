@@ -11,7 +11,7 @@ class Scale
   # Places file(s) on scale
   # Returns scale
   def add(raw_file_url)
-    @file_urls << *raw_file_url
+    @file_urls.push *raw_file_url
     self
   end
 

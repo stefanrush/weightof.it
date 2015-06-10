@@ -25,11 +25,12 @@ class Library < ActiveRecord::Base
   belongs_to :category
   has_many   :versions, inverse_of: :library
 
-  accepts_nested_attributes_for :versions, limit: 100
-
+  accepts_nested_attributes_for :versions, limit: 10
+  
+  scope :app_data,      -> { select(self.app_fields).approved.active.weighed }
   scope :approved,      -> { where(approved: true) }
   scope :unapproved,    -> { where(approved: false) }
-  scope :active,        -> { approved.weighed.where(active: true) }
+  scope :active,        -> { where(active: true) }
   scope :by_popularity, -> { order(popularity: :desc) }
 
   validates :name,       presence: true
@@ -52,9 +53,9 @@ class Library < ActiveRecord::Base
   include Pageable
   include Sluggable
   include Weightable
-  
-  def app_json
-    to_json(only: [
+
+  def self.app_fields
+    [
       :id,
       :name,
       :weight,
@@ -63,9 +64,12 @@ class Library < ActiveRecord::Base
       :homepage_url,
       :popularity,
       :category_id
-    ], methods: [
-      :weight_pretty
-    ]).to_s.html_safe
+    ]
+  end
+  
+  def app_json
+    to_json(only: self.class.app_fields,
+            methods: [:weight_pretty]).to_s.html_safe
   end
 
   before_validation :check_github, if: :check_any?

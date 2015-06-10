@@ -3,8 +3,8 @@ class LibrariesController < ApplicationController
 
   # GET '/(category/:slug)'
   def index
-    @categories = Category.by_position
-    @libraries  = Library.active
+    @categories = Category.app_data
+    @libraries  = Library.app_data
     
     @libraries_subset = subset @libraries.dup
   
@@ -21,7 +21,7 @@ private
     libraries = search libraries
     libraries = sort libraries
 
-    @original_count = libraries.count
+    @original_count = libraries.to_a.size
     
     libraries = paginate libraries
     libraries

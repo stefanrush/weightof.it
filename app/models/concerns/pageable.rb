@@ -6,6 +6,6 @@ module Pageable
     self.per_page = Figaro.env.default_per_page.to_i
 
     scope :page,       -> (n) { limit(per_page).offset(per_page * (n - 1)) }
-    scope :page_count, ->     { (count / self.per_page.to_f).ceil }
+    scope :page_count, -> { (count(:all) / self.per_page.to_f).ceil }
   end
 end

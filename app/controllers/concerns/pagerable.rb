@@ -8,7 +8,7 @@ module Pagerable
     @page_count = items.page_count
     @per_page   = items.model.per_page
 
-    if items.count > 0 && (@page < 1 || @page > @page_count) # page doesn't exist
+    if items.count(:all) > 0 && (@page < 1 || @page > @page_count) # page doesn't exist
       raise ActiveRecord::RecordNotFound
     end
 

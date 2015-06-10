@@ -14,19 +14,24 @@
 class Category < ActiveRecord::Base
   has_many :libraries
 
+  scope :app_data,    -> { select(self.app_fields).active.by_position }
   scope :active,      -> { where(active: true) }
-  scope :by_position, -> { active.order(:position, :name) }
+  scope :by_position, -> { order(:position, :name) }
 
   validates :name,     presence: true
   validates :position, presence: true
 
   include Sluggable
 
-  def app_json
-    to_json(only: [
+  def self.app_fields
+    [
       :id,
       :name,
       :slug
-    ]).to_s.html_safe
+    ]
+  end
+
+  def app_json
+    to_json(only: self.class.app_fields).to_s.html_safe
   end
 end
