@@ -14,13 +14,13 @@
 class Category < ActiveRecord::Base
   has_many :libraries
 
-  scope :app_data,    -> { select(self.app_fields).active.by_position }
-  scope :active,      -> { where(active: true) }
-  scope :by_position, -> { order(:position, :name) }
-
   validates :name,     presence: true
   validates :position, presence: true
 
+  scope :app_data,    -> { select(self.app_fields).active.by_position }
+  scope :by_position, -> { order(:position, :name) }
+
+  include Activeable
   include Sluggable
 
   def self.app_fields

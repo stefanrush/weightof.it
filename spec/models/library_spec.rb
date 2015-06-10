@@ -55,38 +55,65 @@ RSpec.describe Library, type: :model do
     it { is_expected.to validate_numericality_of(:popularity).is_greater_than_or_equal_to(0) }
   end
   
-  it_behaves_like 'Pageable'
-  it_behaves_like 'Sluggable'
-  it_behaves_like 'Weightable'
+  it_behaves_like "Pageable"
+  it_behaves_like "Sluggable"
+  it_behaves_like "Weightable"
 
-  let(:library) { build_stubbed(:library, :real) }
+  describe "instance methods" do
+    describe "#check_github" do
+      let(:library) { build_stubbed(:library, :real) }
 
-  describe "#check_github" do
-    it "parses description and star (popularity) data from GitHub API" do
-      library.check_github
-      expect(library.description).to_not be_nil
-      expect(library.popularity).to_not be_nil
-    end
-  end
-
-  describe "#check_any?" do
-    it "returns true when at least one of the check_* attributes is true" do
-      library.check_description = true
-      library.check_popularity  = true
-      expect(library.check_any?).to be_truthy
-
-      library.check_description = false
-      expect(library.check_any?).to be_truthy
-
-      library.check_description = true
-      library.check_popularity  = false
-      expect(library.check_any?).to be_truthy
+      it "parses description and star (popularity) data from GitHub API" do
+        library.check_github
+        expect(library.description).to_not be_nil
+        expect(library.popularity).to_not be_nil
+      end
     end
 
-    it "returns false when none of the check_* attributes are true" do
-      library.check_description = false
-      library.check_popularity  = false
-      expect(library.check_any?).to be_falsey
+    describe "#check_any?" do
+      let(:library) { build_stubbed(:library) }
+
+      it "returns true when at least one of the check_* attributes is true" do
+        library.check_description = true
+        library.check_popularity  = true
+        expect(library.check_any?).to be_truthy
+
+        library.check_description = false
+        expect(library.check_any?).to be_truthy
+
+        library.check_description = true
+        library.check_popularity  = false
+        expect(library.check_any?).to be_truthy
+      end
+
+      it "returns false when none of the check_* attributes are true" do
+        library.check_description = false
+        library.check_popularity  = false
+        expect(library.check_any?).to be_falsey
+      end
+    end
+
+    describe "#approve" do
+      let(:library) { create(:library, approved: false, active: false) }
+      before { 5.times { create(:version, library: library, active: false) } }
+
+      it "sets approved, active, check_* to true on library and its versions" do
+        expect(library.approved).to be_falsey
+        expect(library.active).to be_falsey
+        expect(library.check_any?).to be_falsey
+        
+        library.approve
+        
+        expect(library.approved).to be_truthy
+        expect(library.active).to be_truthy
+        expect(library.check_description).to be_truthy
+        expect(library.check_popularity).to be_truthy
+        
+        library.versions.each do |version|
+          expect(version.active).to be_truthy
+          expect(version.check_weight).to be_truthy
+        end
+      end
     end
   end
 end

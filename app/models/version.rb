@@ -18,32 +18,38 @@ require 'scale'
 class Version < ActiveRecord::Base
   belongs_to :library, inverse_of: :versions, touch: true
 
-  scope :active, -> { where(active: true) }
-  scope :latest, -> { active.order(number: :desc).first }
-
   validates :library, presence: true
   validates :number,  presence: true
   validates :raw_url, presence: true
+
+  validates :number, format: { with: /\A(\d+\.)*\d+\z/ }
   
   validates :raw_url, format: { with: URI.regexp, message: "must be valid URL" }
   validates :raw_url, format: { with: /\.js\z/, message: "must be JS file" }
 
+  scope :latest, -> { active.sort_by{ |v| v.sortable_number }.reverse.first }
+
+  include Activeable
   include Weightable
 
-  before_validation :weigh, if: :check_weight
+  before_validation :weigh, if: :check_weight?
+  after_save :update_library_weight, if: :is_latest?
 
   def weigh
     scale = Scale.new
     self.weight = scale.add(raw_url).weigh
   end
 
-  after_save :update_library_weight, if: :is_latest?
-
   def update_library_weight
     self.library.update_attributes(weight: weight)
   end
 
   def is_latest?
-    self.class.where(library: library).latest.id == id
+    return false unless active?
+    id == self.class.where(library: library).latest.id
+  end
+
+  def sortable_number
+    number.split('.').map{ |n| n.rjust(5, '0') }.join
   end
 end

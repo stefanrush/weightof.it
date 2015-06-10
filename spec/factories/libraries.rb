@@ -23,11 +23,11 @@ FactoryGirl.define do
   factory :library do
     sequence(:name)         { |n| "L#{n}" }
     sequence(:slug)         { |n| "l-#{n}" }
-    weight                  { rand(10000) }
+    weight                  { rand(10000) + 1 }
     sequence(:homepage_url) { |n| "https://l#{n}.com" }
     sequence(:source_url)   { |n| "https://github.com/l#{n}" }
     sequence(:description)  { |n| "L#{n} description" } 
-    popularity              { rand(10000) } 
+    popularity              { rand(10000) + 1 } 
     active                  true
     approved                true
     category

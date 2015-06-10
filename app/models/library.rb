@@ -26,12 +26,6 @@ class Library < ActiveRecord::Base
   has_many   :versions, inverse_of: :library
 
   accepts_nested_attributes_for :versions, limit: 10
-  
-  scope :app_data,      -> { select(self.app_fields).approved.active.weighed }
-  scope :approved,      -> { where(approved: true) }
-  scope :unapproved,    -> { where(approved: false) }
-  scope :active,        -> { where(active: true) }
-  scope :by_popularity, -> { order(popularity: :desc) }
 
   validates :name,       presence: true
   validates :source_url, presence: true
@@ -50,9 +44,17 @@ class Library < ActiveRecord::Base
     greater_than_or_equal_to: 0
   }, allow_blank: true
 
+  scope :app_data,      -> { select(self.app_fields).approved.active.weighed }
+  scope :approved,      -> { where(approved: true) }
+  scope :unapproved,    -> { where(approved: false) }
+  scope :by_popularity, -> { order(popularity: :desc) }
+
+  include Activeable
   include Pageable
   include Sluggable
   include Weightable
+
+  before_validation :check_github, if: :check_any?
 
   def self.app_fields
     [
@@ -72,16 +74,14 @@ class Library < ActiveRecord::Base
             methods: [:weight_pretty]).to_s.html_safe
   end
 
-  before_validation :check_github, if: :check_any?
-
   def check_github
     github_checker   = GithubChecker.new(source_url)
-    self.description = github_checker.check_description if check_description
-    self.popularity  = github_checker.check_stars       if check_popularity
+    self.description = github_checker.check_description if check_description?
+    self.popularity  = github_checker.check_stars       if check_popularity?
   end
 
   def check_any?
-    check_description || check_popularity
+    check_description? || check_popularity?
   end
 
   def approve
