@@ -122,6 +122,9 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     json (1.8.2)
     listen (2.10.0)
@@ -138,6 +141,7 @@ GEM
     mini_portile (0.6.2)
     minitest (5.6.1)
     multi_json (1.11.0)
+    multi_xml (0.5.5)
     nenv (0.2.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -276,6 +280,7 @@ DEPENDENCIES
   guard-rspec
   haml-rails (~> 0.9)
   handlebars_assets
+  httparty
   pg
   poltergeist
   rails (= 4.2.0)
