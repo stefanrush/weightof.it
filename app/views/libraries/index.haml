@@ -4,7 +4,7 @@
   .eight.columns
     %section.libraries
       %h3 Libraries
-      %p.total-found{ class: total_class } #{@original_count} found
+      %p.total-found{ class: total_class } #{@total_count} found
       = render 'components/sorter'
       %ol.list= render @libraries_subset
       = render 'components/pager'
