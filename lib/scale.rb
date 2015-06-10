@@ -1,7 +1,8 @@
-require 'open-uri'
 require 'uglifier'
 
 class Scale
+  include HTTParty
+
   def initialize
     @file_urls    = []
     @total_weight = 0
@@ -19,9 +20,9 @@ class Scale
   def weigh
     @total_weight = 0
     @file_urls.each do |file_url|
-      raw_file = download(file_url)
+      raw_file        = download(file_url)
       compressed_file = compress(raw_file)
-      @total_weight += compressed_file.size
+      @total_weight  += compressed_file.size
     end
     @total_weight > 0 ? @total_weight : nil
   rescue => e
@@ -34,7 +35,9 @@ private
   # Accepts URL of file to download
   # Returns downloaded file
   def download(url)
-    open(url).read.force_encoding('utf-8')
+    self.class.get(url, headers: {
+      'User-Agent' => 'stefanrush/weightof.it'
+    }).force_encoding('utf-8')
   end
 
   # Accepts JS file
