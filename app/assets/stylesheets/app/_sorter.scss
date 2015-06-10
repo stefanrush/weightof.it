@@ -1,0 +1,10 @@
+div.sorter {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  clear: both;
+  @include well;
+
+  span, a {
+    margin-right: 1rem;
+  }
+}

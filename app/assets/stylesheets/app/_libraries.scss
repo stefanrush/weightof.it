@@ -10,17 +10,6 @@ section.libraries {
     line-height: 39px;
   }
 
-  div.sorter {
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    clear: both;
-    @include well;
-
-    span, a {
-      margin-right: 1rem;
-    }
-  }
-
   ol.list {
     li {
       padding: 1rem;
@@ -32,9 +21,12 @@ section.libraries {
         margin: 0;
       }
 
+      &:hover {
+        border-color: $primary-color;
+      }
+
       span.info {
         width: 70%;
-        @include truncate;
 
         @media ($bp-larger-than-mobile) {
           width: 80%;
@@ -105,81 +97,11 @@ section.libraries {
       }
 
       div.more-info {
-        max-height: 0;
-        padding: 0;
+        max-height: 40px;
+        padding-top: 1rem;
         clear: left;
         overflow: hidden;
         @include transition(max-height 250ms, padding 250ms);
-      }
-
-      &:hover {
-        border-color: $primary-color;
-
-        span.info {
-          @include untruncate;
-        }
-
-        div.more-info {
-          padding-top: 1rem;
-          max-height: 40px;
-        }
-      }
-    }
-  }
-
-  ol.pager {
-    margin: 1.5rem 0 0;
-    text-align: center;
-    
-    li {
-      display: inline-block;
-      vertical-align: top;
-      height: 38px;
-      line-height: 38px;
-      margin: 0;
-
-      &.current {
-        padding: 0 1rem;
-      }
-
-      a {
-        margin: 0 0.25rem;
-        padding: 0 1.25rem;
-
-        &:hover, &:focus {
-          border-color: $primary-color;
-          color: $primary-color;
-        }
-
-        i {
-          line-height: 36px;
-          font-size: 1.25rem;
-        }
-      }
-
-      &.disabled a {
-        color: $border-color;
-        cursor: default;
-
-        &:hover, &:focus {
-          border-color: $border-color;
-          color: $border-color;
-        }
-      }
-
-      @media ($bp-larger-than-mobile) {
-        &.current {
-          padding: 0 2rem;
-        }
-
-        a {
-          margin: 0 0.5rem;
-          padding: 0 2rem;
-
-          i {
-            font-size: 1.5rem;
-          }
-        }
       }
     }
   }
@@ -192,15 +114,26 @@ section.libraries {
   }
 }
 
-html.no-csstransitions {
+html.csstransitions {
   section.libraries ol.list li {
     span.info {
-      @include untruncate;
+      @include truncate;
     }
 
     div.more-info {
-      padding-top: 1rem;
-      max-height: 40px;
+      max-height: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      span.info {
+        @include untruncate;
+      }
+
+      div.more-info {
+        max-height: 40px;
+        padding-top: 1rem;
+      }
     }
   }
 }
