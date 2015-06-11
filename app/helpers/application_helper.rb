@@ -1,9 +1,9 @@
 module ApplicationHelper
-  # Accepts category (optional)
+  # Accepts text (optional)
   # Returns title of page
-  def title(category)
+  def title(text)
     title = "weightof.it"
-    title << " - #{category.name}" if category
+    title << " - #{text}" if text
     title << " - Compare JavaScript libraries by weight (file size)"
   end
 
@@ -17,11 +17,11 @@ module ApplicationHelper
     new_url  = '/'
     new_url << "category/#{p[:slug]}"  if p[:slug]
     new_url << "?search=#{p[:search]}" if p[:search]
-    if p[:sort]
+    if p[:sort] && p[:sort] != 'weight'
       new_url << (new_url =~ /\?/ ? '&' : '?')
       new_url << "sort=#{p[:sort]}"
     end
-    if p[:page]
+    if p[:page] && p[:page] != 1
       new_url << (new_url =~ /\?/ ? '&' : '?')
       new_url << "page=#{p[:page]}"
     end
@@ -40,17 +40,12 @@ module ApplicationHelper
     }
 
     new_params[:slug]   = update[:slug]   if update.has_key? :slug
-    new_params[:search] = update[:search] if update.has_key? :search
-    
-    if update.has_key? :sort
-      sort = update[:sort]
-      sort = nil if sort == 'weight'
-      new_params[:sort] = sort
-    end
+    new_params[:search] = update[:search] if update.has_key? :search    
+    new_params[:sort]   = update[:sort]   if update.has_key? :sort
 
     if update.has_key? :page
       page = update[:page]
-      page = nil         if page && page <= 1
+      page = 1           if page && page <= 1
       page = @page_count if page && page > @page_count
       new_params[:page] = page
     end

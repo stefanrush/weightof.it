@@ -11,6 +11,7 @@ class WOI.Routers.App extends Backbone.Router
     new WOI.Views.Searcher()
     new WOI.Views.Sorter()
     new WOI.Views.Categories()
+    new WOI.Views.Pusher()
 
     @listenTo Backbone, 'search:change pager:change', @updateParam
 

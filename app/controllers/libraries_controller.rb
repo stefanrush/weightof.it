@@ -21,7 +21,7 @@ private
     libraries = search libraries
     libraries = sort libraries
 
-    @original_count = libraries.to_a.size
+    @total_count = libraries.to_a.size
     
     libraries = paginate libraries
     libraries

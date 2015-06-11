@@ -1,15 +1,19 @@
+- content_for(:title) { @category ? @category.name : nil }
+
 .row
   .four.columns
-    %aside.categories
-      %h3 Categories
-      %ul
-        %li= all_category_link
-        = render @categories
+    = render 'categories/side_panel'
   .eight.columns
     %section.libraries
       %h3 Libraries
-      %p.total-found{ class: total_class } #{@original_count} found
-      = render 'libraries/sorter'
+      %p.total-found{ class: total_class } #{@total_count} found
+      = render 'components/sorter'
       %ol.list= render @libraries_subset
-      = render 'libraries/pager'
-      %p.none-found{ class: none_class } No libraries found.
+      = render 'components/pager'
+      %p.none-found{ class: none_found_class } No libraries found.
+
+- content_for(:menu_bar) do
+  = render 'categories/menu_bar'
+
+- content_for(:pusher) do
+  = render 'components/pusher'

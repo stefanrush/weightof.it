@@ -5,7 +5,7 @@ module LibrariesHelper
   end
 
   # Returns class for '.none-found' libraries element
-  def none_class
+  def none_found_class
     @libraries_subset.count > 0 ? 'hidden' : nil
   end
 end
