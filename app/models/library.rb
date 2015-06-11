@@ -56,6 +56,7 @@ class Library < ActiveRecord::Base
 
   before_validation :check_github, if: :check_any?
 
+  # Returns array of library fields used in app
   def self.app_fields
     [
       :id,
@@ -69,21 +70,25 @@ class Library < ActiveRecord::Base
     ]
   end
   
+  # Returns library JSON data used in app
   def app_json
     to_json(only: self.class.app_fields,
             methods: [:weight_pretty]).to_s.html_safe
   end
 
+  # Sets description and popularity fields based on data from GitHub 
   def check_github
     github_checker   = GithubChecker.new(source_url)
     self.description = github_checker.check_description if check_description?
     self.popularity  = github_checker.check_stars       if check_popularity?
   end
 
+  # Returns true if GitHub should be checked
   def check_any?
     check_description? || check_popularity?
   end
 
+  # Updates boolean fields to true for library and its versions
   def approve
     self.update_attributes(check_description: true,
                            check_popularity: true,

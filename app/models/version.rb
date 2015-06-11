@@ -35,20 +35,25 @@ class Version < ActiveRecord::Base
   before_validation :weigh, if: :check_weight?
   after_save :update_library_weight, if: :is_latest?
 
+  # Sets weight (file size in bytes) of version
   def weigh
     scale = Scale.new
     self.weight = scale.add(raw_url).weigh
   end
 
+  # Updates weight of library to weight of version
   def update_library_weight
     self.library.update_attributes(weight: weight)
   end
 
+  # Returns true if latest version of library
   def is_latest?
     return false unless active?
     id == self.class.where(library: library).latest.id
   end
 
+  # Returns number in a sortble format by padding it with zeros
+  # e.g. number = '14.0.555' -> '000140000000555'
   def sortable_number
     number.split('.').map{ |n| n.rjust(5, '0') }.join
   end
