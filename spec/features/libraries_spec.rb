@@ -13,6 +13,12 @@ RSpec.describe "Libraries", type: :feature do
     page.driver.execute_script "$('#search').trigger('keyup');"
   end
 
+  def click_category(name)
+    within('section.content') do
+      click_link name
+    end
+  end
+
   def library_items
     all('section.libraries ol.list li')
   end
@@ -30,12 +36,12 @@ RSpec.describe "Libraries", type: :feature do
         it "filters libraries by category" do        
           Category.by_position.each do |category|
             library_count = Library.where(category: category).count
-            click_link category.name
+            click_category category.name
             
             expect(library_items.size).to eq(library_count)
           end
 
-          click_link "All Libraries"
+          click_category "All Libraries"
           
           expect(library_items.size).to eq(Library.count)
         end
@@ -45,7 +51,7 @@ RSpec.describe "Libraries", type: :feature do
             category = random_category
 
             click_link "Popularity"
-            click_link category.name
+            click_category category.name
 
             Library.where(category: category)
                    .by_popularity

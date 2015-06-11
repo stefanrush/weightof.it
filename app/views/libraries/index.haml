@@ -1,6 +1,8 @@
+- content_for(:title) { @category ? @category.name : nil }
+
 .row
   .four.columns
-    = render 'categories/sidebar'
+    = render 'categories/side_panel'
   .eight.columns
     %section.libraries
       %h3 Libraries
@@ -9,3 +11,9 @@
       %ol.list= render @libraries_subset
       = render 'components/pager'
       %p.none-found{ class: none_found_class } No libraries found.
+
+- content_for(:menu_bar) do
+  = render 'categories/menu_bar'
+
+- content_for(:pusher) do
+  = render 'components/pusher'

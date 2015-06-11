@@ -3,18 +3,23 @@
   %head
     %meta{ charset: "utf-8" }
     %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport" }
-    %title= title @category
+    %title= title yield(:title)
     = csrf_meta_tags
 
     = stylesheet_link_tag    'application'
     = javascript_include_tag 'application'
 
   %body
-    = render 'layouts/header'
-    
-    %section.content
-      .container
-        = yield
+    .pushable
+      = render 'layouts/header'
+      = yield(:menu_bar)
+      
+      %section.content
+        .container
+          = yield
+      
+      = render 'layouts/footer'
 
-    = render 'layouts/footer'
+    = yield(:pusher)
+
     = render 'layouts/bootstrap_app'

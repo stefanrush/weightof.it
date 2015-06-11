@@ -1,9 +1,9 @@
 module ApplicationHelper
-  # Accepts category (optional)
+  # Accepts text (optional)
   # Returns title of page
-  def title(category)
+  def title(text)
     title = "weightof.it"
-    title << " - #{category.name}" if category
+    title << " - #{text}" if text
     title << " - Compare JavaScript libraries by weight (file size)"
   end
 
