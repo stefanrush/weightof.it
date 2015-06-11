@@ -1,7 +1,7 @@
 # create model for each JSON object within each fixture file
 
 fixtures = %w( categories libraries )
-fixtures_location = "#{Rails.root}/db/fixtures"
+fixtures_location = "#{Rails.root}/db/seeds"
 
 fixtures.each do |fixture|
   klass = fixture.singularize.classify.safe_constantize
