@@ -2,6 +2,7 @@ class GithubChecker
   include HTTParty
   base_uri 'https://api.github.com/repos'
 
+  # Accepts source code URL for GitHub repo
   def initialize(source_url)
     @source_url    = source_url
     @token         = Figaro.env.github_access_token
