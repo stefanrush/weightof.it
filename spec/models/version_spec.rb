@@ -82,10 +82,10 @@ RSpec.describe Version, type: :model do
     describe "#sortable_number" do
       let(:version) { build_stubbed(:version) }
       let(:tests) do
-        ["0.0.0",           "0.22222.11110",   "1000.99.0",       "3.555.95"]
+        ["0.0.0",           "12.345.6789",     "1000.99.0",       "98765.4.321"]
       end
       let(:expectations) do
-        ["000000000000000", "000002222211110", "010000009900000", "000030055500095"]
+        ["000000000000000", "000120034506789", "010000009900000", "987650000400321"]
       end
 
       it "returns the version number in a sortable string format" do

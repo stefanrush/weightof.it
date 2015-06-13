@@ -1,0 +1,8 @@
+- if flash.any?
+  .row
+    .twelve.columns
+      - flash.each do |key, value|
+        .flash{ class: key }
+          %span= value
+          = link_to '#close', class: 'close', data: { behavior: true } do
+            %i.fa.fa-close

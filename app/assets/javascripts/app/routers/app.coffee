@@ -1,17 +1,12 @@
 class WOI.Routers.App extends Backbone.Router
   initialize: (options) ->
-    @initializeLinks()
-
     @categories = new WOI.Collections.Categories options.categories
     @libraries  = new WOI.Collections.Libraries  options.libraries,
                                                  options.perPage
     
     @renderLibraries = false
-    
-    new WOI.Views.Searcher()
-    new WOI.Views.Sorter()
-    new WOI.Views.Categories()
-    new WOI.Views.Pusher()
+    @initializeLinks()
+    @initializeComponents()
 
     @listenTo Backbone, 'search:change pager:change', @updateParam
 
@@ -34,7 +29,7 @@ class WOI.Routers.App extends Backbone.Router
       params:      @params
       initialPage: parseInt @params.page or 1, 10
       render:      @renderLibraries
-    @renderLibraries = true unless @renderLibraries
+    @renderLibraries = true
     
     @updateTitle()
 
@@ -43,6 +38,13 @@ class WOI.Routers.App extends Backbone.Router
     $(document.body).on 'click', links, (e) =>
       e.preventDefault()
       @.navigate $(e.currentTarget).attr('href'), { trigger: true }
+
+  initializeComponents: ->
+    new WOI.Views.Searcher()
+    new WOI.Views.Sorter()
+    new WOI.Views.Categories()
+    new WOI.Views.Pusher()
+    new WOI.Views.Flash()
 
   updateTitle: ->
     title  = "weightof.it"

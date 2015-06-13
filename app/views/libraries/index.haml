@@ -1,5 +1,13 @@
 - content_for(:title) { @category ? @category.name : nil }
 
+- content_for(:header) do
+  = render 'layouts/header'
+
+- content_for(:menu_bar) do
+  = render 'categories/menu_bar'
+
+= render 'layouts/flashes'
+
 .row
   .four.columns
     = render 'categories/side_panel'
@@ -12,8 +20,7 @@
       = render 'components/pager'
       %p.none-found{ class: none_found_class } No libraries found.
 
-- content_for(:menu_bar) do
-  = render 'categories/menu_bar'
-
 - content_for(:pusher) do
   = render 'components/pusher'
+
+= render 'layouts/bootstrap_app'

@@ -12,8 +12,41 @@ class LibrariesController < ApplicationController
     render_404
   end
 
+  # GET '/contribute'
+  def new
+    @library = Library.new
+    @library.versions.build
+  end
+  
+  # POST '/contribute'
+  def create
+    @library = Library.new(library_params)
+    if verify_recaptcha(model: @library) && @library.save
+      flash.notice = "Thank you for your contribution!"
+      redirect_to root_url
+    else
+      errors = "The form contained the following errors: "
+      errors << @library.errors.full_messages.join(', ')
+      flash.now.alert = errors
+      render :new
+    end
+  end
+
 private
   
+  def library_params
+    params.require(:library).permit(
+      :name,
+      :source_url,
+      :homepage_url,
+      :category_id,
+      versions_attributes: [
+        :number,
+        :raw_url
+      ]
+    )
+  end
+
   # Accepts collection of libraries
   # Returns subset of libraries based on params
   def subset(libraries)

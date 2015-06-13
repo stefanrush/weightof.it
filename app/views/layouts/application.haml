@@ -8,10 +8,10 @@
 
     = stylesheet_link_tag    'application'
     = javascript_include_tag 'application'
-
+    
   %body
     .pushable
-      = render 'layouts/header'
+      = yield(:header)
       = yield(:menu_bar)
       
       %section.content
@@ -21,5 +21,3 @@
       = render 'layouts/footer'
 
     = yield(:pusher)
-
-    = render 'layouts/bootstrap_app'

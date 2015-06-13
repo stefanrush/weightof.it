@@ -1,0 +1,36 @@
+div.flash {
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  background-color: $primary-color;
+  color: $white;
+  @include radius;
+
+  &.notice {
+    border: 1px solid darken($primary-color, 20%);
+  }
+
+  &.alert {
+    background-color: $error-color;
+    border: 1px solid darken($error-color, 20%);
+  }
+
+  &.recaptcha_error {
+    display: none;
+  }
+
+  a.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    color: $white;
+    text-align: center;
+    font-size: 1.75rem;
+
+    &:hover, &:focus {
+      color: $border-color;
+    }
+  } 
+}

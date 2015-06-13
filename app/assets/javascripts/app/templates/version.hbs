@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="three columns">
+    <label for="library_versions_attributes_{{index}}_number">Number (required)</label>
+    <input type="text"
+           name="library[versions_attributes][{{index}}][number]" 
+           id="library_versions_attributes_{{index}}_number"
+           data-required="true"
+           data-number="true">
+  </div>
+  <div class="nine columns">
+    <label for="library_versions_attributes_{{index}}_raw_url">File URL (required)</label>
+    <input type="text"
+           name="library[versions_attributes][{{index}}][raw_url]" 
+           id="library_versions_attributes_{{index}}_raw_url"
+           data-required="true"
+           data-js="true">
+  </div>
+</div>
+<a href="#remove-version" class="remove-version button">
+  <i class="fa fa-minus"></i>
+</a>

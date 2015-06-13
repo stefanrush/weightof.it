@@ -38,7 +38,8 @@ class Version < ActiveRecord::Base
   # Sets weight (file size in bytes) of version
   def weigh
     scale = Scale.new
-    self.weight = scale.add(raw_url).weigh
+    scale.add(raw_url)
+    self.weight = scale.weigh
   end
 
   # Updates weight of library to weight of version
@@ -53,8 +54,8 @@ class Version < ActiveRecord::Base
   end
 
   # Returns number in a sortble format by padding it with zeros
-  # e.g. number = '14.0.555' -> '000140000000555'
+  # e.g. number = '12.3.456' -> '000120000300456'
   def sortable_number
-    number.split('.').map{ |n| n.rjust(5, '0') }.join
+    number.split('.').map { |n| n.rjust(5, '0') }.join
   end
 end

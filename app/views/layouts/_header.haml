@@ -4,7 +4,7 @@
       .six.columns
         .home= link_to content_tag(:h1, "weightof.it"), root_path
       .six.columns
-        = link_to '#contribute', class: 'contribute button' do
+        = link_to contribute_path, class: 'contribute button', data: { remote: true } do
           %i.fa.fa-plus
           %span Contribute Library
     .row
