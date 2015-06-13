@@ -3,7 +3,7 @@ module ApplicationHelper
   # Returns title of page
   def title(text)
     title = "weightof.it"
-    title << " - #{text}" if text
+    title << " - #{text}" unless text.blank?
     title << " - Compare JavaScript libraries by weight (file size)"
   end
 

@@ -13,6 +13,8 @@ gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'httparty'
+gem 'turbolinks'
+gem 'recaptcha', require: 'recaptcha/rails'
 
 # gem 'unicorn'
 # gem 'capistrano-rails', group: :development

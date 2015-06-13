@@ -88,12 +88,6 @@ section.libraries {
             display: none;
           }
         }
-
-        &:hover, &:focus {
-          background-color: $white;
-          border-color: $primary-color;
-          color: $primary-color;
-        }
       }
 
       div.more-info {

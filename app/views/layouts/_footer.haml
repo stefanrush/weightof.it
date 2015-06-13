@@ -4,7 +4,8 @@
       .twelve.columns
         %ul
           %li
-            = link_to "Contribute Library", '#contribute', class: 'contribute'
+            = link_to "Contribute Library", contribute_path,
+                      class: 'contribute', data: { remote: true }
           %li
             = link_to "View Source On GitHub", 'https://github.com/stefanrush/weightof.it',
                       data: { remote: true }, target: '_blank'

@@ -1,27 +1,30 @@
 <script>
   $(function() {
-    window.app = new WOI.Routers.App({
-      libraries: [
-        <% cache @libraries do %>
-          <% @libraries.each do |library| %>
-            <% cache library do %>
-              <%= library.app_json %>,
+    if (!window.WOI.app) {
+      window.WOI.app = new WOI.Routers.App({
+        libraries: [
+          <% cache @libraries do %>
+            <% @libraries.each do |library| %>
+              <% cache library do %>
+                <%= library.app_json %>,
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      ],
-      categories: [
-        <% cache @categories do %>
-          <% @categories.each do |category| %>
-            <% cache category do %>
-              <%= category.app_json %>,
+        ],
+        categories: [
+          <% cache @categories do %>
+            <% @categories.each do |category| %>
+              <% cache category do %>
+                <%= category.app_json %>,
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      ],
-      perPage: <%= @per_page %>
-    });
-    
-    Backbone.history.start({ pushState: true });
+        ],
+        perPage: <%= @per_page %>
+      });
+      Backbone.history.start({ pushState: true });
+    } else {
+      window.WOI.app.initializeComponents();
+    }
   });
 </script>

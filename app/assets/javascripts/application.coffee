@@ -4,4 +4,5 @@
 #= require backbone.queryparams
 #= require handlebars.runtime
 #= require modernizr
+#= require turbolinks
 #= require app/app
