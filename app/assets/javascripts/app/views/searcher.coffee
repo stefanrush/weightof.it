@@ -2,9 +2,9 @@ class WOI.Views.Searcher extends Backbone.View
   el: 'form.searcher'
 
   events:
-    'keyup input'    : 'search'
-    'click a.submit' : 'search'
-    'click a.clear'  : 'clear'
+    'keyup input#search'  : 'search'
+    'click button.submit' : 'search'
+    'click a.clear'       : 'clear'
 
   initialize: (options) ->
     @$el.on 'submit', (e) -> e.preventDefault()
@@ -17,6 +17,7 @@ class WOI.Views.Searcher extends Backbone.View
   search: (e) ->
     e.preventDefault() if e
     @query = @stripText @$input.val()
+    @$input.focus()
     Backbone.trigger 'search:change', 'search', @query
 
   clear: (e) ->
@@ -29,7 +30,7 @@ class WOI.Views.Searcher extends Backbone.View
     @updateClearable()
 
   updateInput: (newQuery) ->
-    if not newQuery and @query or newQuery and not @query
+    if (not newQuery and @query) or (newQuery and not @query)
       @query = @stripText(newQuery or '')
       @$input.val(@query)
 

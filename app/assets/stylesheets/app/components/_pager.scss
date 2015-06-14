@@ -1,5 +1,6 @@
 ol.pager {
   margin: 1.5rem 0 0;
+  font-size: 0;
   text-align: center;
   
   li {
@@ -8,6 +9,7 @@ ol.pager {
     height: 38px;
     line-height: 38px;
     margin: 0;
+    font-size: 1.5rem;
 
     &.current {
       padding: 0 1rem;
