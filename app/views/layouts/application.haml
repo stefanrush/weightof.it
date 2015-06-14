@@ -21,3 +21,4 @@
       = render 'layouts/footer'
 
     = yield(:pusher)
+    = render 'layouts/analytics' if Rails.env.production?

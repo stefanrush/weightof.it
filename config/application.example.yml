@@ -1,6 +1,7 @@
+default_per_page:     "10"
 database_username:    ""
 github_access_token:  ""
-default_per_page:     "10"
+ga_tracking_id:       ""
 recaptcha_site_key:   ""
 recaptcha_secret_key: ""
 secret_key:           ""
@@ -8,4 +9,3 @@ secret_key:           ""
 production:
   database_username: ""
   database_password: ""
-  secret_key:        ""
