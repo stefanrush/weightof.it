@@ -8,7 +8,7 @@
       "versions_attributes": [
         {
           "number": "2.1.4",
-          "raw_url": "https://code.jquery.com/jquery-2.1.4.js",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js",
           "check_weight": true,
           "active": true
         },
@@ -32,7 +32,7 @@
       "versions_attributes": [
         {
           "number": "1.1.6",
-          "raw_url": "http://zeptojs.com/zepto.js",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/zepto/1.1.6/zepto.js",
           "check_weight": true,
           "active": true
         }
@@ -49,8 +49,8 @@
       "category_id": 1,
       "versions_attributes": [
         {
-          "number": "1.7.7",
-          "raw_url": "https://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js",
+          "number": "1.7.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.2/prototype.js",
           "check_weight": true,
           "active": true
         }
@@ -68,7 +68,7 @@
       "versions_attributes": [
         {
           "number": "1.5.1",
-          "raw_url": "https://ajax.googleapis.com/ajax/libs/mootools/1.5.1/mootools.js",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/mootools/1.5.1/mootools-core-full-compat.js",
           "check_weight": true,
           "active": true
         }
@@ -85,8 +85,8 @@
       "category_id": 2,
       "versions_attributes": [
         {
-          "number": "1.4.0",
-          "raw_url": "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js",
+          "number": "1.3.16",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular.js",
           "check_weight": true,
           "active": true
         }
@@ -103,8 +103,8 @@
       "category_id": 2,
       "versions_attributes": [
         {
-          "number": "1.2.0",
-          "raw_url": "http://backbonejs.org/backbone.js",
+          "number": "1.2.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone.js",
           "check_weight": true,
           "active": true
         }
@@ -121,8 +121,8 @@
       "category_id": 2,
       "versions_attributes": [
         {
-          "number": "1.12.1",
-          "raw_url": "http://builds.emberjs.com/tags/v1.12.1/ember.min.js",
+          "number": "1.13.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.13.0/ember.js",
           "check_weight": true,
           "active": true
         }
@@ -140,7 +140,97 @@
       "versions_attributes": [
         {
           "number": "2.4.1",
-          "raw_url": "http://marionettejs.com/downloads/backbone.marionette.js",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.4.1/backbone.marionette.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Knockout",
+      "source_url": "https://github.com/knockout/knockout",
+      "homepage_url": "http://knockoutjs.com/",
+      "category_id": 2,
+      "versions_attributes": [
+        {
+          "number": "3.3.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-debug.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "CanJS",
+      "source_url": "https://github.com/bitovi/canjs",
+      "homepage_url": "http://canjs.com/",
+      "category_id": 2,
+      "versions_attributes": [
+        {
+          "number": "2.2.6",
+          "raw_url": "http://canjs.com/release/2.2.6/can.jquery.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "React",
+      "source_url": "https://github.com/facebook/react",
+      "homepage_url": "https://facebook.github.io/react/",
+      "category_id": 2,
+      "versions_attributes": [
+        {
+          "number": "0.13.3",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Spine",
+      "source_url": "https://github.com/spine/spine",
+      "homepage_url": "http://spinejs.com/",
+      "category_id": 2,
+      "versions_attributes": [
+        {
+          "number": "1.2.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/spinejs/1.2.0/all.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Ractive.js",
+      "source_url": "https://github.com/ractivejs/ractive",
+      "homepage_url": "http://www.ractivejs.org/",
+      "category_id": 2,
+      "versions_attributes": [
+        {
+          "number": "0.7.3",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/ractive/0.7.3/ractive.js",
           "check_weight": true,
           "active": true
         }
@@ -156,8 +246,8 @@
       "category_id": 3,
       "versions_attributes": [
         {
-          "number": "1.0.0",
-          "raw_url": "https://raw.githubusercontent.com/caolan/async/master/lib/async.js",
+          "number": "1.2.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/async/1.2.1/async.js",
           "check_weight": true,
           "active": true
         }
@@ -175,7 +265,25 @@
       "versions_attributes": [
         {
           "number": "3.9.3",
-          "raw_url": "https://raw.githubusercontent.com/lodash/lodash/3.9.3/lodash.js",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.9.3/lodash.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "URI.js",
+      "source_url": "https://github.com/medialize/URI.js",
+      "homepage_url": "http://medialize.github.io/URI.js/",
+      "category_id": 3,
+      "versions_attributes": [
+        {
+          "number": "1.15.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.15.1/URI.js",
           "check_weight": true,
           "active": true
         }
@@ -193,7 +301,7 @@
       "versions_attributes": [
         {
           "number": "2.8.3",
-          "raw_url": "http://modernizr.com/downloads/modernizr-latest.js",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js",
           "check_weight": true,
           "active": true
         }
@@ -211,7 +319,493 @@
       "versions_attributes": [
         {
           "number": "1.8.3",
-          "raw_url": "http://underscorejs.org/underscore-min.js",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Handlebars.js",
+      "source_url": "https://github.com/wycats/handlebars.js",
+      "homepage_url": "http://handlebarsjs.com/",
+      "category_id": 4,
+      "versions_attributes": [
+        {
+          "number": "3.0.3",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Handlebars.js Runtime",
+      "source_url": "https://github.com/wycats/handlebars.js",
+      "homepage_url": "http://handlebarsjs.com/",
+      "category_id": 4,
+      "versions_attributes": [
+        {
+          "number": "3.0.3",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.runtime.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Jade",
+      "source_url": "https://github.com/jadejs/jade",
+      "homepage_url": "http://jade-lang.com/",
+      "category_id": 4,
+      "versions_attributes": [
+        {
+          "number": "1.11.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/jade/1.11.0/jade.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Jade Runtime",
+      "source_url": "https://github.com/jadejs/jade",
+      "homepage_url": "http://jade-lang.com/",
+      "category_id": 4,
+      "versions_attributes": [
+        {
+          "number": "1.11.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/jade/1.11.0/runtime.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "mustache.js",
+      "source_url": "https://github.com/janl/mustache.js",
+      "homepage_url": "https://mustache.github.io/",
+      "category_id": 4,
+      "versions_attributes": [
+        {
+          "number": "2.1.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.1.1/mustache.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Rivets.js",
+      "source_url": "https://github.com/mikeric/rivets",
+      "homepage_url": "http://rivetsjs.com/",
+      "category_id": 4,
+      "versions_attributes": [
+        {
+          "number": "0.8.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/rivets/0.8.1/rivets.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Swig",
+      "source_url": "https://github.com/paularmstrong/swig",
+      "homepage_url": "https://paularmstrong.github.io/swig/",
+      "category_id": 4,
+      "versions_attributes": [
+        {
+          "number": "1.4.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/swig/1.4.2/swig.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "doT",
+      "source_url": "https://github.com/olado/doT",
+      "homepage_url": "https://olado.github.io/doT/",
+      "category_id": 4,
+      "versions_attributes": [
+        {
+          "number": "1.0.3",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/dot/1.0.3/doT.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "slick",
+      "source_url": "https://github.com/kenwheeler/slick",
+      "homepage_url": "https://kenwheeler.github.io/slick/",
+      "category_id": 5,
+      "versions_attributes": [
+        {
+          "number": "1.5.5",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.5/slick.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "OwlCarousel",
+      "source_url": "https://github.com/OwlFonk/OwlCarousel",
+      "homepage_url": "http://owlgraphic.com/owlcarousel/",
+      "category_id": 5,
+      "versions_attributes": [
+        {
+          "number": "1.3.3",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "AngularJS Touch Carousel",
+      "source_url": "https://github.com/revolunet/angular-carousel",
+      "homepage_url": "http://blog.revolunet.com/angular-carousel/",
+      "category_id": 5,
+      "versions_attributes": [
+        {
+          "number": "0.3.12",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/angular-carousel/0.3.12/angular-carousel.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "blueimp Gallery",
+      "source_url": "https://github.com/blueimp/Gallery",
+      "homepage_url": "https://blueimp.github.io/Gallery/",
+      "category_id": 5,
+      "versions_attributes": [
+        {
+          "number": "2.15.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.15.2/js/blueimp-gallery.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "jCarousel",
+      "source_url": "https://github.com/jsor/jcarousel",
+      "homepage_url": "http://sorgalla.com/jcarousel/",
+      "category_id": 5,
+      "versions_attributes": [
+        {
+          "number": "0.3.3",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/jcarousel/0.3.3/jquery.jcarousel.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Flickity",
+      "source_url": "https://github.com/metafizzy/flickity",
+      "homepage_url": "http://flickity.metafizzy.co/",
+      "category_id": 5,
+      "versions_attributes": [
+        {
+          "number": "1.0.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.2/flickity.pkgd.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Swiper",
+      "source_url": "https://github.com/nolimits4web/swiper",
+      "homepage_url": "http://www.idangero.us/swiper/",
+      "category_id": 5,
+      "versions_attributes": [
+        {
+          "number": "3.0.8",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.0.8/js/swiper.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Jcrop",
+      "source_url": "https://github.com/tapmodo/Jcrop",
+      "homepage_url": "http://deepliquid.com/content/Jcrop.html",
+      "category_id": 6,
+      "versions_attributes": [
+        {
+          "number": "0.9.12",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/jquery-jcrop/0.9.12/js/jquery.Jcrop.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Picturefill",
+      "source_url": "https://github.com/scottjehl/picturefill",
+      "homepage_url": "http://deepliquid.com/content/Jcrop.html",
+      "category_id": 6,
+      "versions_attributes": [
+        {
+          "number": "2.3.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "SVG.js",
+      "source_url": "https://github.com/wout/svg.js",
+      "homepage_url": "http://svgjs.com/",
+      "category_id": 6,
+      "versions_attributes": [
+        {
+          "number": "2.0.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.0.0/svg.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "jQuery UI",
+      "source_url": "https://github.com/jquery/jquery-ui",
+      "homepage_url": "https://jqueryui.com/",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "1.11.4",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Velocity",
+      "source_url": "https://github.com/julianshapiro/velocity",
+      "homepage_url": "http://julian.com/research/velocity/",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "1.2.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "spin.js",
+      "source_url": "https://github.com/fgnass/spin.js",
+      "homepage_url": "https://fgnass.github.io/spin.js/",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "2.0.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.0.1/spin.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "scrollReveal.js",
+      "source_url": "https://github.com/julianlloyd/scrollReveal.js",
+      "homepage_url": "http://scrollrevealjs.org/",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "0.1.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/0.1.2/scrollReveal.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "WOW.js",
+      "source_url": "https://github.com/matthieua/WOW",
+      "homepage_url": "http://mynameismatthieu.com/WOW/",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "1.1.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Move.js",
+      "source_url": "https://github.com/visionmedia/move.js",
+      "homepage_url": "https://visionmedia.github.io/move.js/",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "0.4.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/move.js/0.4.0/move.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "AniJS",
+      "source_url": "https://github.com/anijs/anijs",
+      "homepage_url": "https://anijs.github.io/",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "0.9.3",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/AniJS/0.9.3/anijs.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Animsition",
+      "source_url": "https://github.com/blivesta/animsition",
+      "homepage_url": "http://git.blivesta.com/animsition/",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "3.5.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/animsition/3.5.2/js/jquery.animsition.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "TweenJS",
+      "source_url": "https://github.com/CreateJS/TweenJS",
+      "homepage_url": "http://createjs.com/tweenjs",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "0.6.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/tweenjs/0.6.0/tweenjs.min.js",
           "check_weight": true,
           "active": true
         }

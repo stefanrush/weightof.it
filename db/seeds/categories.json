@@ -17,6 +17,26 @@
     },
     {
       "id": 4,
+      "name": "Templating Engines",
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Carousels",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Image Manipulation",
+      "active": true
+    },
+    {
+      "id": 7,
+      "name": "Animation",
+      "active": true
+    },
+    {
+      "id": 8,
       "name": "Other Libraries",
       "slug": "other",
       "position": 1,
