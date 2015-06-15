@@ -85,10 +85,12 @@ private
   def sort(libraries)
     @sort = params[:sort] || 'weight'
     case @sort
-    when 'popularity'
-      libraries = libraries.by_popularity
     when 'weight'
       libraries = libraries.by_weight
+    when 'popularity'
+      libraries = libraries.by_popularity
+    when 'name'
+      libraries = libraries.by_name
     else # invalid sort parameter
       raise ActiveRecord::RecordNotFound
     end
