@@ -31,11 +31,11 @@ class WOI.Collections.Libraries extends Backbone.Collection
 
     switch params.sort
       when 'popularity'
-        sorted = _.sortBy sorted, (library) -> -library.get 'popularity'
+        sorted = _.sortBy sorted, (library) -> -library.get('popularity')
       when 'name'
-        sorted = _.sortBy sorted, (library) -> library.get 'name'
+        sorted = _.sortBy sorted, (library) -> library.get('name').toLowerCase()
       else
-        sorted = _.sortBy sorted, (library) -> library.get 'weight'
+        sorted = _.sortBy sorted, (library) -> library.get('weight')
 
     new WOI.Collections.Libraries sorted, @perPage
 
