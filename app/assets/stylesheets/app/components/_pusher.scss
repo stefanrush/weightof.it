@@ -11,6 +11,7 @@ section.pusher {
   width: 249px;
   height: 100%;
   z-index: 10;
+  overflow-y: auto;
   background-color: $light-grey;
   border-right: 1px solid $border-color;
   @include transition(left 0.5s);
