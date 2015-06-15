@@ -17,7 +17,7 @@ class WOI.Views.Contribute extends Backbone.View
     @versionsCount = 1
     @versionsLimit = 10
 
-  inputs: -> @$el.find 'input[type="text"]'
+  inputs: -> @$el.find 'input[type="text"], select'
 
   submit: (e) -> e.preventDefault() unless @validateForm()
 

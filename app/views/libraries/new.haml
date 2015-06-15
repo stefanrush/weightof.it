@@ -33,7 +33,8 @@
       .row
         .twelve.columns
           = f.label :category_id, "Category"
-          = f.collection_select :category_id, Category.app_data, :id, :name
+          = f.collection_select :category_id, Category.app_data, :id, :name,
+                                { prompt: true }, data: { required: true }
         .half
           %label.versions
             %span Versions
