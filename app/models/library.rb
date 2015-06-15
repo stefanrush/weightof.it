@@ -48,6 +48,7 @@ class Library < ActiveRecord::Base
   scope :approved,      -> { where(approved: true) }
   scope :unapproved,    -> { where(approved: false) }
   scope :by_popularity, -> { order(popularity: :desc) }
+  scope :by_name,       -> { order(:name) }
 
   include Activeable
   include Pageable
