@@ -52,6 +52,26 @@
     },
     {
       "id": 11,
+      "name": "Video",
+      "active": true
+    },
+    {
+      "id": 12,
+      "name": "Polyfills",
+      "active": true
+    },
+    {
+      "id": 13,
+      "name": "Games",
+      "active": true
+    },
+    {
+      "id": 14,
+      "name": "Maps",
+      "active": true
+    },
+    {
+      "id": 15,
       "name": "Other Libraries",
       "slug": "other",
       "position": 1,

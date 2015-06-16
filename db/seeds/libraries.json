@@ -401,6 +401,78 @@
       "active": true
     },
     {
+      "name": "string.js",
+      "source_url": "https://github.com/jprichardson/string.js",
+      "homepage_url": "http://stringjs.com/",
+      "category_id": 3,
+      "versions_attributes": [
+        {
+          "number": "3.2.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/string.js/3.2.0/string.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Underscore.string",
+      "source_url": "https://github.com/epeli/underscore.string",
+      "homepage_url": "https://epeli.github.io/underscore.string/",
+      "category_id": 3,
+      "versions_attributes": [
+        {
+          "number": "3.1.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/underscore.string/3.1.1/underscore.string.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "JSON2",
+      "source_url": "https://github.com/douglascrockford/JSON-js",
+      "homepage_url": "http://www.json.org/",
+      "category_id": 3,
+      "versions_attributes": [
+        {
+          "number": "20140204",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "XRegExp",
+      "source_url": "https://github.com/slevithan/xregexp",
+      "homepage_url": "http://xregexp.com/",
+      "category_id": 3,
+      "versions_attributes": [
+        {
+          "number": "2.0.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/xregexp/2.0.0/xregexp.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
       "name": "Handlebars.js",
       "source_url": "https://github.com/wycats/handlebars.js",
       "homepage_url": "http://handlebarsjs.com/",
@@ -1102,6 +1174,24 @@
       "active": true
     },
     {
+      "name": "stroll.js",
+      "source_url": "https://github.com/hakimel/stroll.js",
+      "homepage_url": "http://lab.hakim.se/scroll-effects",
+      "category_id": 7,
+      "versions_attributes": [
+        {
+          "number": "1.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/stroll.js/1.0/js/stroll.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
       "name": "Chart.js",
       "source_url": "https://github.com/nnnick/Chart.js",
       "homepage_url": "http://www.chartjs.org/",
@@ -1612,6 +1702,523 @@
         {
           "number": "1.0",
           "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/1.0/zxcvbn.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Select2",
+      "source_url": "https://github.com/select2/select2",
+      "homepage_url": "https://select2.github.io/",
+      "category_id": 10,
+      "versions_attributes": [
+        {
+          "number": "4.0.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "selectize.js",
+      "source_url": "https://github.com/brianreavis/selectize.js",
+      "homepage_url": "https://brianreavis.github.io/selectize.js/",
+      "category_id": 10,
+      "versions_attributes": [
+        {
+          "number": "0.12.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.1/js/selectize.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Chosen",
+      "source_url": "https://github.com/harvesthq/chosen",
+      "homepage_url": "https://harvesthq.github.io/chosen/",
+      "category_id": 10,
+      "versions_attributes": [
+        {
+          "number": "1.4.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "bootstrap-datepicker",
+      "source_url": "https://github.com/eternicode/bootstrap-datepicker",
+      "homepage_url": "https://eternicode.github.io/bootstrap-datepicker/",
+      "category_id": 10,
+      "versions_attributes": [
+        {
+          "number": "1.4.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "rome",
+      "source_url": "https://github.com/bevacqua/rome",
+      "homepage_url": "https://bevacqua.github.io/rome/",
+      "category_id": 10,
+      "versions_attributes": [
+        {
+          "number": "2.1.17",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.17/rome.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Video.js",
+      "source_url": "https://github.com/videojs/video.js",
+      "homepage_url": "http://www.videojs.com/",
+      "category_id": 11,
+      "versions_attributes": [
+        {
+          "number": "4.12.8",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/video.js/4.12.8/video.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "FitVids.js",
+      "source_url": "https://github.com/davatron5000/FitVids.js",
+      "homepage_url": "https://github.com/davatron5000/FitVids.js",
+      "category_id": 11,
+      "versions_attributes": [
+        {
+          "number": "1.1.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/fitvids/1.1.0/jquery.fitvids.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Flowplayer",
+      "source_url": "https://github.com/flowplayer/flowplayer",
+      "homepage_url": "http://flowplayer.org/",
+      "category_id": 11,
+      "versions_attributes": [
+        {
+          "number": "5.4.6",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/flowplayer/5.4.6/flowplayer.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "MediaElement.js",
+      "source_url": "https://github.com/johndyer/mediaelement",
+      "homepage_url": "http://mediaelementjs.com/",
+      "category_id": 11,
+      "versions_attributes": [
+        {
+          "number": "2.17.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/mediaelement/2.17.0/mediaelementplayer.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "jPlayer",
+      "source_url": "https://github.com/happyworm/jPlayer",
+      "homepage_url": "http://www.jplayer.org/",
+      "category_id": 11,
+      "versions_attributes": [
+        {
+          "number": "2.9.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/jplayer/2.9.2/jplayer/jquery.jplayer.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Popcorn.js",
+      "source_url": "https://github.com/mozilla/popcorn-js",
+      "homepage_url": "http://popcornjs.org/",
+      "category_id": 11,
+      "versions_attributes": [
+        {
+          "number": "1.3",
+          "raw_url": "https://cdn.jsdelivr.net/popcorn.js/1.3/popcorn-complete.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "BigVideo.js",
+      "source_url": "https://github.com/dfcb/BigVideo.js",
+      "homepage_url": "https://dfcb.github.io/BigVideo.js/",
+      "category_id": 11,
+      "versions_attributes": [
+        {
+          "number": "1.0.9",
+          "raw_url": "https://cdn.jsdelivr.net/bigvideo.js/1.0.9/js/bigvideo.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "FastClick",
+      "source_url": "https://github.com/ftlabs/fastclick",
+      "category_id": 12,
+      "versions_attributes": [
+        {
+          "number": "1.0.6",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Respond.js",
+      "source_url": "https://github.com/scottjehl/Respond",
+      "homepage_url": "https://scottjehl.github.io/Respond/test/unit/",
+      "category_id": 12,
+      "versions_attributes": [
+        {
+          "number": "1.4.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Picturefill",
+      "source_url": "https://github.com/scottjehl/picturefill",
+      "homepage_url": "https://scottjehl.github.io/picturefill/",
+      "category_id": 12,
+      "versions_attributes": [
+        {
+          "number": "2.3.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Webshim",
+      "source_url": "https://github.com/aFarkas/webshim",
+      "homepage_url": "https://afarkas.github.io/webshim/demos/",
+      "category_id": 12,
+      "versions_attributes": [
+        {
+          "number": "1.15.7",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/webshim/1.15.7/minified/polyfiller.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "PIE",
+      "source_url": "https://github.com/lojjic/PIE",
+      "homepage_url": "http://css3pie.com/",
+      "category_id": 12,
+      "versions_attributes": [
+        {
+          "number": "2.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/css3pie/2.0beta1/PIE_IE678_uncompressed.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "es5-shim",
+      "source_url": "https://github.com/es-shims/es5-shim",
+      "category_id": 12,
+      "versions_attributes": [
+        {
+          "number": "4.1.6",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.1.6/es5-shim.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "ES6 Shim",
+      "source_url": "https://github.com/paulmillr/es6-shim",
+      "category_id": 12,
+      "versions_attributes": [
+        {
+          "number": "0.13.0",
+          "raw_url": "https://cdn.jsdelivr.net/es6.shim/0.13.0/es6-shim.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "HTML5 Shiv",
+      "source_url": "https://github.com/aFarkas/html5shiv",
+      "category_id": 12,
+      "versions_attributes": [
+        {
+          "number": "3.7.2",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Phaser",
+      "source_url": "https://github.com/photonstorm/phaser",
+      "homepage_url": "http://phaser.io/",
+      "category_id": 13,
+      "versions_attributes": [
+        {
+          "number": "2.3.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/phaser/2.3.0/phaser.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "melonJS",
+      "source_url": "https://github.com/melonjs/melonJS",
+      "homepage_url": "http://melonjs.org/",
+      "category_id": 13,
+      "versions_attributes": [
+        {
+          "number": "1.0.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/melonjs/1.0.1/melonjs.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Crafty JS",
+      "source_url": "https://github.com/craftyjs/Crafty",
+      "homepage_url": "http://craftyjs.com/",
+      "category_id": 13,
+      "versions_attributes": [
+        {
+          "number": "0.5.3",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/crafty/0.5.3/crafty-min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Pixi.js",
+      "source_url": "https://github.com/GoodBoyDigital/pixi.js",
+      "category_id": 13,
+      "versions_attributes": [
+        {
+          "number": "3.0.6",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/pixi.js/3.0.6/pixi.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Babylon.js",
+      "source_url": "https://github.com/BabylonJS/Babylon.js",
+      "homepage_url": "http://www.babylonjs.com/",
+      "category_id": 13,
+      "versions_attributes": [
+        {
+          "number": "2.1",
+          "raw_url": "https://cdn.jsdelivr.net/babylonjs/2.1-beta/babylon.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Matter.js",
+      "source_url": "https://github.com/liabru/matter-js",
+      "homepage_url": "http://brm.io/matter-js/",
+      "category_id": 13,
+      "versions_attributes": [
+        {
+          "number": "0.8.0",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.8.0-alpha/matter.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "melonJS",
+      "source_url": "https://github.com/melonjs/melonJS",
+      "homepage_url": "http://www.melonjs.org/",
+      "category_id": 13,
+      "versions_attributes": [
+        {
+          "number": "1.0.1",
+          "raw_url": "https://cdnjs.cloudflare.com/ajax/libs/melonjs/1.0.1/melonjs.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "PhysicsJS",
+      "source_url": "https://github.com/wellcaffeinated/PhysicsJS",
+      "homepage_url": "http://wellcaffeinated.net/PhysicsJS/",
+      "category_id": 13,
+      "versions_attributes": [
+        {
+          "number": "0.7.0",
+          "raw_url": "https://cdn.jsdelivr.net/physicsjs/0.7.0/physicsjs.full.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
+      "name": "Stage.js",
+      "source_url": "https://github.com/piqnt/stage.js",
+      "homepage_url": "http://piqnt.com/stage.js/",
+      "category_id": 13,
+      "versions_attributes": [
+        {
+          "number": "0.7.1",
+          "raw_url": "https://cdn.jsdelivr.net/stage.js/0.7.1/stage.web.min.js",
           "check_weight": true,
           "active": true
         }
