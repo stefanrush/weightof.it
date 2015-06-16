@@ -3,27 +3,45 @@ class WOI.Views.Searcher extends Backbone.View
 
   events:
     'keyup input#search'  : 'search'
-    'click button.submit' : 'search'
+    'submit'              : 'submit'
+    'click button.submit' : 'submit'
     'click a.clear'       : 'clear'
+    'focus input#search'  : 'focus'
+    'blur input#search'   : 'blur'
 
   initialize: (options) ->
-    @$el.on 'submit', (e) -> e.preventDefault()
     @query   = ''
+    @change  = null
     @$input  = @$el.find '#search'
     @$submit = @$el.find 'button.submit'
     @$clear  = @$el.find 'a.clear'
     @listenTo Backbone, 'page:change', @update
 
-  search: (e) ->
-    e.preventDefault() if e
+  search: (timer) ->
     @query = @stripText @$input.val()
-    @$input.focus()
-    Backbone.trigger 'search:change', 'search', @query
+    
+    timer = 500 unless typeof timer is 'number'
+    clearTimeout @change
+    @change = setTimeout ( =>
+      Backbone.trigger 'search:change', 'search', @query
+    ), timer
+
+  submit: (e) ->
+    e.preventDefault()
+    @search 0
+    if @query and @focused()
+      Backbone.trigger 'search:scroll', 'content'
+    else
+      @$input.focus()
 
   clear: (e) ->
     e.preventDefault()
     @$input.val ''
-    @search()
+    @search 0
+
+  focused: -> @$el.hasClass 'focused'
+  focus:   -> @$el.addClass 'focused'
+  blur:    -> setTimeout ( => @$el.removeClass 'focused' ), 250
 
   update: (params) ->
     @updateInput params.search

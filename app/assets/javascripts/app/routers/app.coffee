@@ -42,6 +42,7 @@ class WOI.Routers.App extends Backbone.Router
     new WOI.Views.Sorter()
     new WOI.Views.Categories()
     new WOI.Views.Pusher()
+    new WOI.Views.Scroller()
     new WOI.Views.Flash()
 
   updateTitle: ->
