@@ -27,7 +27,7 @@
     },
     {
       "id": 6,
-      "name": "Image Manipulation",
+      "name": "Graphics",
       "active": true
     },
     {
@@ -37,6 +37,21 @@
     },
     {
       "id": 8,
+      "name": "Charts",
+      "active": true
+    },
+    {
+      "id": 9,
+      "name": "File Uploaders",
+      "active": true
+    },
+    {
+      "id": 10,
+      "name": "Form Helpers",
+      "active": true
+    },
+    {
+      "id": 11,
       "name": "Other Libraries",
       "slug": "other",
       "position": 1,
