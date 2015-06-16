@@ -2,20 +2,23 @@ class WOI.Views.Pusher extends Backbone.View
   el: 'body'
 
   initialize: ->
-    @open        = false
-    @$clickables = @$el.find('section.menu-bar a.push,' +
-                             'section.pusher a.close,' +
-                             'div.mask')
+    @open     = false
+    @$push    = @$el.find 'section.menu-bar a.push'
+    @$close   = @$el.find 'section.pusher a.close'
+    @$buttons = $(@$push.concat(@$close))
+    @$mask    = @$el.find 'div.mask'
 
-    @$clickables.on 'click', (e) =>
+    @$buttons.on 'click', (e) =>
       e.preventDefault()
       @togglePushMenu()
+
+    @$mask.on 'click touchstart', => @close()
 
     @listenTo Backbone, 'category:change', @close
 
   togglePushMenu: -> if @open then @close() else @push()
 
-  push:  ->
+  push: ->
     @$el.addClass('pusher-open')
     @open = true
 
