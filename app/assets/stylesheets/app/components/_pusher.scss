@@ -47,16 +47,22 @@ div.mask {
   opacity: 0.75;
 }
 
-body.pusher-open {
-  div.pushable {
-    left: 250px;
-  }
+html.pusher-open {
+  overflow: hidden;
 
-  section.pusher {
-    left: 0;
-  }
+  body {
+    overflow: hidden;
 
-  div.mask {
-    display: block;
+    div.pushable {
+      left: 250px;
+    }
+
+    section.pusher {
+      left: 0;
+    }
+
+    div.mask {
+      display: block;
+    }
   }
 }

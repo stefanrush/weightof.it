@@ -1,5 +1,5 @@
 class WOI.Views.Pusher extends Backbone.View
-  el: 'body'
+  el: 'html'
 
   initialize: ->
     @open     = false
