@@ -7,29 +7,33 @@ class WOI.Collections.Libraries extends Backbone.Collection
     @perPage   = perPage
     @pageCount = Math.ceil models.length / @perPage
 
+  subset: (category, params) ->
+    @filter(category).search(params.search).sort(params.sort)
+
   filter: (category) ->
     filtered = @models
 
     if category
+      categoryID = category.get('id')
       filtered = _.filter filtered, (library) ->
-        library.get('category_id') is category.get('id')
+        library.get('category_id') is categoryID
     
     new WOI.Collections.Libraries filtered, @perPage
 
-  search: (params) ->
+  search: (query) ->
     searched = @models
 
-    if params.search
-      query = @stripText params.search
+    if query
+      query = @stripText query
       searched = _.filter searched, (library) =>
         @stripText(library.get('name')).indexOf(query) isnt -1
 
     new WOI.Collections.Libraries searched, @perPage
 
-  sort: (params) ->
+  sort: (sortBy) ->
     sorted = @models
 
-    switch params.sort
+    switch sortBy
       when 'popularity'
         sorted = _.sortBy sorted, (library) -> -library.get('popularity')
       when 'name'

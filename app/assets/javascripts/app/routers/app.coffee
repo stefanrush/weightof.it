@@ -19,9 +19,7 @@ class WOI.Routers.App extends Backbone.Router
     Backbone.trigger 'page:change', @params
 
     @category        = @categories.findWhere { slug: slug }
-    @librariesSubset = @libraries.filter(@category)
-                                 .search(@params)
-                                 .sort(@params)
+    @librariesSubset = @libraries.subset @category, @params
 
     @librariesView.pager.undelegateEvents() if @librariesView
     @librariesView = new WOI.Views.Libraries
