@@ -29,10 +29,7 @@ class WOI.Views.Searcher extends Backbone.View
   submit: (e) ->
     e.preventDefault()
     @search 0
-    if @query and @focused()
-      Backbone.trigger 'search:scroll', 'content'
-    else
-      @$input.focus()
+    if @query and @focused() then @$input.blur() else @$input.focus()
 
   clear: (e) ->
     e.preventDefault()
