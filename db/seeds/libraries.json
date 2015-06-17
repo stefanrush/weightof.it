@@ -3275,7 +3275,7 @@
       "name": "SoundManager 2",
       "source_url": "https://github.com/scottschiller/SoundManager2",
       "homepage_url": "http://www.schillmania.com/projects/soundmanager2/",
-      "category_id": 17,
+      "category_id": 18,
       "versions_attributes": [
         {
           "number": "2.97.20150601",
@@ -3293,7 +3293,7 @@
       "name": "SoundJS",
       "source_url": "https://github.com/CreateJS/SoundJS",
       "homepage_url": "http://createjs.com/soundjs/",
-      "category_id": 17,
+      "category_id": 18,
       "versions_attributes": [
         {
           "number": "0.6.0",
@@ -3311,7 +3311,7 @@
       "name": "howler.js",
       "source_url": "https://github.com/goldfire/howler.js",
       "homepage_url": "http://howlerjs.com/",
-      "category_id": 17,
+      "category_id": 18,
       "versions_attributes": [
         {
           "number": "1.1.26",
@@ -3329,7 +3329,7 @@
       "name": "wavesurfer.js",
       "source_url": "https://github.com/katspaugh/wavesurfer.js",
       "homepage_url": "http://www.wavesurfer.fm/",
-      "category_id": 17,
+      "category_id": 18,
       "versions_attributes": [
         {
           "number": "0.1.7",
@@ -3347,7 +3347,7 @@
       "name": "dancer.js",
       "source_url": "https://github.com/jsantell/dancer.js",
       "homepage_url": "https://jsantell.github.io/dancer.js/",
-      "category_id": 17,
+      "category_id": 18,
       "versions_attributes": [
         {
           "number": "0.4.0",
@@ -3365,7 +3365,7 @@
       "name": "Buzz",
       "source_url": "https://github.com/jaysalvat/buzz",
       "homepage_url": "http://buzz.jaysalvat.com/",
-      "category_id": 17,
+      "category_id": 18,
       "versions_attributes": [
         {
           "number": "1.1.10",
