@@ -12,12 +12,14 @@ ol.pager {
     font-size: 1.5rem;
 
     &.current {
-      padding: 0 1rem;
+      width: 38px;
+      //padding: 0 1rem;
     }
 
     a {
-      margin: 0 0.25rem;
-      padding: 0 1.25rem;
+      width: 38px;
+      padding: 0;
+      margin: 0 0.5rem;
 
       &:hover, &:focus {
         border-color: $primary-color;
@@ -42,12 +44,11 @@ ol.pager {
 
     @media ($bp-larger-than-mobile) {
       &.current {
-        padding: 0 2rem;
+        width: 52px;
       }
 
       a {
-        margin: 0 0.5rem;
-        padding: 0 2rem;
+        width: 52px;
 
         i {
           font-size: 1.5rem;
