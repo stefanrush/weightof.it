@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150521051923) do
   create_table "versions", force: :cascade do |t|
     t.integer  "library_id",                   null: false
     t.string   "number",                       null: false
-    t.string   "raw_url",                      null: false
+    t.string   "file_url",                     null: false
     t.integer  "weight"
     t.boolean  "check_weight", default: false, null: false
     t.boolean  "active",       default: false, null: false

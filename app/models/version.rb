@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  library_id   :integer          not null
 #  number       :string           not null
-#  raw_url      :string           not null
+#  file_url     :string           not null
 #  weight       :integer
 #  check_weight :boolean          default(FALSE), not null
 #  active       :boolean          default(FALSE), not null
@@ -20,12 +20,12 @@ class Version < ActiveRecord::Base
 
   validates :library, presence: true
   validates :number,  presence: true
-  validates :raw_url, presence: true
+  validates :file_url, presence: true
 
   validates :number, format: { with: /\A(\d+\.)*\d+\z/ }
   
-  validates :raw_url, format: { with: URI.regexp, message: "must be valid URL" }
-  validates :raw_url, format: { with: /\.js\z/, message: "must be JS file" }
+  validates :file_url, format: { with: URI.regexp, message: "must be valid URL" }
+  validates :file_url, format: { with: /\.js\z/, message: "must be JS file" }
 
   scope :latest, -> { active.sort_by{ |v| v.sortable_number }.reverse.first }
 
@@ -38,7 +38,7 @@ class Version < ActiveRecord::Base
   # Sets weight (file size in bytes) of version
   def weigh
     scale = Scale.new
-    scale.add(raw_url)
+    scale.add(file_url)
     self.weight = scale.weigh
   end
 

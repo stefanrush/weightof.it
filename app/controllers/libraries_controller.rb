@@ -42,7 +42,7 @@ private
       :category_id,
       versions_attributes: [
         :number,
-        :raw_url
+        :file_url
       ]
     )
   end
