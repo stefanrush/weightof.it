@@ -72,9 +72,22 @@
     },
     {
       "id": 15,
-      "name": "Other Libraries",
-      "slug": "other",
-      "position": 1,
+      "name": "Mobile UI",
+      "active": true
+    },
+    {
+      "id": 16,
+      "name": "Lightboxes",
+      "active": true
+    },
+    {
+      "id": 17,
+      "name": "UI Helpers",
+      "active": true
+    },
+    {
+      "id": 18,
+      "name": "Audio",
       "active": true
     }
   ]
