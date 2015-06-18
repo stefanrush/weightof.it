@@ -5,7 +5,7 @@
       - if library.description.present?
         &mdash; #{library.description}
     %span.weight= library.weight_pretty
-  .more-info
+  .expanded-info
     %span.source
       = link_to library.source_url, class: 'button button-primary',
                                     data: { remote: true },
@@ -19,7 +19,8 @@
                                       target: '_blank' do
           %span Homepage
           %i.fa.fa-home
-    - if library.popularity
-      %span.popularity{ title: "GitHub Stars" }
-        %i.fa.fa-star
-        %span= library.popularity
+    %span.add-to-stack
+      = link_to '#add-to-stack', class: 'button button-primary full',
+                                 data: { behavior: true } do
+        %span Add To Stack
+        %i.fa.fa-plus

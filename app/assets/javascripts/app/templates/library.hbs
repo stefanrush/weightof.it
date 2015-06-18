@@ -2,7 +2,7 @@
   <span class="info">{{library.name}}{{#if library.description}} &mdash; {{/if}}{{library.description}}</span>
   <span class="weight">{{library.weight_pretty}}</span>
 </div>
-<div class="more-info">
+<div class="expanded-info">
   <span class="source">
     <a href="{{library.source_url}}" class="button button-primary" data-remote="true" target="_blank">
       <span>Source</span>
@@ -17,10 +17,10 @@
       </a>
     </span>
   {{/if}}
-  {{#if library.popularity}}
-    <span class="popularity" title="GitHub Stars">
-      <i class="fa fa-star"></i>
-      <span>{{library.popularity}}</span>
-    </span>
-  {{/if}}
+  <span class="add-to-stack">
+    <a href="#add-to-stack" class="button button-primary full" data-behavior="true">
+      <span>Add To Stack</span>
+      <i class="fa fa-plus"></i>
+    </a>
+  </span>
 </div>
