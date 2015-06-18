@@ -1047,6 +1047,24 @@
       "active": true
     },
     {
+      "name": "jsPDF",
+      "source_url": "https://github.com/MrRio/jsPDF",
+      "homepage_url": "http://parall.ax/products/jspdf",
+      "category_id": 6,
+      "versions_attributes": [
+        {
+          "number": "1.1.135",
+          "file_url": "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.min.js",
+          "check_weight": true,
+          "active": true
+        }
+      ],
+      "check_description": true,
+      "check_popularity": true,
+      "approved": true,
+      "active": true
+    },
+    {
       "name": "Velocity",
       "source_url": "https://github.com/julianshapiro/velocity",
       "homepage_url": "http://julian.com/research/velocity/",
@@ -2444,24 +2462,6 @@
       "active": true
     },
     {
-      "name": "melonJS",
-      "source_url": "https://github.com/melonjs/melonJS",
-      "homepage_url": "http://www.melonjs.org/",
-      "category_id": 13,
-      "versions_attributes": [
-        {
-          "number": "1.0.1",
-          "file_url": "https://cdnjs.cloudflare.com/ajax/libs/melonjs/1.0.1/melonjs.js",
-          "check_weight": true,
-          "active": true
-        }
-      ],
-      "check_description": true,
-      "check_popularity": true,
-      "approved": true,
-      "active": true
-    },
-    {
       "name": "PhysicsJS",
       "source_url": "https://github.com/wellcaffeinated/PhysicsJS",
       "homepage_url": "http://wellcaffeinated.net/PhysicsJS/",
@@ -3172,24 +3172,6 @@
         {
           "number": "0.7.0",
           "file_url": "https://cdnjs.cloudflare.com/ajax/libs/headroom/0.7.0/headroom.js",
-          "check_weight": true,
-          "active": true
-        }
-      ],
-      "check_description": true,
-      "check_popularity": true,
-      "approved": true,
-      "active": true
-    },
-    {
-      "name": "jsPDF",
-      "source_url": "https://github.com/MrRio/jsPDF",
-      "homepage_url": "http://parall.ax/products/jspdf",
-      "category_id": 17,
-      "versions_attributes": [
-        {
-          "number": "1.1.135",
-          "file_url": "https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.min.js",
           "check_weight": true,
           "active": true
         }
