@@ -7,7 +7,7 @@ class WOI.Views.Libraries extends Backbone.View
     @$noneFound  = @$el.find 'p.none-found'
 
     @updateInfo()
-    @render options.initialPage if options.render
+    @render options.initialPage
 
     @pager = new WOI.Views.Pager
       el:          @$el.find 'ol.pager'

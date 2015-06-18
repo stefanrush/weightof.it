@@ -20,7 +20,7 @@
       = render 'components/pager'
       %p.none-found{ class: none_found_class } No libraries found.
 
-- content_for(:pusher) do
+- content_for(:outer_content) do
+  = render 'components/stack'
   = render 'components/pusher'
-
-= render 'layouts/bootstrap_app'
+  = render 'layouts/bootstrap_app'

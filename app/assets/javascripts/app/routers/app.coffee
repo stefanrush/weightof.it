@@ -3,11 +3,10 @@ class WOI.Routers.App extends Backbone.Router
     @categories = new WOI.Collections.Categories options.categories
     @libraries  = new WOI.Collections.Libraries  options.libraries,
                                                  options.perPage
+    @stack      = new WOI.Collections.Stack()
     
-    @renderLibraries = false
     @initializeLinks()
     @initializeComponents()
-
     @listenTo Backbone, 'search:change pager:change', @updateParam
 
   routes:
@@ -26,8 +25,6 @@ class WOI.Routers.App extends Backbone.Router
       collection:  @librariesSubset
       params:      @params
       initialPage: parseInt @params.page or 1, 10
-      render:      @renderLibraries
-    @renderLibraries = true
     
     @updateTitle()
 
@@ -42,6 +39,7 @@ class WOI.Routers.App extends Backbone.Router
     new WOI.Views.Sorter()
     new WOI.Views.Categories()
     new WOI.Views.Pusher()
+    new WOI.Views.Stack { collection: @stack }
     new WOI.Views.Flash()
 
   updateTitle: ->

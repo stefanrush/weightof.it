@@ -1,0 +1,112 @@
+section.stack {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 5rem;
+  line-height: 5rem;
+  background-color: $light-grey;
+  border-top: 1px solid $border-color;
+  @include transition(max-height 0.5s, opacity 0.5s);
+
+  div.basic-info {
+    font-size: 1.75rem;
+    cursor: pointer;
+  
+    @media ($bp-larger-than-mobile) {
+      font-size: 2rem;
+    }
+
+    span.icon {
+      float: right;
+
+      &.expand {
+        display: none;
+      }
+
+      &.close {
+        display: inline;
+      }
+    }
+  }
+
+  ul.items {
+    width: 100%;
+    max-height: 15rem;
+    margin-bottom: 0.5rem;
+    overflow-y: auto;
+
+    li {
+      height: 40px;
+      line-height: 40px;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+      background-color: $white;
+      border: 1px solid $border-color;
+      @include radius;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      span.name, span.weight {
+        padding: 0 1rem;
+      }
+
+      span.weight, span.remove {
+        float: right;
+      }
+
+      span.remove a {
+        display: block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        margin: 0;
+        padding: 0;
+        color: $font-color;
+        text-align: center;
+      }
+    }
+    
+    &.long li {
+      margin-right: 0.5rem;
+    }
+  }
+
+  div.expanded-info {
+    span.total {
+      line-height: 38px;
+    }
+
+    span.clear {
+      float: right;
+    }
+  }
+
+  &.expanded {
+    max-height: 26rem;
+
+    div.basic-info span.icon {
+      &.expand {
+        display: inline;
+      }
+
+      &.close {
+        display: none;
+      }
+    }
+  }
+}
+
+html.pusher-open {
+  section.stack {
+    opacity: 0;
+  }
+}
+
+html.touch {
+  section.stack ul.items.long li {
+    margin-right: 0;
+  }
+}
