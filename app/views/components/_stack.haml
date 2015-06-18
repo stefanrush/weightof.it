@@ -1,0 +1,18 @@
+%section.stack.hidden
+  .container
+    .row
+      .twelve.columns
+        .basic-info
+          %span.text My Stack &mdash;
+          %span.weight 0 B
+          %span.icon.expand
+            %i.fa.fa-caret-down
+          %span.icon.close
+            %i.fa.fa-caret-up
+        %ul.items
+        .expanded-info
+          %span.total 0 libraries
+          %span.clear
+            = link_to '#clear', class: 'button button-primary',
+                                data: { behavior: true } do
+              %span.text Clear

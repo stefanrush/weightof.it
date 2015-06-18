@@ -1,3 +1,10 @@
 @import
+  'app/variables',
+  'app/mixins',
+  'app/fonts',
   'normalize',
-  'skeleton';
+  'skeleton',
+  'app/layouts/*',
+  'app/libraries/*',
+  'app/categories/*',
+  'app/components/*';

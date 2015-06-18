@@ -1,0 +1,26 @@
+<div class="basic-info">
+  <span class="info">{{library.name}}{{#if library.description}} &mdash; {{/if}}{{library.description}}</span>
+  <span class="weight">{{library.weight_pretty}}</span>
+</div>
+<div class="expanded-info">
+  <span class="source">
+    <a href="{{library.source_url}}" class="button button-primary" data-remote="true" target="_blank">
+      <span>Source</span>
+      <i class="fa fa-github"></i>
+    </a>
+  </span>
+  {{#if library.homepage_url}}
+    <span class="homepage">
+      <a href="{{library.homepage_url}}" class="button button-primary" data-remote="true" target="_blank">
+        <span>Homepage</span>
+        <i class="fa fa-home"></i>
+      </a>
+    </span>
+  {{/if}}
+  <span class="add-to-stack">
+    <a href="#add-to-stack" class="button button-primary full" data-behavior="true">
+      <span>Add To Stack</span>
+      <i class="fa fa-plus"></i>
+    </a>
+  </span>
+</div>

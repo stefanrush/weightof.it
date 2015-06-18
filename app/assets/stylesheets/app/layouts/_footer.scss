@@ -1,0 +1,21 @@
+footer {
+  margin-bottom: 1.5rem;
+
+  ul {
+    padding: 1rem 1rem 0;
+    text-align: center;
+    @include well;
+
+    li {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0 1rem;
+    }
+  }
+}
+
+html.stack-visible {
+  footer {
+    margin-bottom: 6.5rem;
+  }
+}

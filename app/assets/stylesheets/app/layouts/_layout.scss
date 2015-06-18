@@ -1,0 +1,40 @@
+section.content {
+  padding: 1.5rem 0;
+}
+
+a, button, input[type="submit"] {
+  text-decoration: none;
+  @include transition(background-color 250ms, color 250ms);
+
+  &:hover, &:focus, &.active {
+    color: darken($primary-color, 20%);
+    text-decoration: underline;
+  }
+
+  &.button {
+    &:hover, &:focus, &.active {
+      text-decoration: none;
+    }
+
+    &.button-primary {
+      &:hover, &:focus {
+        background-color: $white;
+        border-color: $primary-color;
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+ul, ol {
+  list-style: none;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.hidden {
+  display: none;
+}

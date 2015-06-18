@@ -1,0 +1,29 @@
+section.menu-bar {
+  background-color: $light-grey;
+  border-bottom: 1px solid $border-color;
+
+  a.push {
+    display: block;
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 2rem;
+    color: $font-color;
+
+    i {
+      margin-right: 1rem;
+    }
+
+    &:hover, &:focus {
+      color: $black;
+      text-decoration: none;
+    }
+  }
+
+  @media ($bp-larger-than-tablet) {
+    display: none;
+  }
+}
+
+html.no-js section.menu-bar {
+  display: none !important;
+}

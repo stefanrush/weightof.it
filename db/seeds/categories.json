@@ -1,0 +1,94 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "DOM Manipulation",
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Application Frameworks",
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "Utilities",
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Template Engines",
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Carousels",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Graphics",
+      "active": true
+    },
+    {
+      "id": 7,
+      "name": "Animation",
+      "active": true
+    },
+    {
+      "id": 8,
+      "name": "Charts",
+      "active": true
+    },
+    {
+      "id": 9,
+      "name": "File Uploaders",
+      "active": true
+    },
+    {
+      "id": 10,
+      "name": "Form Helpers",
+      "active": true
+    },
+    {
+      "id": 11,
+      "name": "Video",
+      "active": true
+    },
+    {
+      "id": 12,
+      "name": "Polyfills",
+      "active": true
+    },
+    {
+      "id": 13,
+      "name": "Games",
+      "active": true
+    },
+    {
+      "id": 14,
+      "name": "Maps",
+      "active": true
+    },
+    {
+      "id": 15,
+      "name": "Mobile UI",
+      "active": true
+    },
+    {
+      "id": 16,
+      "name": "Lightboxes",
+      "active": true
+    },
+    {
+      "id": 17,
+      "name": "UI Helpers",
+      "active": true
+    },
+    {
+      "id": 18,
+      "name": "Audio",
+      "active": true
+    }
+  ]
+}

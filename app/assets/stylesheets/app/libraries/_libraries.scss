@@ -1,0 +1,144 @@
+section.libraries {
+  h3 {
+    margin-bottom: 1.25rem;
+    float: left;
+    font-size: 3rem;
+  }
+
+  p.total-found {
+    float: right;
+    line-height: 39px;
+  }
+
+  ol.list {
+    li {
+      padding: 1rem;
+      background-color: $white;
+      border: 1px solid $border-color;
+      @include radius;
+
+      &:last-of-type {
+        margin: 0;
+      }
+
+      &:hover {
+        border-color: $primary-color;
+      }
+
+      span.info {
+        width: 70%;
+
+        @media ($bp-larger-than-mobile) {
+          width: 80%;
+        }
+      }
+
+      span.weight {
+        width: 30%;
+        text-align: right;
+
+        @media ($bp-larger-than-mobile) {
+          width: 20%;
+        }
+      }
+
+      span.info {
+        float: left;
+      }
+
+      span.weight, span.add-to-stack {
+        float: right;
+      }
+
+      span.homepage {
+        margin-left: 0.8rem;
+      }
+
+      a.button {
+        margin: 0;
+        padding: 0 15px;
+
+        span {
+          display: none;
+        }
+
+        i {
+          line-height: 38px;
+          font-size: 2rem;
+          display: inline;
+        }
+
+        @media ($bp-larger-than-phablet) {
+          padding: 0 30px;
+
+          span {
+            display: inline;
+          }
+
+          i {
+            display: none;
+          }
+        }
+
+        &.full {
+          @media ($bp-larger-than-mobile) {
+            padding: 0 30px;
+
+            span {
+              display: inline;
+            }
+
+            i {
+              display: none;
+            }
+          }
+        }
+      }
+
+      div.expanded-info {
+        max-height: 40px;
+        padding-top: 1rem;
+        clear: left;
+        overflow: hidden;
+        @include transition(max-height 250ms, padding 250ms);
+      }
+    }
+  }
+
+  p.none-found {
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+html.csstransitions {
+  section.libraries ol.list li {
+    span.info {
+      @include truncate;
+    }
+
+    div.expanded-info {
+      max-height: 0;
+      padding: 0;
+    }
+
+    &:hover {
+      span.info {
+        @include untruncate;
+      }
+
+      div.expanded-info {
+        max-height: 40px;
+        padding-top: 1rem;
+      }
+    }
+  }
+}
+
+html.no-js {
+  section.libraries ol.list li span.add-to-stack {
+    display: none;
+  }
+}

@@ -1,0 +1,70 @@
+- content_for(:title) { "Contribute Library" }
+
+- content_for(:header) do
+  = render 'layouts/header_minimal'
+
+.row
+  .twelve.columns
+    = form_for @library do |f|
+      .row
+        .twelve.columns
+          %h2 Contribute Library
+      %noscript
+        .row
+          .twelve.columns
+            .flash.alert
+              This form requires JavaScript to protect against spam. Please enable Javacript and reload the page.
+      = render 'layouts/flashes'
+      .row
+        .twelve.columns
+          = f.label :name, "Name (required)"
+          = f.text_field :name, placeholder: "jQuery",
+                         data: { required: true }
+      .row
+        .twelve.columns
+          = f.label :source_url, "Source URL (required)"
+          = f.text_field :source_url, placeholder: "https://github.com/jquery/jquery",
+                         data: { required: true, url: true }
+      .row
+        .twelve.columns
+          = f.label :homepage_url, "Homepage URL"
+          = f.text_field :homepage_url, placeholder: "https://jquery.com/",
+                         data: { url: true }
+      .row
+        .twelve.columns
+          = f.label :category_id, "Category"
+          = f.collection_select :category_id, Category.app_data, :id, :name,
+                                { prompt: true }, data: { required: true }
+        .half
+          %label.versions
+            %span Versions
+            %span.full (limit 10)
+        .half
+          = link_to '#add-version', class: 'add-version button' do
+            %i.fa.fa-plus
+            %span Add Version
+        .twelve.columns
+          %ul.versions
+            = f.fields_for :versions do |v|
+              %li{ data: { index: 0 } }
+                .row
+                  .three.columns
+                    = v.label :number, "Number (required)"
+                    = v.text_field :number, placeholder: "2.1.4",
+                                   data: { required: true, number: true }
+                  .nine.columns
+                    = v.label :file_url, "File URL (required)"
+                    = v.text_field :file_url, placeholder: "http://code.jquery.com/jquery-2.1.4.min.js",
+                                   data: { required: true, js: true }
+      .row
+        .twelve.columns
+          = recaptcha_tags ajax: true, noscript: false
+      .row
+        .twelve.columns
+          = f.submit "Submit", class: 'button button-primary'
+
+:javascript
+  $(function() {
+    new WOI.Views.Contribute();
+    new WOI.Views.Flash();
+  });

@@ -1,0 +1,59 @@
+ol.pager {
+  margin: 1.5rem 0 0;
+  font-size: 0;
+  text-align: center;
+  
+  li {
+    display: inline-block;
+    vertical-align: top;
+    height: 38px;
+    line-height: 38px;
+    margin: 0;
+    font-size: 1.5rem;
+
+    &.current {
+      width: 38px;
+      //padding: 0 1rem;
+    }
+
+    a {
+      width: 38px;
+      padding: 0;
+      margin: 0 0.5rem;
+
+      &:hover, &:focus {
+        border-color: $primary-color;
+        color: $primary-color;
+      }
+
+      i {
+        line-height: 36px;
+        font-size: 1.25rem;
+      }
+    }
+
+    &.disabled a {
+      color: $border-color;
+      cursor: default;
+
+      &:hover, &:focus {
+        border-color: $border-color;
+        color: $border-color;
+      }
+    }
+
+    @media ($bp-larger-than-mobile) {
+      &.current {
+        width: 52px;
+      }
+
+      a {
+        width: 52px;
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
