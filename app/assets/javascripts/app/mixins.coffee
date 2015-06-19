@@ -18,7 +18,18 @@ WOI.Mixins =
         url += if params.search or params.sort then '&' else '?'
         url += "page=#{params.page}"
       url
-  
+
+  ScrollHelpers:
+    isolateScroll: ($el) ->
+      $el.on 'mousewheel', (e) ->
+        height       = $(@).height()
+        scrollHeight = $(@).get(0).scrollHeight
+        delta        = e.deltaY
+        
+        if (@scrollTop is (scrollHeight - height) and delta > 0) or
+           (@scrollTop is 0 and delta < 0)
+          e.preventDefault()
+
   UpdatableLinks:
     initialize: ->
       @$links  = @$el.find 'a'
