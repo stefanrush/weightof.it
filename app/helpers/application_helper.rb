@@ -2,9 +2,10 @@ module ApplicationHelper
   # Accepts text (optional)
   # Returns title of page
   def title(text)
-    title = "weightof.it"
-    title << " - #{text}" unless text.blank?
-    title << " - Compare JavaScript libraries by weight (file size)"
+    title  = ""
+    title << "#{text} - " unless text.blank?
+    title << "Compare JavaScript libraries by weight (file size) - weighof.it"
+    title
   end
 
   # Accepts update params hash to write over current params
