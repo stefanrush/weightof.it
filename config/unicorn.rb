@@ -1,4 +1,4 @@
-root_path = "/home/ubuntu/weighof.it"
+root_path = "/home/ubuntu/weightof.it"
 
 working_directory "#{root_path}/current"
 
