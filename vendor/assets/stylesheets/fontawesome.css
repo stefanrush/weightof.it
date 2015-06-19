@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'FontAwesome';
-  src: url('fontawesome/fontawesome.eot');
-  src: url('fontawesome/fontawesome.eot') format('embedded-opentype'),
-       url('fontawesome/fontawesome.woff') format('woff'),
-       url('fontawesome/fontawesome.ttf') format('truetype'),
-       url('fontawesome/fontawesome.svg') format('svg');
+  src: font-url('fontawesome/fontawesome.eot');
+  src: font-url('fontawesome/fontawesome.eot?iefix') format('embedded-opentype'),
+       font-url('fontawesome/fontawesome.woff') format('woff'),
+       font-url('fontawesome/fontawesome.ttf') format('truetype'),
+       font-url('fontawesome/fontawesome.svg#webfont') format('svg');
   font-weight: normal;
   font-style: normal;
 }
