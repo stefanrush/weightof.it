@@ -7,7 +7,7 @@ pid "#{root_path}/shared/tmp/pids/unicorn.pid"
 stderr_path "#{root_path}/shared/log/unicorn.error.log"
 stdout_path "#{root_path}/shared/log/unicorn.access.log"
 
-listen "#{root_path}/shared/tmp/sockets/unicorn.weighof.it.sock"
+listen "#{root_path}/shared/tmp/sockets/unicorn.sock"
 
 worker_processes 4
 
