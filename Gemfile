@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
 gem 'pg'
+gem 'unicorn'
 
 gem 'haml-rails', '~> 0.9'
 gem 'sass-rails', '~> 5.0'
@@ -15,9 +16,6 @@ gem 'figaro'
 gem 'httparty'
 gem 'turbolinks'
 gem 'recaptcha', require: 'recaptcha/rails'
-
-# gem 'unicorn'
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
@@ -34,5 +32,11 @@ end
 
 group :development do
   gem 'guard-rspec', require: false
-  gem 'annotate',    require: false
+  gem 'annotate', require: false
+  gem 'capistrano', '~> 3.4.0', require: false
+  gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'capistrano-bundler', '~> 1.1.2', require: false
+  gem 'capistrano-rails', '~> 1.1', require: false
+  gem 'capistrano3-unicorn', require: false
+  gem 'capistrano-passenger', require: false
 end
