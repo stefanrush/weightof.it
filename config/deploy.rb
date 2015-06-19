@@ -6,6 +6,7 @@ set :branch, 'development'
 set :deploy_to, '/home/ubuntu/weightof.it'
 set :linked_files, fetch(:linked_files, []).push('config/application.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+set :unicorn_config_path, '/home/ubuntu/weightof.it/current/config/unicorn.rb'
 set :passenger_restart_with_sudo, true
 
 namespace :deploy do
@@ -15,6 +16,6 @@ namespace :deploy do
       invoke 'unicorn:restart'
     end
   end
-  
+
   after :publishing, :restart
 end
