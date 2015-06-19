@@ -14,13 +14,14 @@ module PagerHelper
   # Accepts beginning boolean which determines whether page link element is
   #         first/previous element or next/last element
   # Accepts &block of content to be placed within page link element 
-  # Returns 
+  # Returns page element
   def page_link(name, page, beginning, &block)
     name    = name.to_s
     classes = page_classes name, beginning
     title   = page_title name
+    rel     = (name == 'next' || name == 'previous') ? name[0..3] : nil
     content_tag(:li, class: classes, title: title) do
-      link_to build_url(page: page), class: 'button', data: { behavior: true } do
+      link_to build_url(page: page), class: 'button', rel: rel, data: { behavior: true } do
         yield block
       end
     end
