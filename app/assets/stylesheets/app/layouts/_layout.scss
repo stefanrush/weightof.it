@@ -26,12 +26,17 @@ a, button, input[type="submit"] {
   }
 }
 
-ul, ol {
-  list-style: none;
+p {
   margin: 0;
 }
 
-p {
+h3 {
+  margin-bottom: 1.25rem;
+  font-size: 3rem;
+}
+
+ul, ol {
+  list-style: none;
   margin: 0;
 }
 

@@ -1,6 +1,5 @@
 default: &default
   adapter: postgresql
-  host: localhost
   pool: 5
   timeout: 5000
   username: <%= Figaro.env.database_username %>
@@ -16,4 +15,5 @@ test:
 
 production:
   <<: *default
+  host: localhost
   database: weight_of_it
