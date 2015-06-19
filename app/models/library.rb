@@ -57,8 +57,8 @@ class Library < ActiveRecord::Base
 
   before_validation :check_github, if: :check_any?
 
-  # Returns array of library fields used in app
-  def self.app_fields
+  # Returns array of library fields used in JSON data
+  def self.json_fields
     [
       :id,
       :name,
@@ -70,10 +70,15 @@ class Library < ActiveRecord::Base
       :category_id
     ]
   end
+
+  # Returns array of library fields used in app data
+  def self.app_fields
+    self.json_fields.concat [:created_at, :updated_at]
+  end
   
   # Returns library JSON data used in app
   def app_json
-    to_json(only: self.class.app_fields,
+    to_json(only: self.class.json_fields,
             methods: [:weight_pretty]).to_s.html_safe
   end
 

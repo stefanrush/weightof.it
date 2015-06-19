@@ -23,8 +23,8 @@ class Category < ActiveRecord::Base
   include Activeable
   include Sluggable
 
-  # Returns array of category fields used in app
-  def self.app_fields
+  # Returns array of category fields used in JSON data
+  def self.json_fields
     [
       :id,
       :name,
@@ -32,8 +32,13 @@ class Category < ActiveRecord::Base
     ]
   end
 
+  # Returns array of library fields used in app data
+  def self.app_fields
+    self.json_fields.concat [:created_at, :updated_at]
+  end
+
   # Returns category JSON data used in app
   def app_json
-    to_json(only: self.class.app_fields).to_s.html_safe
+    to_json(only: self.class.json_fields).to_s.html_safe
   end
 end
