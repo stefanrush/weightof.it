@@ -21,4 +21,6 @@
 class Admin < ActiveRecord::Base
   devise :database_authenticatable, :recoverable,
          :rememberable, :trackable, :validatable
+
+  scope :notify, -> { where(receive_notifications: true) }
 end

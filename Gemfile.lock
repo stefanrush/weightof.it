@@ -74,6 +74,9 @@ GEM
     childprocess (0.5.6)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
+    clockwork (1.2.0)
+      activesupport
+      tzinfo
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -304,6 +307,7 @@ DEPENDENCIES
   capistrano-rails (~> 1.1)
   capistrano-rbenv (~> 2.0)
   capybara
+  clockwork
   coffee-rails (~> 4.1.0)
   database_cleaner
   devise
