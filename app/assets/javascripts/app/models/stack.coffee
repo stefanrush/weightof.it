@@ -32,14 +32,18 @@ class WOI.Collections.Stack extends Backbone.Collection
   weightPretty: ->
     weight = @weight()
     if weight < 1000
-      unit = "B"
+      unit      = "B"
+      precision = 0
     else if weight < 1e6
-      weight /= 1000
-      unit = "KB"
+      weight   /= 1000
+      unit      = "KB"
+      precision = 1
     else if weight < 1e9
-      weight /= 1e6
-      unit = "MB"
+      weight   /= 1e6
+      unit      = "MB"
+      precision = 2
     else
-      weight /= 1e9
-      unit = "GB"
-    "#{weight.toFixed(1)} #{unit}"
+      weight   /= 1e9
+      unit      = "GB"
+      precision = 3
+    "#{weight.toFixed(precision)} #{unit}"

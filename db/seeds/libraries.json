@@ -372,7 +372,7 @@
       "versions_attributes": [
         {
           "number": "1.5.3",
-          "file_url": "https://cdnjs.com/libraries/numeral.js",
+          "file_url": "https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.5.3/numeral.min.js",
           "check_weight": true,
           "active": true
         }

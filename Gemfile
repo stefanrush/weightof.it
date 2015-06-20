@@ -13,11 +13,10 @@ gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'httparty'
-gem 'turbolinks'
+gem 'daemons'
+gem 'clockwork'
+gem 'actionpack-page_caching'
 gem 'recaptcha', require: 'recaptcha/rails'
-
-# gem 'unicorn'
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
@@ -34,5 +33,10 @@ end
 
 group :development do
   gem 'guard-rspec', require: false
-  gem 'annotate',    require: false
+  gem 'annotate', require: false
+  gem 'capistrano', '~> 3.4.0', require: false
+  gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'capistrano-bundler', '~> 1.1.2', require: false
+  gem 'capistrano-rails', '~> 1.1', require: false
+  gem 'capistrano-passenger', require: false
 end

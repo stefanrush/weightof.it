@@ -1,13 +1,15 @@
 class LibrariesController < ApplicationController
   include Pagerable
 
+  caches_page :index, if: :should_cache?
+
   # GET '/(category/:slug)'
   def index
     @categories = Category.app_data
     @libraries  = Library.app_data
     
     @libraries_subset = subset @libraries.dup
-  
+
   rescue ActiveRecord::RecordNotFound
     render_404
   end
@@ -22,7 +24,6 @@ class LibrariesController < ApplicationController
   def create
     @library = Library.new(library_params)
     if verify_recaptcha(model: @library) && @library.save
-      flash.notice = "Thank you for your contribution!"
       redirect_to root_url
     else
       errors = "The form contained the following errors: "
@@ -34,6 +35,7 @@ class LibrariesController < ApplicationController
 
 private
   
+  # Returns hash of whitelisted params
   def library_params
     params.require(:library).permit(
       :name,
@@ -45,6 +47,11 @@ private
         :file_url
       ]
     )
+  end
+
+  # Returns true if no params are present
+  def should_cache?
+    !(params[:slug] || params[:sort] || params[:search] || params[:page])
   end
 
   # Accepts collection of libraries

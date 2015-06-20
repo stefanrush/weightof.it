@@ -31,6 +31,7 @@ class Version < ActiveRecord::Base
 
   include Activeable
   include Weightable
+  include CacheClearable
 
   before_validation :weigh, if: :check_weight?
   after_save :update_library_weight, if: :is_latest?

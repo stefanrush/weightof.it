@@ -1,0 +1,9 @@
+- content_for(:title) { "Internal Server Error" }
+
+- content_for(:header) do
+  = render 'layouts/header_minimal'
+
+.row
+  .twelve.columns
+    %h3 Internal Server Error
+    %p= link_to "Return to homepage", root_path

@@ -13,6 +13,7 @@ class WOI.Views.Stack extends Backbone.View
 
     @renderItems()
     @update()
+    @isolateScroll @$items
     @listenTo Backbone, 'library:addToStack', @add
 
   renderItems: ->
@@ -82,3 +83,5 @@ class WOI.Views.Stack extends Backbone.View
   close: ->
     @$el.removeClass 'expanded'
     @expanded = false
+
+_.extend WOI.Views.Stack.prototype, WOI.Mixins.ScrollHelpers

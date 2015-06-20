@@ -2,9 +2,8 @@
 %html{ lang: "en", class: "no-js" }
   %head
     %meta{ charset: "utf-8" }
-    %meta{ content: "width=device-width, initial-scale=1.0", name: "viewport" }
     %title= title yield(:title)
-    = csrf_meta_tags
+    = render 'layouts/meta_tags'
 
     = stylesheet_link_tag    'application'
     = javascript_include_tag 'application'

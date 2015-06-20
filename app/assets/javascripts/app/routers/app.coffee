@@ -43,9 +43,9 @@ class WOI.Routers.App extends Backbone.Router
     new WOI.Views.Flash()
 
   updateTitle: ->
-    title  = "weightof.it"
-    title += " - #{@category.get('name')}" if @category
-    title += " - Compare JavaScript libraries by weight (file size)"
+    title  = ""
+    title += "#{@category.get('name')} - " if @category
+    title += "Compare JavaScript libraries by weight (file size) - weightof.it"
     document.title = title
 
   updateParam: (key, value, trigger = true, includePage = false) ->

@@ -4,6 +4,9 @@ github_access_token:  ""
 ga_tracking_id:       ""
 recaptcha_site_key:   ""
 recaptcha_secret_key: ""
+ses_server_name:      ""
+ses_username:         ""
+ses_password:         ""
 secret_key:           ""
 
 production:

@@ -15,4 +15,5 @@ test:
 
 production:
   <<: *default
+  host: localhost
   database: weight_of_it

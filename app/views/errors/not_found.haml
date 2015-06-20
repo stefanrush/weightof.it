@@ -1,0 +1,9 @@
+- content_for(:title) { "Page Not Found" }
+
+- content_for(:header) do
+  = render 'layouts/header_minimal'
+
+.row
+  .twelve.columns
+    %h3 Page Not Found
+    %p= link_to "Return to homepage", root_path

@@ -1,0 +1,9 @@
+- content_for(:title) { "Unprocessable Entity" }
+
+- content_for(:header) do
+  = render 'layouts/header_minimal'
+
+.row
+  .twelve.columns
+    %h3 Unprocessable Entity
+    %p= link_to "Return to homepage", root_path

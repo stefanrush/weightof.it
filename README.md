@@ -35,7 +35,7 @@ Seed database with:
 Testing
 -------
 
-Switch Capybara JavaScript driver to Selenium if PhantomJS isn't installed for Poltergeist by updating `spec/support/capybara.rb` to include:
+Switch Capybara JavaScript driver to Selenium if PhantomJS isn't installed by updating `spec/support/capybara.rb` to include:
 
     Capybara.javascript_driver = :selenium
 
