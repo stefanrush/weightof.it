@@ -2,7 +2,7 @@ lock '3.4.0'
 
 set :application, 'weightof.it'
 set :repo_url, 'git@github.com:stefanrush/weightof.it'
-set :branch, 'development'
+set :branch, 'master'
 set :deploy_to, '/home/ubuntu/weightof.it'
 set :linked_files, fetch(:linked_files, []).push('config/application.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
@@ -14,6 +14,11 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'passenger:restart'
     end
+  end
+
+  desc "Runs rake db:seed"
+  task :seed do
+    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
   end
 
   after :publishing, :restart
@@ -39,7 +44,7 @@ namespace :clockwork do
           execute :bundle, :exec, :clockworkd, "-c lib/clockwork.rb --pid-dir=#{cw_pid_dir} --log-dir=#{cw_log_dir} stop"
         end
       end
-    end
+    endb
   end
 
   desc "Restart clockwork"
