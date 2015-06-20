@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
 gem 'pg'
-gem 'unicorn'
 
 gem 'haml-rails', '~> 0.9'
 gem 'sass-rails', '~> 5.0'
@@ -14,7 +13,7 @@ gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'httparty'
-gem 'turbolinks'
+gem 'actionpack-page_caching'
 gem 'recaptcha', require: 'recaptcha/rails'
 
 group :development, :test do

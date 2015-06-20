@@ -22,6 +22,7 @@ class Category < ActiveRecord::Base
 
   include Activeable
   include Sluggable
+  include CacheClearable
 
   # Returns array of category fields used in JSON data
   def self.json_fields

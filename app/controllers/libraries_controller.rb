@@ -1,6 +1,8 @@
 class LibrariesController < ApplicationController
   include Pagerable
 
+  caches_page :index, if: :should_cache?
+
   # GET '/(category/:slug)'
   def index
     @categories = Category.app_data
@@ -45,6 +47,10 @@ private
         :file_url
       ]
     )
+  end
+
+  def should_cache?
+    !(params[:slug] || params[:sort] || params[:search] || params[:page])
   end
 
   # Accepts collection of libraries

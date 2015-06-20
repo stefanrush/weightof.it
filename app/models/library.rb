@@ -54,6 +54,7 @@ class Library < ActiveRecord::Base
   include Pageable
   include Sluggable
   include Weightable
+  include CacheClearable
 
   before_validation :check_github, if: :check_any?
 
