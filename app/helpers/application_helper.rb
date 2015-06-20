@@ -4,7 +4,7 @@ module ApplicationHelper
   def title(text)
     title  = ""
     title << "#{text} - " unless text.blank?
-    title << "Compare JavaScript libraries by weight (file size) - weighof.it"
+    title << "Compare JavaScript libraries by weight (file size) - weightof.it"
     title
   end
 

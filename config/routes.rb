@@ -8,6 +8,7 @@
 #
 
 Rails.application.routes.draw do
+  devise_for :admins
   root                   to: 'libraries#index'
   get  'category/:slug', to: 'libraries#index'
   get  'contribute',     to: 'libraries#new'

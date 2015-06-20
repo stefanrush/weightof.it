@@ -9,7 +9,7 @@ class LibrariesController < ApplicationController
     @libraries  = Library.app_data
     
     @libraries_subset = subset @libraries.dup
-  
+
   rescue ActiveRecord::RecordNotFound
     render_404
   end
@@ -35,6 +35,7 @@ class LibrariesController < ApplicationController
 
 private
   
+  # Returns hash of whitelisted params
   def library_params
     params.require(:library).permit(
       :name,
@@ -48,6 +49,7 @@ private
     )
   end
 
+  # Returns true if no params are present
   def should_cache?
     !(params[:slug] || params[:sort] || params[:search] || params[:page])
   end
