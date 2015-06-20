@@ -87,6 +87,7 @@ GEM
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
     columnize (0.9.0)
+    daemons (1.2.2)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     devise (3.5.1)
@@ -309,6 +310,7 @@ DEPENDENCIES
   capybara
   clockwork
   coffee-rails (~> 4.1.0)
+  daemons
   database_cleaner
   devise
   factory_girl_rails
