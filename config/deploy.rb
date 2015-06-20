@@ -9,7 +9,7 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :passenger_restart_with_sudo, true
 
 namespace :deploy do
-  desc 'Restart application'
+  desc "Restart application"
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       invoke 'passenger:restart'
@@ -44,7 +44,7 @@ namespace :clockwork do
           execute :bundle, :exec, :clockworkd, "-c lib/clockwork.rb --pid-dir=#{cw_pid_dir} --log-dir=#{cw_log_dir} stop"
         end
       end
-    endb
+    end
   end
 
   desc "Restart clockwork"
