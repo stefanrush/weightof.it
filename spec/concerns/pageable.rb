@@ -6,6 +6,7 @@ shared_examples_for 'Pageable' do
   end
 
   before(:all) do
+    described_class.delete_all
     100.times { new_model }
   end
 
@@ -29,16 +30,15 @@ shared_examples_for 'Pageable' do
 
   describe ".page(number)" do
     it "returns only items from specific page" do
-      described_class.per_page = 10
-
       collection = described_class.all
+      described_class.per_page = 10
 
       10.times do
         page_number = rand(9) + 1 
         page_range  = (10 * (page_number - 1))..(10 * page_number)
         collection.page(page_number)
                   .zip(collection[page_range]).each do |test, expectation|
-          expect(test.name).to eq(expectation.name)
+          expect(test.name).to eq(expectation.name) if test
         end
       end
     end

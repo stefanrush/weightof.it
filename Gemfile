@@ -13,6 +13,7 @@ gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'httparty'
+gem 'clockwork'
 gem 'actionpack-page_caching'
 gem 'recaptcha', require: 'recaptcha/rails'
 
