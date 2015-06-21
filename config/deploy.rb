@@ -17,8 +17,12 @@ namespace :deploy do
   end
 
   desc "Runs rake db:seed"
-  task :seed do
-    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+  task :seed => [:set_rails_env] do
+    on roles(:db) do
+      within release_path do
+        execute :bundle, :exec, :rake, "db:seed"
+      end
+    end
   end
 
   after :publishing, :restart
