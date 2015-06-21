@@ -17,10 +17,10 @@ namespace :deploy do
   end
 
   desc "Runs rake db:seed"
-  task :seed => [:set_rails_env] do
+  task :seed do
     on roles(:db) do
       within release_path do
-        execute :bundle, :exec, :rake, "db:seed"
+        execute :bundle, :exec, :rake, "db:seed RAILS_ENV=#{fetch(:rails_env)}"
       end
     end
   end
