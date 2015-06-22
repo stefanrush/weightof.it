@@ -24,7 +24,8 @@ class LibrariesController < ApplicationController
   def create
     @library = Library.new(library_params)
     if verify_recaptcha(model: @library) && @library.save
-      redirect_to root_url
+      flash.notice = "Thank you for contributing! Your library will be added once it's approved."
+      redirect_to contribute_url
     else
       errors = "The form contained the following errors: "
       errors << @library.errors.full_messages.join(', ')

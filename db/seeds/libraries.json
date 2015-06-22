@@ -121,8 +121,8 @@
       "category_id": 2,
       "versions_attributes": [
         {
-          "number": "1.13.0",
-          "file_url": "https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.13.0/ember.js",
+          "number": "1.13.2",
+          "file_url": "https://cdnjs.cloudflare.com/ajax/libs/ember.js/1.13.2/ember.prod.js",
           "check_weight": true,
           "active": true
         }
