@@ -5,6 +5,7 @@ class WOI.Views.Library extends Backbone.View
 
   events:
     'click span.add-to-stack a' : 'addToStack'
+    'click'                     : 'toggleExpanded'
 
   render: ->
     @$el.html @template { library: @model.attributes }
@@ -13,3 +14,5 @@ class WOI.Views.Library extends Backbone.View
   addToStack: (e) ->
     e.preventDefault()
     Backbone.trigger 'library:addToStack', @model
+
+  toggleExpanded: -> @$el.toggleClass 'expanded'
