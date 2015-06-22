@@ -113,6 +113,8 @@ section.libraries {
 
 html.csstransitions {
   section.libraries ol.list li {
+    cursor: pointer;
+
     span.info {
       @include truncate;
     }
@@ -122,7 +124,11 @@ html.csstransitions {
       padding: 0;
     }
 
-    &:hover {
+    &.expanded {
+      &:hover {
+        cursor: default;
+      }
+
       span.info {
         @include untruncate;
       }
