@@ -17,6 +17,7 @@
 #  active            :boolean          default(FALSE), not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  weight_gzipped    :integer
 #
 
 FactoryGirl.define do
@@ -24,6 +25,7 @@ FactoryGirl.define do
     sequence(:name)         { |n| "L#{n}" }
     sequence(:slug)         { |n| "l-#{n}" }
     weight                  { rand(10000) + 1 }
+    weight_gzipped          { rand(10000) + 1 }
     sequence(:homepage_url) { |n| "https://l#{n}.com" }
     sequence(:source_url)   { |n| "https://github.com/l#{n}" }
     sequence(:description)  { |n| "L#{n} description" } 
@@ -36,6 +38,7 @@ FactoryGirl.define do
       name              "jQuery"
       slug              nil
       weight            nil
+      weight_gzipped    nil
       homepage_url      "https://jquery.com/"
       source_url        "https://github.com/jquery/jquery"
       description       nil

@@ -2,15 +2,16 @@
 #
 # Table name: versions
 #
-#  id           :integer          not null, primary key
-#  library_id   :integer          not null
-#  number       :string           not null
-#  file_url     :string           not null
-#  weight       :integer
-#  check_weight :boolean          default(FALSE), not null
-#  active       :boolean          default(FALSE), not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id             :integer          not null, primary key
+#  library_id     :integer          not null
+#  number         :string           not null
+#  file_url       :string           not null
+#  weight         :integer
+#  check_weight   :boolean          default(FALSE), not null
+#  active         :boolean          default(FALSE), not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  weight_gzipped :integer
 #
 
 require 'scale'
@@ -40,12 +41,13 @@ class Version < ActiveRecord::Base
   def weigh
     scale = Scale.new
     scale.add(file_url)
-    self.weight = scale.weigh
+    self.weight, self.weight_gzipped = scale.weigh
   end
 
   # Updates weight of library to weight of version
   def update_library_weight
-    self.library.update_attributes(weight: weight)
+    self.library.update_attributes(weight: weight,
+                                   weight_gzipped: weight_gzipped)
   end
 
   # Returns true if latest version of library
