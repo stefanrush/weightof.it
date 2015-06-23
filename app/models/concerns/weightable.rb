@@ -9,7 +9,7 @@ module Weightable
 
     scope :weighed,   -> { where.not(weight: nil) }
     scope :unweighed, -> { where(weight: nil) }
-    scope :by_weight, -> { order(:weight) }
+    scope :by_weight, -> { order(:weight_gzipped) }
 
     include PrettyWeights
 
