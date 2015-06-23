@@ -24,7 +24,7 @@ require 'github_checker'
 
 class Library < ActiveRecord::Base
   belongs_to :category
-  has_many   :versions, inverse_of: :library
+  has_many   :versions, inverse_of: :library, dependent: :destroy
 
   accepts_nested_attributes_for :versions, limit: 10
 

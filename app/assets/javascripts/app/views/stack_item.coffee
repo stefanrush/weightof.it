@@ -8,12 +8,16 @@ class WOI.Views.StackItem extends Backbone.View
 
   initialize: (options) ->
     @parentView = options.parentView
+    @gzip       = @parentView.gzip
+    @listenTo Backbone, 'gzip:change', @updateGzip
 
   render: ->
-    @$el.html @template { item: @model }
+    @$el.html @template { item: @model, gzip: @gzip }
     @
 
   remove: (e) ->
     e.preventDefault()
     @parentView.remove @model.id
     @$el.remove()
+
+_.extend WOI.Views.StackItem.prototype, WOI.Mixins.UpdatableWeight

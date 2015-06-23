@@ -1,0 +1,29 @@
+div.gzipper {
+  float: none;
+  clear: both;
+
+  label {
+    height: auto;
+    line-height: 1;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+    cursor: pointer;
+
+    input {
+      margin: 0;  
+    }
+  }
+
+  @media ($bp-larger-than-mobile) {
+    float: left;
+    clear: none;
+    
+    label {
+      line-height: 39px;
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+  }
+}

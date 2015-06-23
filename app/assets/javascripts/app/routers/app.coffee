@@ -4,10 +4,12 @@ class WOI.Routers.App extends Backbone.Router
     @libraries  = new WOI.Collections.Libraries  options.libraries,
                                                  options.perPage
     @stack      = new WOI.Collections.Stack()
-    
+    @gzip       = true
+
     @initializeLinks()
     @initializeComponents()
     @listenTo Backbone, 'search:change pager:change', @updateParam
+    @listenTo Backbone, 'gzip:change', @updateGzip
 
   routes:
     '(category/:slug)' : 'index'
@@ -25,6 +27,7 @@ class WOI.Routers.App extends Backbone.Router
       collection:  @librariesSubset
       params:      @params
       initialPage: parseInt @params.page or 1, 10
+      gzip:        @gzip
     
     @updateTitle()
 
@@ -36,10 +39,11 @@ class WOI.Routers.App extends Backbone.Router
 
   initializeComponents: ->
     new WOI.Views.Searcher()
+    new WOI.Views.Gzipper()
     new WOI.Views.Sorter()
     new WOI.Views.Categories()
     new WOI.Views.Pusher()
-    new WOI.Views.Stack { collection: @stack }
+    new WOI.Views.Stack { collection: @stack, gzip: @gzip }
     new WOI.Views.Flash()
 
   updateTitle: ->
@@ -51,5 +55,7 @@ class WOI.Routers.App extends Backbone.Router
   updateParam: (key, value, trigger = true, includePage = false) ->
     newURL = @buildURL @params, key, value, includePage
     @.navigate newURL, { trigger: trigger }
+
+  updateGzip: (gzip) -> @gzip = gzip
 
 _.extend WOI.Routers.App.prototype, WOI.Mixins.URLHelpers

@@ -13,6 +13,7 @@
     %section.libraries
       %h3 Libraries
       %p.total-found{ class: total_class } #{@total_count} found
+      = render 'components/gzipper'
       = render 'components/sorter'
       %ol.list= render @libraries_subset
       = render 'components/pager'
