@@ -5,14 +5,26 @@ class WOI.Views.Library extends Backbone.View
 
   events:
     'click span.add-to-stack a' : 'addToStack'
+    'click a'                   : 'stopClose'
     'click'                     : 'toggleExpanded'
 
+  initialize: (options) ->
+    @gzip = options.gzip
+    @listenTo Backbone, 'gzip:change', @updateGzip
+
   render: ->
-    @$el.html @template { library: @model.attributes }
+    @$el.html @template { library: @model.attributes, gzip: @gzip }
     @
 
   addToStack: (e) ->
     e.preventDefault()
     Backbone.trigger 'library:addToStack', @model
 
-  toggleExpanded: -> @$el.toggleClass 'expanded'
+  stopClose: ->
+    @$el.addClass 'stop-close'
+    setTimeout ( => @$el.removeClass 'stop-close' ), 100
+
+  toggleExpanded: ->
+    @$el.toggleClass 'expanded' unless @$el.hasClass 'stop-close'
+
+_.extend WOI.Views.Library.prototype, WOI.Mixins.UpdatableWeight

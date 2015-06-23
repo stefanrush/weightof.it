@@ -2,14 +2,14 @@ class WOI.Views.Searcher extends Backbone.View
   el: 'form.searcher'
 
   events:
-    'keyup input#search'  : 'search'
+    'keyup #search'       : 'search'
     'submit'              : 'submit'
     'click button.submit' : 'submit'
     'click a.clear'       : 'clear'
-    'focus input#search'  : 'focus'
-    'blur input#search'   : 'blur'
+    'focus #search'       : 'focus'
+    'blur #search'        : 'blur'
 
-  initialize: (options) ->
+  initialize: ->
     @query   = ''
     @change  = null
     @$input  = @$el.find '#search'

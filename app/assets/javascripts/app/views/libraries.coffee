@@ -7,6 +7,10 @@ class WOI.Views.Libraries extends Backbone.View
     @$noneFound  = @$el.find 'p.none-found'
 
     @updateInfo()
+
+    @gzip = options.gzip
+    @listenTo Backbone, 'gzip:change', @updateGzip
+
     @render options.initialPage
 
     @pager = new WOI.Views.Pager
@@ -20,7 +24,8 @@ class WOI.Views.Libraries extends Backbone.View
     @$list.empty()
     pageLibraries = @collection.page page
     pageLibraries.each (library) =>
-      @$list.append new WOI.Views.Library({ model: library }).render().el
+      libraryView = new WOI.Views.Library { model: library, gzip: @gzip }
+      @$list.append libraryView.render().el
     @updateInfo pageLibraries.length, false
     @
 
@@ -32,3 +37,5 @@ class WOI.Views.Libraries extends Backbone.View
       @$noneFound.addClass 'hidden'
       @$totalFound.html "#{total} found" if updateTotal
       @$totalFound.removeClass 'hidden'
+
+  updateGzip: (gzip) -> @gzip = gzip

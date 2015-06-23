@@ -49,3 +49,19 @@ WOI.Mixins =
       @$links.each (i, el) =>
         value = $(el).data key
         $(el).attr 'href', @buildURL(params, key, value)
+
+  UpdatableWeight:
+    updateGzip: (gzip) ->
+      @gzip = gzip
+      @updateWeight()
+
+    updateWeight: ->
+      model = if @model.attributes then @model.attributes else @model
+
+      attribute    = if @gzip then '_gzipped' else ''
+      weight       = model["weight#{attribute}"]
+      weightPretty = model["weight#{attribute}_pretty"]
+
+      $weight = @$el.find 'span.weight'
+      $weight.html weightPretty
+      $weight.attr 'title', "#{weight} B"

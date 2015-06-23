@@ -5,16 +5,21 @@ class WOI.Views.Stack extends Backbone.View
     'click div.basic-info' : 'toggleExpanded'
     'click span.clear a'   : 'clear'
 
-  initialize: ->
+  initialize: (options) ->
+    @$basic   = @$el.find 'div.basic-info'
     @$weight  = @$el.find 'div.basic-info span.weight'
     @$total   = @$el.find 'div.expanded-info span.total'
     @$items   = @$el.find 'ul.items'
+
+    @gzip     = options.gzip
     @expanded = false
 
     @renderItems()
     @update()
     @isolateScroll @$items
+
     @listenTo Backbone, 'library:addToStack', @add
+    @listenTo Backbone, 'gzip:change', @updateGzip
 
   renderItems: ->
     _.each @collection.models, (item) => @renderItem item
@@ -29,8 +34,9 @@ class WOI.Views.Stack extends Backbone.View
 
   add: (item) ->
     if @collection.push item
+      @flash()
       @renderItem item
-      @update()
+      @update(true)
 
   remove: (itemID) ->
     @collection.remove itemID
@@ -42,15 +48,16 @@ class WOI.Views.Stack extends Backbone.View
     @$items.empty()
     @update()
 
-  update: ->
+  update: (scroll = false) ->
     @updateWeight()
     @updateTotal()
     @updateVisible()
     @updateLong()
+    @scrollToBottom() if scroll
 
   updateWeight: ->
     @$weight.attr 'title', "#{@collection.weight()} B"
-    @$weight.html @collection.weightPretty()
+    @$weight.html @collection.weightPretty(@gzip)
 
   updateTotal: ->
     total = @collection.models.length
@@ -71,6 +78,17 @@ class WOI.Views.Stack extends Backbone.View
       @$items.addClass 'long'
     else
       @$items.removeClass 'long'
+
+  updateGzip: (gzip) ->
+    @gzip = gzip
+    @updateWeight()
+
+  scrollToBottom: ->
+    @$items.scrollTop @$items.first('li').height() * @collection.models.length
+
+  flash: ->
+    @$basic.css 'color', '#0088ff'
+    setTimeout ( => @$basic.css 'color', '#222222' ), 500
 
   toggleExpanded: (e) ->
     e.preventDefault()

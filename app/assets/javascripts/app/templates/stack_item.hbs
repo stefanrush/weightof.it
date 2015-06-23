@@ -4,4 +4,8 @@
     <i class="fa fa-minus"></i>
   </a>
 </span>
-<span class="weight" title="{{item.weight}} B">{{item.weight_pretty}}</span>
+{{#if gzip}}
+  <span class="weight" title="{{item.weight_gzipped}} B">{{item.weight_gzipped_pretty}}</span>
+{{else}}
+  <span class="weight" title="{{item.weight}} B">{{item.weight_pretty}}</span>
+{{/if}}

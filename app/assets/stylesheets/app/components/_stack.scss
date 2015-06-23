@@ -12,6 +12,7 @@ section.stack {
   div.basic-info {
     font-size: 1.75rem;
     cursor: pointer;
+    @include transition(color 0.25s);
   
     @media ($bp-larger-than-mobile) {
       font-size: 2rem;
