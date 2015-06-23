@@ -39,7 +39,7 @@ class WOI.Collections.Libraries extends Backbone.Collection
       when 'name'
         sorted = _.sortBy sorted, (library) -> library.get('name').toLowerCase()
       else
-        sorted = _.sortBy sorted, (library) -> library.get('weight')
+        sorted = _.sortBy sorted, (library) -> library.get('weight_gzipped')
 
     new WOI.Collections.Libraries sorted, @perPage
 
