@@ -2,15 +2,16 @@
 #
 # Table name: versions
 #
-#  id           :integer          not null, primary key
-#  library_id   :integer          not null
-#  number       :string           not null
-#  file_url     :string           not null
-#  weight       :integer
-#  check_weight :boolean          default(FALSE), not null
-#  active       :boolean          default(FALSE), not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
+#  id             :integer          not null, primary key
+#  library_id     :integer          not null
+#  number         :string           not null
+#  file_url       :string           not null
+#  weight         :integer
+#  check_weight   :boolean          default(FALSE), not null
+#  active         :boolean          default(FALSE), not null
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  weight_gzipped :integer
 #
 
 require 'spec_helper'
@@ -48,6 +49,7 @@ RSpec.describe Version, type: :model do
       it "sets weight to the filesize of the compressed file in bytes" do
         version.weigh
         expect(version.weight).to eq(test_weight)
+        expect(version.weight_gzipped).to be < version.weight
       end
     end
 

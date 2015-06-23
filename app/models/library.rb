@@ -17,6 +17,7 @@
 #  active            :boolean          default(FALSE), not null
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  weight_gzipped    :integer
 #
 
 require 'github_checker'
@@ -64,6 +65,7 @@ class Library < ActiveRecord::Base
       :id,
       :name,
       :weight,
+      :weight_gzipped,
       :description,
       :source_url,
       :homepage_url,
@@ -80,7 +82,7 @@ class Library < ActiveRecord::Base
   # Returns library JSON data used in app
   def app_json
     to_json(only: self.class.json_fields,
-            methods: [:weight_pretty]).to_s.html_safe
+            methods: [:weight_pretty, :weight_gzipped_pretty]).to_s.html_safe
   end
 
   # Sets description and popularity fields based on data from GitHub 
