@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620013428) do
+ActiveRecord::Schema.define(version: 20150622180511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,20 +61,22 @@ ActiveRecord::Schema.define(version: 20150620013428) do
     t.boolean  "active",            default: false, null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+    t.integer  "weight_gzipped"
   end
 
   add_index "libraries", ["category_id"], name: "index_libraries_on_category_id", using: :btree
   add_index "libraries", ["slug"], name: "index_libraries_on_slug", using: :btree
 
   create_table "versions", force: :cascade do |t|
-    t.integer  "library_id",                   null: false
-    t.string   "number",                       null: false
-    t.string   "file_url",                     null: false
+    t.integer  "library_id",                     null: false
+    t.string   "number",                         null: false
+    t.string   "file_url",                       null: false
     t.integer  "weight"
-    t.boolean  "check_weight", default: false, null: false
-    t.boolean  "active",       default: false, null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "check_weight",   default: false, null: false
+    t.boolean  "active",         default: false, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "weight_gzipped"
   end
 
   add_index "versions", ["library_id"], name: "index_versions_on_library_id", using: :btree

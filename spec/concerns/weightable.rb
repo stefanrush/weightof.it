@@ -3,10 +3,12 @@ require 'spec_helper'
 shared_examples_for 'Weightable' do
   describe "respond to" do
     it { is_expected.to respond_to(:weight) }
+    it { is_expected.to respond_to(:weight_gzipped) }
   end
 
   describe "validations" do
     it { is_expected.to validate_numericality_of(:weight).is_greater_than(0) }
+    it { is_expected.to validate_numericality_of(:weight_gzipped).is_greater_than(0) }
   end
 
   def new_model
@@ -15,27 +17,6 @@ shared_examples_for 'Weightable' do
 
   let(:model) { new_model }
   let(:test_weight) { 97134 }
-
-  describe "#weight_kb" do
-    it "returns weight in kilobytes" do
-      model.weight = test_weight
-      expect(model.weight_kb).to eq(test_weight / 1000.0)
-    end
-  end
-
-  describe "#weight_mb" do
-    it "returns weight in megabytes" do
-      model.weight = test_weight
-      expect(model.weight_mb).to eq(test_weight / (1000 * 1000.0))
-    end
-  end
-
-  describe "#weight_gb" do
-    it "returns weight in gigabytes" do
-      model.weight = test_weight
-      expect(model.weight_gb).to eq(test_weight / (1000 * 1000 * 1000.0))
-    end
-  end
 
   describe "#weight_pretty" do
     it "returns the weight as a string with sensible units" do
@@ -46,7 +27,20 @@ shared_examples_for 'Weightable' do
       expect(model.weight_pretty).to eq("97.1 KB")
 
       model.weight = test_weight * 1000.0
-      expect(model.weight_pretty).to eq("97.1 MB")
+      expect(model.weight_pretty).to eq("97.13 MB")
+    end
+  end
+
+  describe "#weight_gzipped_pretty" do
+    it "returns the weight as a string with sensible units" do
+      model.weight_gzipped = test_weight / 1000
+      expect(model.weight_gzipped_pretty).to eq("97 B")
+
+      model.weight_gzipped = test_weight
+      expect(model.weight_gzipped_pretty).to eq("97.1 KB")
+
+      model.weight_gzipped = test_weight * 1000.0
+      expect(model.weight_gzipped_pretty).to eq("97.13 MB")
     end
   end
 end

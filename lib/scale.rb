@@ -1,4 +1,5 @@
 require 'uglifier'
+require 'zlib'
 
 class Scale
   include HTTParty
@@ -18,13 +19,24 @@ class Scale
 
   # Returns weight (file size in bytes) of all files on scale
   def weigh
-    @total_weight = 0
+    @minified_weight = 0
+    @gzipped_weight  = 0
+
     @file_urls.each do |file_url|
-      raw_file        = download(file_url)
-      compressed_file = compress(raw_file)
-      @total_weight  += compressed_file.size
+      raw_file = download(file_url)
+      
+      minified_file     = minify(raw_file)
+      @minified_weight += minified_file.size
+      
+      gzipped_file     = gzip(minified_file)
+      @gzipped_weight += gzipped_file.size
     end
-    @total_weight > 0 ? @total_weight : nil
+
+    if @minified_weight > 0
+      [@minified_weight, @gzipped_weight]
+    else
+      nil
+    end
   rescue => e
     Rails.logger.error("#{e} error occured weighing #{@file_urls.join(', ')}")
     nil
@@ -41,8 +53,14 @@ private
   end
 
   # Accepts JS file
-  # Returns compressed JS file
-  def compress(file)
+  # Returns minified JS file
+  def minify(file)
     Uglifier.compile(file)
+  end
+
+  # Accepts JS file
+  # Returns gzipped JS file
+  def gzip(file)
+    Zlib::Deflate.deflate(file)
   end
 end
