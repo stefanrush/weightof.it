@@ -10,7 +10,6 @@ class WOI.Views.Library extends Backbone.View
 
   initialize: (options) ->
     @gzip = options.gzip
-    @listenTo Backbone, 'gzip:change', @updateGzip
 
   render: ->
     @$el.html @template { library: @model.attributes, gzip: @gzip }
@@ -26,5 +25,3 @@ class WOI.Views.Library extends Backbone.View
 
   toggleExpanded: ->
     @$el.toggleClass 'expanded' unless @$el.hasClass 'stop-close'
-
-_.extend WOI.Views.Library.prototype, WOI.Mixins.UpdatableWeight

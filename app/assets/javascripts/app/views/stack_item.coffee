@@ -20,4 +20,17 @@ class WOI.Views.StackItem extends Backbone.View
     @parentView.remove @model.id
     @$el.remove()
 
-_.extend WOI.Views.StackItem.prototype, WOI.Mixins.UpdatableWeight
+  updateGzip: (gzip) ->
+    @gzip = gzip
+    @updateWeight()
+
+  updateWeight: ->
+    model = if @model.attributes then @model.attributes else @model
+
+    attribute    = if @gzip then 'weight_gzipped' else 'weight'
+    weight       = model["#{attribute}"]
+    weightPretty = model["#{attribute}_pretty"]
+
+    $weight = @$el.find 'span.weight'
+    $weight.html weightPretty
+    $weight.attr 'title', "#{weight} B"

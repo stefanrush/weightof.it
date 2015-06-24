@@ -25,9 +25,9 @@ class WOI.Collections.Stack extends Backbone.Collection
       localStorage.setItem 'woi-stack', JSON.stringify({ stack: @models })
 
   weight: (gzip) ->
-    attribute = if gzip then '_gzipped' else ''
+    attribute = if gzip then 'weight_gzipped' else 'weight'
     weight = 0
-    _.each @models, (item) -> weight += item["weight#{attribute}"]
+    _.each @models, (item) -> weight += item[attribute]
     weight
 
   weightPretty: (gzip) ->

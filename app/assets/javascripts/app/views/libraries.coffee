@@ -38,4 +38,7 @@ class WOI.Views.Libraries extends Backbone.View
       @$totalFound.html "#{total} found" if updateTotal
       @$totalFound.removeClass 'hidden'
 
-  updateGzip: (gzip) -> @gzip = gzip
+  updateGzip: (gzip) ->
+    @gzip = gzip
+    @collection = @collection.sort @collection.sortBy, @gzip
+    @render @pager.page
