@@ -16,6 +16,7 @@ class WOI.Routers.App extends Backbone.Router
 
   index: (slug, params = {}) ->
     params  = _.extend params, { category: slug } if slug
+    params  = _.extend params, { gzip: @gzip }
     @params = params
     Backbone.trigger 'page:change', @params
 
