@@ -27,3 +27,15 @@ div.gzipper {
     }
   }
 }
+
+html.no-js {
+  div.gzipper {
+    label {
+      cursor: default;
+
+      input {
+        display: none;
+      }
+    }
+  }
+}
