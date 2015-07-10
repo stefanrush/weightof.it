@@ -55,3 +55,9 @@
   border: 1px solid $border-color;
   @include radius;
 }
+
+@mixin weight-font {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+  letter-spacing: -1px;
+}

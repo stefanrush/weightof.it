@@ -24,7 +24,7 @@ section.libraries {
       }
 
       span.info {
-        width: 70%;
+        width: 60%;
 
         @media ($bp-larger-than-mobile) {
           width: 80%;
@@ -32,7 +32,8 @@ section.libraries {
       }
 
       span.weight {
-        width: 30%;
+        width: 40%;
+        @include weight-font;
         text-align: right;
 
         @media ($bp-larger-than-mobile) {
